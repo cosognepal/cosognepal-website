@@ -1,6 +1,11 @@
 export const APP_ROUTES = {
   HOME: "/",
-  ABOUT: "/about",
+  ABOUT: {
+    HOME: "/about",
+    OUR_IMPACT: "/about/our-impact",
+    OUR_VISION: "/about/our-vision",
+    OUR_TEAM: "/about/our-team",
+  },
   PROGRAMS: {
     HOME: "/programs",
     CS_AWARENESS: "/programs/cs-awareness",
