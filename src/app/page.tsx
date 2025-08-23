@@ -14,7 +14,7 @@ export default function Home() {
       <Goals />
       <Events />
       <Numbers />
-      <Members />
+      {/* <Members /> */}
       <Partners />
       <InfoBanner
         leftContent={
