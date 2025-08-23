@@ -3,7 +3,7 @@ import Herosection from "./_components/Herosection";
 import Partners from "./_components/Partners";
 import Events from "./_components/Events";
 import Numbers from "./_components/Numbers";
-import Members from "./_components/CommunityMembers";
+// import Members from "./_components/CommunityMembers";
 import Goals from "./_components/Goals";
 import InfoBanner from "@/components/InfoBanner";
 
@@ -12,9 +12,9 @@ export default function Home() {
     <div className="flex flex-col space-y-section overflow-x-hidden ">
       <Herosection />
       <Goals />
-      <Events />
       <Numbers />
-      <Members />
+      <Events />
+      {/* <Members /> */}
       <Partners />
       <InfoBanner
         leftContent={
