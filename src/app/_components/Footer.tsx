@@ -11,7 +11,7 @@ import GmailLogo from "@/assets/gmail_logo.svg";
 
 const Footer = () => {
   const FOOTER_ITEMS = [
-    { name: "About us", link: APP_ROUTES.ABOUT },
+    { name: "About us", link: APP_ROUTES.ABOUT.HOME },
     { name: "Our Programs", link: APP_ROUTES.PROGRAMS.HOME },
     { name: "Past Events", link: APP_ROUTES.EVENTS },
     { name: "Blog", link: APP_ROUTES.BLOG },
@@ -38,7 +38,7 @@ const Footer = () => {
               </ul>
               <ul className="text-sm flex space-y-v-small flex-col">
                 {FOOTER_ITEMS.slice(3, 6).map((item, index) => (
-                  <Link href={item.link} key={index}>
+                  <Link href={item.link as string} key={index}>
                     <li>{item.name}</li>
                   </Link>
                 ))}
