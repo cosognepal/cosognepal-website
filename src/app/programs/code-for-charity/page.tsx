@@ -46,13 +46,13 @@ export default async function CodeForCharityPage() {
           />
         </div>
 
-        <div className="flex-col space-y-12">
-          <h2 className="title font-bold text-para md:text-title text-black-dark">
+        <div className="flex-col md:space-y-10">
+          <h2 className="title font-bold text-para md:text-sub-title text-black-dark mb-6 md:mb-8">
             Testimonials
           </h2>
-          <div className="testimonial flex px-2 gap-4 flex-wrap justify-between">
-            <div className="max-w-xl py-4">
-              <h1 className="title font-bold text-para md:text-sub-title text-black-dark">
+          <div className="testimonial flex px-2 gap-4 md:gap-6 flex-wrap justify-between mb-8 md:mb-12">
+            <div className="max-w-xl py-2 md:py-4">
+              <h1 className="font-bold text-sm md:text-sub-title text-black-dark">
                 Peter Nfon
               </h1>
               <p className="text-sm">Founder, Sustainable Actions Afrika</p>
@@ -70,7 +70,7 @@ export default async function CodeForCharityPage() {
                   the organization, sharing his experience with the team.
                 </p>
 
-                <p className="font-normal text-sub-para md:text-para text-black-mid">
+                <p className="font-normal text-sub-para md:text-para text-black-mid w-full">
                   Visit the website:{" "}
                   <a
                     href="https://sustainableactionsafrika.org/"
@@ -83,7 +83,7 @@ export default async function CodeForCharityPage() {
                 </p>
               </div>
             </div>
-            <div id="video" className="videoWrapper">
+            <div id="video" className="videoWrapper w-full md:w-auto">
               <iframe
                 width="600"
                 height="315"
@@ -93,14 +93,14 @@ export default async function CodeForCharityPage() {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
-                className="w-full h-full md:w-[625px] md:h-[352px]"
+                className="w-full h-54 sm:h-96 md:w-[625px] md:h-[352px]"
               ></iframe>
             </div>
           </div>
 
-          <div className="testimonial flex px-2 gap-4 flex-wrap justify-between flex-row-reverse">
-            <div className="max-w-xl py-4">
-              <h1 className="title font-bold text-para md:text-sub-title text-black-dark">
+          <div className="testimonial flex px-2 gap-4 md:gap-6 flex-wrap justify-between flex-row-reverse">
+            <div className="max-w-xl py-2 md:py-4">
+              <h1 className="font-bold text-sm md:text-sub-title text-black-dark">
                 Ghanashyam Bishwakarma
               </h1>
               <p className="text-sm">
@@ -136,7 +136,7 @@ export default async function CodeForCharityPage() {
                 </p>
               </div>
             </div>
-            <div id="video" className="videoWrapper">
+            <div id="video" className="videoWrapper w-full md:w-auto">
               <iframe
                 width="600"
                 height="315"
@@ -146,7 +146,7 @@ export default async function CodeForCharityPage() {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
-                className="w-full h-full md:w-[625px] md:h-[352px]"
+                className="w-full h-54 sm:h-96 md:w-[625px] md:h-[352px]"
               ></iframe>
             </div>
           </div>

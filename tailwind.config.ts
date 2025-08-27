@@ -91,7 +91,7 @@ module.exports = {
         small: "10px",
         standard: "20px",
         block: "50px",
-        section: "100px",
+        section: "60px",
       },
       fontSize: {
         heading: "52px",
