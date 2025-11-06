@@ -21,6 +21,10 @@ const links: Link[] = [
     url: "https://docs.google.com/forms/d/e/1FAIpQLSc2gUJOq5UNuBdoReEn2gPS-BgXt5NajkEgjhyFnQTBbaUjng/viewform",
   },
   {
+    title: "Collaborate with us (for companies)",
+    url: "forms.gle/nKwtAMG2Q4rL57QW7",
+  },
+  {
     title: "Read more on our blogs",
     url: "https://blog.cosognepal.org/",
   },

@@ -12,6 +12,8 @@ import NishanRegmi from "@/assets/images/Members/NISHAN_REGMI.png";
 import ShitalShrestha from "@/assets/images/Members/Shital_Shrestha.jpeg";
 import PrajwalDas from "@/assets/images/Members/Prajwal_Das.jpg";
 import SudeshAcharya from "@/assets/images/Members/Sudesh_Acharya.png";
+import PrishaBajracharya from "@/assets/images/Members/Prisha_Bajracharya.jpg";
+import NitishaLawot from "@/assets/images/Members/Nitisha_Lawot.jpg";
 
 const members = [
   {
@@ -78,21 +80,21 @@ const members = [
     post: "Executive Member",
   },
   {
-    name: "Prakriti Mishra",
-    email: "prakritim610@gmail.com",
-    fb_link: "https://www.facebook.com/prakriti.mishra.79274",
-    insta_link: "#",
-    linkedin_link: "#",
-    image: PrakritiMishra,
-    post: "Executive Member",
+    name: "Prisha Bajracharya",
+    email: "prishabajracharya111@gmail.com",
+    fb_link: "https://www.facebook.com/prisha.bajracharya.2025",
+    insta_link: "https://www.instagram.com/bajracharyaprisha/",
+    linkedin_link: "https://www.linkedin.com/in/prisha-bajracharya-58152a348/",
+    image: PrishaBajracharya,
+    post: "Designer",
   },
   {
-    name: "Gautam Bidari",
-    email: "gautambidari2005@gmail.com",
-    fb_link: "https://www.facebook.com/share/k2iDWDLKAGsE36HV/?mibextid=qi2Omg",
-    insta_link: "https://www.instagram.com/_bgautam_",
-    linkedin_link: "https://www.linkedin.com/in/gautam-bidari-5b3368310",
-    image: GautamBidari,
+    name: "Nitisha Lawot",
+    email: "nitishalawot@gmail.com",
+    fb_link: "https://www.facebook.com/nitee.ssa",
+    insta_link: "https://www.instagram.com/nitishalawot/",
+    linkedin_link: "https://linkedin.com/in/nitisha-lawot-670051374",
+    image: NitishaLawot,
     post: "Executive Member",
   },
   {
@@ -114,13 +116,22 @@ const members = [
     post: "Executive Member",
   },
   {
+    name: "Prakriti Mishra",
+    email: "prakritim610@gmail.com",
+    fb_link: "https://www.facebook.com/prakriti.mishra.79274",
+    insta_link: "#",
+    linkedin_link: "#",
+    image: PrakritiMishra,
+    post: "Member",
+  },
+  {
     name: "Shital Shrestha",
     email: "shital.shrestha7777@gmail.com",
     fb_link: "#",
     insta_link: "https://www.instagram.com/shresthashital7/",
     linkedin_link: "#",
     image: ShitalShrestha,
-    post: "Executive Member",
+    post: "Member",
   },
   {
     name: "Prajwal Das",
@@ -129,7 +140,16 @@ const members = [
     insta_link: "#",
     linkedin_link: "#",
     image: PrajwalDas,
-    post: "Executive Member",
+    post: "Member",
+  },
+  {
+    name: "Gautam Bidari",
+    email: "gautambidari2005@gmail.com",
+    fb_link: "https://www.facebook.com/share/k2iDWDLKAGsE36HV/?mibextid=qi2Omg",
+    insta_link: "https://www.instagram.com/_bgautam_",
+    linkedin_link: "https://www.linkedin.com/in/gautam-bidari-5b3368310",
+    image: GautamBidari,
+    post: "Member",
   },
   {
     name: "Sudesh Acharya",
@@ -138,7 +158,7 @@ const members = [
     insta_link: "#",
     linkedin_link: "https://www.linkedin.com/in/sudesh333",
     image: SudeshAcharya,
-    post: "Executive Member",
+    post: "Member",
   },
 ];
 
