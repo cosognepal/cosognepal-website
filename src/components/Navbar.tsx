@@ -35,7 +35,7 @@ const Navbar = () => {
       </div>
 
       <nav
-        className={`md:sticky fixed  left-0 top-0 overflow-hidden  z-40 md:pointer-events-auto w-screen ${
+        className={`md:sticky fixed  left-0 top-0 overflow-hidden  z-40 md:pointer-events-auto w-full max-w-screen ${
           !navActive ? "pointer-events-none" : "pointer-events-auto"
         }`}
       >

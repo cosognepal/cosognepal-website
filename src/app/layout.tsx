@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Coding for Social Good (CoSoG) Nepal",
+  title: "Coding for Social Good Nepal | Cosog Nepal",
   description:
     "Cosog Nepal (Coding for Social Good) is a non-profit organization working to promote Computer Science Education and Initiate CS Clubs in Sec/High Schools in Nepal and facilitating charitable coding initiatives to aid in Nepal's digitalization.",
   metadataBase: new URL("https://cosognepal.org/"),
