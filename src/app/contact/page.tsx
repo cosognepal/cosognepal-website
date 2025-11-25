@@ -8,6 +8,7 @@ const ContactPage = () => {
     email: "",
     phoneNumber: "",
     message: "",
+    website: "", // honeypot field
   });
 
   const [errors, setErrors] = useState({
@@ -15,6 +16,8 @@ const ContactPage = () => {
     phoneNumber: "",
     message: "",
   });
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -27,6 +30,12 @@ const ContactPage = () => {
   };
 
   const validate = () => {
+    // Honeypot check: if this hidden field has any value, likely a bot
+    if (formData.website) {
+      console.warn("Honeypot triggered - possible bot submission.");
+      return false;
+    }
+
     let valid = true;
     const errors = { email: "", phoneNumber: "", message: "" };
 
@@ -58,8 +67,7 @@ const ContactPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validate()) {
-      // Handle form submission
-
+      setIsLoading(true);
       try {
         await sendWelcomeEmail(
           formData.email,
@@ -67,24 +75,55 @@ const ContactPage = () => {
           formData.message
         );
 
-        // Reset form
+        // Reset form (also reset honeypot)
         setFormData({
           email: "",
           phoneNumber: "",
           message: "",
+          website: "",
         });
 
         alert("Email sent successfully!");
       } catch (error) {
         alert("Failed to send email. Please try again later.");
         console.error(error);
+      } finally {
+        setIsLoading(false);
       }
+    } else {
+      // Optional: you can silently ignore honeypot or give generic message
+      // alert("Submission blocked.");
     }
   };
 
   return (
+    <>
     <main className="px-standard w-full md:max-w-[750px] md:mx-auto md:px-0  space-y-block">
       <form onSubmit={handleSubmit} className="text-faded space-y-small">
+        {/* Honeypot field - visually hidden off-screen but present in DOM */}
+        <div
+          style={{
+            position: "absolute",
+            left: "-9999px",
+            top: "auto",
+            width: "1px",
+            height: "1px",
+            overflow: "hidden",
+          }}
+          aria-hidden="true"
+        >
+          <label htmlFor="website">Do not fill</label>
+          <input
+            id="website"
+            name="website"
+            type="text"
+            value={formData.website}
+            onChange={handleChange}
+            autoComplete="off"
+            tabIndex={-1}
+          />
+        </div>
+
         <h2 className="text-mid-title font-bold text-black-mid">
           Send a message
         </h2>
@@ -135,9 +174,37 @@ const ContactPage = () => {
         <div className="btn w-full flex text-para">
           <button
             type="submit"
-            className={` h-12 rounded-md w-full md:w-[40%] overflow-hidden px-5 py-3 bg-blue-blue text-white hover:bg-primary transition `}
+            disabled={isLoading}
+            aria-busy={isLoading}
+            className={` h-12 rounded-md w-full md:w-[40%] overflow-hidden px-5 py-3 bg-blue-blue text-white hover:bg-primary transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2`}
           >
-            Submit
+            {isLoading ? (
+              <>
+                <svg
+                  className="animate-spin h-5 w-5 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                  ></path>
+                </svg>
+                Sending...
+              </>
+            ) : (
+              "Submit"
+            )}
           </button>
         </div>
       </form>
@@ -213,6 +280,7 @@ const ContactPage = () => {
         </p>
       </div>
     </main>
+    </>
   );
 };
 

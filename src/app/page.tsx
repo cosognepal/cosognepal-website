@@ -10,8 +10,10 @@ import InfoBanner from "@/components/InfoBanner";
 export default function Home() {
   return (
     <div className="flex flex-col space-y-section overflow-x-hidden ">
-      <Herosection />
-      <Goals />
+      <div className="space-y-standard">
+        <Herosection />
+        <Goals />
+      </div>
       <Events />
       <Numbers />
       <Members />
