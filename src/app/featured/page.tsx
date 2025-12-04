@@ -4,6 +4,9 @@ import Image, { StaticImageData } from "next/image";
 import TechPana from "@/assets/images/Featured/techpana.jpg";
 import ICTAward from "@/assets/images/Featured/ictaward.jpg";
 import StartupAndIdeaFest from "@/assets/images/Featured/startupandideafest.jpg";
+import HamroPatro from "@/assets/images/Featured/hamropatro.png";
+import ArthaBazar from "@/assets/images/Featured/arthabazar.png";
+import OnlinePatrika from "@/assets/images/Featured/onlinepatrika.png";
 
 type FeaturedCard = {
   id: string;
@@ -19,8 +22,22 @@ type FeaturedCard = {
 
 // Sample data - replace with actual featured news data
 const featuredNews: FeaturedCard[] = [
+  // 1. Hamro Patro
   {
     id: "1",
+    source: "Hamro Patro",
+    category: "FEATURE",
+    date: "December 3, 2025",
+    imageUrl: HamroPatro,
+    imageAlt:
+      "Bridging the Digital Divide: How Cosog Nepal is Revolutionizing Computer Science Education",
+    title:
+      "Bridging the Digital Divide: How Cosog Nepal is Revolutionizing Computer Science Education",
+    link: "https://english.hamropatro.com/news/details/1801855539886753",
+  },
+  // 2. TechPana
+  {
+    id: "2",
     source: "TechPana",
     category: "FEATURE",
     date: "June 1, 2025",
@@ -29,8 +46,22 @@ const featuredNews: FeaturedCard[] = [
     title: "Computer science students are creating free websites for NGOs",
     link: "https://techpana.com/2025/151116/",
   },
+  // 3. Artha Bazar
   {
-    id: "2",
+    id: "3",
+    source: "Artha Bazar",
+    category: "FEATURE",
+    date: "December 2, 2025",
+    imageUrl: ArthaBazar,
+    imageAlt:
+      "Two Teenagers Spark a National Movement in Tech Education Through COSOG Nepal",
+    title:
+      "Two Teenagers Spark a National Movement in Tech Education Through COSOG Nepal",
+    link: "https://arthabazar.com/120226",
+  },
+  // 4. ICT Award
+  {
+    id: "4",
     source: "ICT Award",
     category: "FEATURE",
     date: "October 10, 2025",
@@ -39,8 +70,22 @@ const featuredNews: FeaturedCard[] = [
     title: "Social Innovation ICT Award 2025 Coding for Social Good Nepal",
     link: "https://www.instagram.com/p/DPoB1PEka4p/?img_index=2",
   },
+  // 5. Artha Bazar (Online Patrika style story)
   {
-    id: "3",
+    id: "5",
+    source: "Online Patrika",
+    category: "FEATURE",
+    date: "December 2, 2025",
+    imageUrl: OnlinePatrika,
+    imageAlt:
+      "Cosog Nepal: The Youth-Led Movement Transforming CS Education in Nepal",
+    title:
+      "Cosog Nepal: The Youth-Led Movement Transforming CS Education in Nepal",
+    link: "https://english.onlinepatrika.com/posts/2559",
+  },
+  // 6. Startup And Idea Fest
+  {
+    id: "6",
     source: "TechPana",
     category: "FEATURE",
     date: "November 6, 2025",
