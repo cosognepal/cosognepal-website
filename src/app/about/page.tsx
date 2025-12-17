@@ -57,7 +57,7 @@ export default async function AboutPage() {
         </div>
 
         <div className="board_members space-y-block " id="team">
-          <SectionTitle title="Core Members" />
+          <SectionTitle title="Founding Members" />
           <div className="members grid grid-cols-auto-fit-320 grid-rows-max gap-standard justify-center">
             {members.map((member, index) => {
               if (
