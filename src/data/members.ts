@@ -16,7 +16,7 @@ const members = [
   {
     name: "Bibek Bhandari",
     email: "bhandareebivek@gmail.com",
-    fb_link: "",
+    fb_link: "#",
     insta_link: "https://www.instagram.com/bhandareebivek/",
     linkedin_link: "https://www.linkedin.com/in/bibekbha/",
     image: BibekBhandari,
@@ -24,9 +24,9 @@ const members = [
   },
   {
     name: "Aashish Panthi",
-    email: "aashishpanthi11@gmail.com",
-    fb_link: "https://www.facebook.com/aashishpanthi11",
-    insta_link: "https://www.instagram.com/aashishpanthi11/",
+    email: "aashish.panthi@cosognepal.org",
+    fb_link: "#",
+    insta_link: "#",
     linkedin_link: "https://www.linkedin.com/in/aashishpanthi/",
     image: AashishPanthi,
     post: "President",
