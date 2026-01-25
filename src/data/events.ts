@@ -299,7 +299,6 @@ const events = [
     descriptions: [
       "On the 16th of January 2026, Coding for Social Good Nepal conducted a comprehensive workshop on open-source contribution at Embark College, Pulchowk as part of Skill Week. The workshop provided participants with a clear understanding of how open-source software works and why it powers the world&apos;s most innovative technologies.",
       "Participants learned essential Git and GitHub workflows used by developers, tech companies, and global open-source communities. The session covered real-world contribution workflows, open-source collaboration best practices, understanding repositories and maintainers, finding beginner-friendly projects, writing effective commit messages, and building an open-source portfolio.",
-      "The workshop aimed to build confidence in participants to join and thrive in the open-source world, providing them with the complete playbook to participate in open-source communities and grow their portfolio, visibility, and professional network.",
     ],
     date: "16th January 2026",
     images: [photo20_1, photo20_2, photo20_3],
