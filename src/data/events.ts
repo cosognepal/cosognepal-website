@@ -95,6 +95,11 @@ import photo19_1 from "@/assets/images/Events/Digital_Safety/photo1.jpeg";
 import photo19_2 from "@/assets/images/Events/Digital_Safety/photo2.jpeg";
 import photo19_3 from "@/assets/images/Events/Digital_Safety/photo3.jpeg";
 
+// twentieth event
+import photo20_1 from "@/assets/images/Events/Open_Souce_101/photo1.jpeg";
+import photo20_2 from "@/assets/images/Events/Open_Souce_101/photo2.jpeg";
+import photo20_3 from "@/assets/images/Events/Open_Souce_101/photo3.jpeg";
+
 const events = [
   {
     id: "1",
@@ -287,6 +292,17 @@ const events = [
     ],
     date: "14th February 2025",
     images: [photo19_1, photo19_2, photo19_3],
+  },
+  {
+    id: "20",
+    title: "Open Source 101: Git, GitHub, and Real Contribution",
+    descriptions: [
+      "On the 16th of January 2026, Coding for Social Good Nepal conducted a comprehensive workshop on open-source contribution at Embark College, Pulchowk as part of Skill Week. The workshop provided participants with a clear understanding of how open-source software works and why it powers the world&apos;s most innovative technologies.",
+      "Participants learned essential Git and GitHub workflows used by developers, tech companies, and global open-source communities. The session covered real-world contribution workflows, open-source collaboration best practices, understanding repositories and maintainers, finding beginner-friendly projects, writing effective commit messages, and building an open-source portfolio.",
+      "The workshop aimed to build confidence in participants to join and thrive in the open-source world, providing them with the complete playbook to participate in open-source communities and grow their portfolio, visibility, and professional network.",
+    ],
+    date: "16th January 2026",
+    images: [photo20_1, photo20_2, photo20_3],
   },
 ];
 
