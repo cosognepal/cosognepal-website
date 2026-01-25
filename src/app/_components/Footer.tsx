@@ -90,7 +90,7 @@ const Footer = () => {
             <div className="text_contents">
               <h4 className="text-sm text-faded">contact@cosognepal.org</h4>
               <h4 className="text-sm text-faded">
-                ©2025 cosognepal.org <br /> All rights are reserved.
+                ©2026 cosognepal.org <br /> All rights are reserved.
               </h4>
             </div>
           </aside>

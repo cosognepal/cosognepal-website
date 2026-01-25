@@ -2,6 +2,8 @@ import InfoBanner from "@/components/InfoBanner";
 import FAQ from "@/app/_components/FAQ";
 import { Descriptor } from "@/app/about/_components";
 import Image from "next/image";
+import Link from "next/link";
+import { APP_ROUTES } from "@/lib/routes";
 
 // images
 import Banner from "@/assets/images/Programs/Code_for_charity_banner.png";
@@ -44,6 +46,28 @@ export default async function CodeForCharityPage() {
               "You'll also get a chance to learn from professionals, get your code reviewed, network with other developers, and add this experience to your resume. We'll provide you with the support, resources, and a letter of recommendation to help you succeed in your career.",
             ]}
           />
+
+          <div className="descriptor flex space-y-small flex-col bg-gray-bg p-6 md:p-8 rounded-lg">
+            <div className="title font-bold text-para md:text-sub-title text-black-dark">
+              Web Development Program
+            </div>
+            <div className="description font-normal space-y-small text-sub-para md:text-para text-black-mid">
+              <p>
+                The Web Development Program is a core component of Code for Charity, offering students in Grades 8–12 a hands-on, 2-week online program focused on building real school websites. This intensive program combines practical learning with real-world impact, as students work to create live websites for schools while gaining valuable web development skills.
+              </p>
+              <p>
+                Through this program, students learn WordPress & Elementor, content management systems, basic SEO & security, domain & hosting basics, and website handover & maintenance. Upon completion, students receive certificates, mentorship opportunities, and outstanding participants may be offered remote internship opportunities with our partner, Fleckor Tech.
+              </p>
+              <div className="mt-4">
+                <Link
+                  href={APP_ROUTES.PROGRAMS.WEB_DEVELOPMENT}
+                  className="inline-block bg-blue-blue text-white px-6 py-3 rounded-md hover:bg-primary transition font-medium text-para"
+                >
+                  View Program Details
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="flex-col space-y-12">
