@@ -58,9 +58,6 @@ export default async function CodeForCharityPage() {
               <p>
                 The Web Development Program is one of the educational initiatives under Code for Charity, designed to teach school students (Grades 8–12) web development through hands-on, real-world projects. Over 2 weeks of online learning, students build actual school websites while gaining practical web development skills.
               </p>
-              <p>
-                This initiative focuses on capacity building and early exposure to real-world tech projects. While students learn WordPress & Elementor, content management systems, basic SEO & security, and domain & hosting basics, they simultaneously contribute to digital access and impact by delivering live websites to schools. Upon completion, students receive certificates, mentorship opportunities, and outstanding participants may be offered remote internship opportunities with our partner, Fleckor Tech.
-              </p>
               <div className="mt-4">
                 <Link
                   href={APP_ROUTES.PROGRAMS.WEB_DEVELOPMENT}
@@ -72,6 +69,8 @@ export default async function CodeForCharityPage() {
             </div>
           </div>
         </div>
+
+
 
         <div className="flex-col space-y-12">
           <h2 className="title font-bold text-para md:text-title text-black-dark">
@@ -178,9 +177,53 @@ export default async function CodeForCharityPage() {
             </div>
           </div>
         </div>
+
+
+        {/* Partners Section */}
+        <div className="space-y-6">
+          <div className="space-y-4">
+            <h2 className="title font-bold text-para md:text-title text-black-dark">
+              Our Partners
+            </h2>
+            <p className="text-sub-para md:text-para text-black-mid max-w-full">
+              Outstanding graduates will be offered internship opportunities with our partner companies, providing valuable industry experience and career growth.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-8 items-center justify-center">
+            <a
+              href="https://fleckor.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:opacity-80 transition"
+            >
+              <Image
+                src="https://fleckor.com/wp-content/uploads/2023/07/Tech-3-1.png"
+                alt="Fleckor Tech India"
+                width={250}
+                height={150}
+                className="h-16 w-auto object-contain"
+              />
+            </a>
+            <a
+              href="https://www.cornortech.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:opacity-80 transition"
+            >
+              <Image
+                src="https://www.cornortech.com/logo.png"
+                alt="Cornor Tech"
+                width={250}
+                height={150}
+                className="h-20 w-auto object-contain"
+              />
+            </a>
+          </div>
+        </div>
+
       </div>
 
-      <div className="px-2 my-5 pt-12">
+      <div className="px-2 my-6 pt-16">
         <FAQ
           data={[
             {
@@ -219,6 +262,12 @@ export default async function CodeForCharityPage() {
               answer:
                 "Absolutely! We welcome volunteers who are passionate about using their skills for social good. Please reach out via email or the form on our Contact Us page. We recommend you to fill out the form available at the home page by clicking button labeled as 'Join our community'.",
               value: "item-6",
+            },
+            {
+              question: "What do the volunteers get?",
+              answer:
+                "Volunteers learn real-world project development by working on actual projects for non-profits. If their performance is good, they might get internship or job opportunities from one of our partner companies, including Fleckor Tech from India and Cornor Tech.",
+              value: "item-7",
             },
           ]}
         />

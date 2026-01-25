@@ -8,6 +8,16 @@ const nextConfig: NextConfig = {
         hostname: "img.youtube.com",
         pathname: "/vi/**",
       },
+      {
+        protocol: "https",
+        hostname: "fleckor.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "www.cornortech.com",
+        pathname: "/**",
+      },
     ],
   },
 };

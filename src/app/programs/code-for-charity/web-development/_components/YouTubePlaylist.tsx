@@ -115,7 +115,7 @@ export default function YouTubePlaylist({ playlistId }: YouTubePlaylistProps) {
       </div>
 
       {/* Description */}
-      <div className="p-2">
+      <div className="">
         <p className="text-sub-para md:text-para text-black-mid leading-relaxed">
           We believe learning should be accessible to everyone. That&apos;s why all our recorded lecture sessions from the Web Development Program are available here for free.
         </p>
