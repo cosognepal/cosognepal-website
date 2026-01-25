@@ -13,8 +13,13 @@ export default async function WebDevelopmentPage() {
               Web Development Program
             </h1>
             <p className="font-medium text-mid-title text-black-mid">
-              Code for Charity
+              An educational initiative under Code for Charity
             </p>
+            <div className="bg-blue-blue/10 border-l-4 border-blue-blue p-4 rounded-r-md">
+              <p className="font-medium text-para text-black-dark mb-2">
+                The Web Development Program is an educational initiative under Code for Charity.
+              </p>
+            </div>
             <p className="font-normal text-para text-black-mid max-w-3xl">
               A hands-on, impact-driven web development program for students in Grades 8–12. 
               Over 2 weeks of online learning, students build real school websites while gaining 
@@ -44,12 +49,25 @@ export default async function WebDevelopmentPage() {
           </div>
         </div>
 
-        {/* About the Program */}
+        {/* How This Fits Into Code for Charity */}
         <div className="space-y-10" id="about">
+          <Descriptor
+            title="How This Fits Into Code for Charity"
+            descriptions={[
+              "Code for Charity operates multiple initiatives, each serving different aspects of our mission to provide pro-bono tech support to non-profits and build digital solutions for social impact.",
+              "The Web Development Program is one educational initiative under Code for Charity, focused on capacity building and student learning. While Code for Charity's core work involves matching volunteers and student developers with NGOs to build digital solutions, this initiative specifically focuses on:",
+            ]}
+            list={[
+              "Capacity Building: Teaching web development skills to school students",
+              "Student Learning: Providing early exposure to real-world tech projects",
+              "Real-World Impact: Students contribute to digital access by building websites for schools",
+            ]}
+          />
+
           <Descriptor
             title="About the Program"
             descriptions={[
-              "The Web Development Program is a core initiative under Code for Charity, designed to provide students with hands-on experience in building real-world websites for schools. The program emphasizes learning by building, where students don't just learn theory but create actual, live websites that schools can use.",
+              "The Web Development Program is designed to provide students with hands-on experience in building real-world websites for schools. The program emphasizes learning by building, where students don't just learn theory but create actual, live websites that schools can use.",
               "This program bridges the gap between education and real-world application. Students work on actual projects, learning web development fundamentals while making a tangible impact on their communities. The websites built during the program are handed over to schools, providing them with a professional online presence.",
               "The program is structured to be intensive yet accessible, focusing on practical skills that students can immediately apply. Through mentorship and guided learning, students gain confidence in web development and content management systems.",
             ]}
@@ -78,7 +96,7 @@ export default async function WebDevelopmentPage() {
             list={[
               "Cohort Size: Small, focused cohorts to ensure personalized attention and effective learning",
               "Duration: 2 weeks of intensive, hands-on learning",
-              "Sessions: Multiple sessions covering all aspects of web development and website creation",
+              "Sessions: 14 sessions covering all aspects of web development and website creation",
               "Tools: WordPress, Elementor, and other industry-standard web development tools",
               "Delivery Mode: Fully online, allowing students to participate from anywhere",
               "Final Output: A complete, live website delivered to a school, ready for use",
@@ -86,9 +104,9 @@ export default async function WebDevelopmentPage() {
             ]}
           />
 
-          {/* Partners & Mentorship */}
+          {/* Partners & Opportunities */}
           <Descriptor
-            title="Partners & Mentorship"
+            title="Partners & Opportunities"
             descriptions={[
               "The Web Development Program is conducted in partnership with Fleckor Tech, bringing industry expertise and real-world perspective to the learning experience.",
               "Students receive dedicated mentorship throughout the program, with guidance from experienced developers and industry professionals. This mentorship extends beyond just technical skills, covering best practices, professional development, and career guidance.",
@@ -96,19 +114,19 @@ export default async function WebDevelopmentPage() {
             ]}
           />
 
-          {/* Outcomes & Impact */}
+          {/* Outcomes */}
           <Descriptor
-            title="Outcomes & Impact"
+            title="Outcomes"
             descriptions={[
               "Upon successful completion of the Web Development Program, students achieve multiple valuable outcomes:",
             ]}
             list={[
-              "Practical Skills: Hands-on experience with WordPress, Elementor, and web development fundamentals that are immediately applicable",
+              "Practical Technical Skills: Hands-on experience with WordPress, Elementor, and web development fundamentals that are immediately applicable",
+              "Certification: Official certificates recognizing completion of the program and acquired skills",
+              "Real-World Project Experience: Experience working on actual client projects, understanding project requirements, and delivering professional results",
+              "Early Exposure to IT Careers: Introduction to the IT industry and real-world tech projects",
               "Live Website: Each student contributes to building a real, live website that is delivered to a school, providing tangible proof of their work",
-              "Certificates: Official certificates recognizing completion of the program and acquired skills",
-              "Exposure to IT & Real-World Projects: Experience working on actual client projects, understanding project requirements, and delivering professional results",
               "Mentorship: Ongoing support and guidance from industry professionals",
-              "Career Opportunities: Potential internship opportunities for outstanding participants",
             ]}
           />
         </div>

@@ -103,3 +103,22 @@
   /* Since in tailwind container has a defined style. It interfers with the packages style  */
   max-width: none;
 }
+
+/* Custom scrollbar for playlist */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f2f2f2;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #a1a1a1;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}

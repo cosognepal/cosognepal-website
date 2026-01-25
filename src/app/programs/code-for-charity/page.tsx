@@ -52,11 +52,14 @@ export default async function CodeForCharityPage() {
               Web Development Program
             </div>
             <div className="description font-normal space-y-small text-sub-para md:text-para text-black-mid">
-              <p>
-                The Web Development Program is a core component of Code for Charity, offering students in Grades 8–12 a hands-on, 2-week online program focused on building real school websites. This intensive program combines practical learning with real-world impact, as students work to create live websites for schools while gaining valuable web development skills.
+              <p className="font-medium text-para text-black-dark mb-2">
+                An Educational Initiative Under Code for Charity
               </p>
               <p>
-                Through this program, students learn WordPress & Elementor, content management systems, basic SEO & security, domain & hosting basics, and website handover & maintenance. Upon completion, students receive certificates, mentorship opportunities, and outstanding participants may be offered remote internship opportunities with our partner, Fleckor Tech.
+                The Web Development Program is one of the educational initiatives under Code for Charity, designed to teach school students (Grades 8–12) web development through hands-on, real-world projects. Over 2 weeks of online learning, students build actual school websites while gaining practical web development skills.
+              </p>
+              <p>
+                This initiative focuses on capacity building and early exposure to real-world tech projects. While students learn WordPress & Elementor, content management systems, basic SEO & security, and domain & hosting basics, they simultaneously contribute to digital access and impact by delivering live websites to schools. Upon completion, students receive certificates, mentorship opportunities, and outstanding participants may be offered remote internship opportunities with our partner, Fleckor Tech.
               </p>
               <div className="mt-4">
                 <Link
