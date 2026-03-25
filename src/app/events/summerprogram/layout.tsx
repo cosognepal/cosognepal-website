@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Empactathon || First National level highschool hackathon",
-    description: `Empactathon is a national- level high school hackathon that offers students a unique opportunity to showcase their skills and creativity.
-                 It is designed to tackle three main SSGs defined by the United Nations: E (environment), C(Climate action), and H(Health & well - being).`,
+    title: "Summer Program | Coding for Social Good Nepal",
+    description: `Coding for Social Good Nepal Summer Program is a 16-week learning fellowship for high school students and recent graduates in Nepal.
+                 Students learn environment and computer science fundamentals, build projects in teams, and present outcomes in a public showcase.`,
     metadataBase: new URL("https://cosognepal.org/"),
     openGraph: {
         images: [{
@@ -17,9 +17,8 @@ export const metadata: Metadata = {
     twitter: {
         card: "summary",
         site: "@cosognepal",
-        title: "Empactathon || First National level highschool hackathon",
-        description: `Empactathon is a national- level high school hackathon that offers students a unique opportunity to showcase their skills and creativity.
-                 It is designed to tackle three main SSGs defined by the United Nations: E (environment), C(Climate action), and H(Health & well - being).`,
+        title: "Summer Program | Coding for Social Good Nepal",
+        description: `Coding for Social Good Nepal Summer Program is a 16-week learning fellowship focused on environment and computer science for students in Nepal.`,
         images: [{
             url: "/assets/images/Events/Empactathon/empactathon_banner.png",
             width: 1200,
@@ -30,7 +29,7 @@ export const metadata: Metadata = {
     icons: [{ url: "/empactfav256.ico", sizes: "any" }]
 };
 
-export default function EmpactathonLayout({
+export default function SummerProgramLayout({
     children,
 }: {
     children: React.ReactNode;

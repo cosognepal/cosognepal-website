@@ -10,10 +10,13 @@ import navopen from "./navopen.svg";
 import trophy from "./svg/trophy.svg";
 import userStar from "./svg/userstar.svg";
 // import Rs from "./svg/rs.svg";
-import grass from "./svg/Grass.svg";
+import grassRight from "./svg/GrassRight.svg";
+import grassLeft from "./svg/GrassLeft.svg";
 import leaf from "./svg/Leaf top.svg";
 import cloud from "./svg/cloud.svg";
 import drippingCloud from "./svg/cloud Dripping.svg";
+import students from "./students.png";
+import projects from "./projects.png";
 
 const Icons = {
   close,
@@ -29,9 +32,12 @@ const Icons = {
   userStar,
   // Rs,
   cloud,
-  grass,
+  grassRight,
+  grassLeft,
   leaf,
   drippingCloud,
+  students,
+  projects,
 };
 
 export default Icons;
