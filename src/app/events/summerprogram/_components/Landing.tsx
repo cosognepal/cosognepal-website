@@ -84,7 +84,7 @@ function Landing() {
                     style={{
                         textShadow: "0px -6px white, 0px 10px white"
                     }}>
-                    Summer Program
+                    Summer Camp
                 </h1>
 
                 <p className={`space-x-2 text-empactathon-dark md:text-sub-title text-para font-medium`}>

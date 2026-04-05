@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/Navbar";
-import Footer from "./_components/Footer";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -15,21 +13,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Coding for Social Good Nepal | Cosog Nepal",
+  title: "Summer Camp | Coding for Social Good Nepal",
   description:
-    "Cosog Nepal (Coding for Social Good) is a non-profit organization working to promote Computer Science Education and Initiate CS Clubs in Sec/High Schools in Nepal and facilitating charitable coding initiatives to aid in Nepal's digitalization.",
+    "Coding for Social Good Nepal Summer Camp is a 16-week fellowship for students in Nepal to learn environmental literacy, practical computer science, and build real projects.",
   metadataBase: new URL("https://cosognepal.org/"),
   openGraph: {
     images: [
       {
-        url: "/assets/logo.png",
-        width: 368,
-        height: 368,
+        url: "/assets/images/Events/Empactathon/empactathon_banner.png",
+        width: 1200,
+        height: 680,
         type: "image/png",
       },
     ],
   },
-  icons: [{ url: "/favicon.ico", sizes: "any" }],
+  icons: [{ url: "/empactfav256.ico", sizes: "any" }],
 };
 
 export default function RootLayout({
@@ -42,9 +40,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
         {children}
-        <Footer />
       </body>
     </html>
   );

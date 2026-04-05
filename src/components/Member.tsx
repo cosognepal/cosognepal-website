@@ -1,8 +1,16 @@
-import type { Tmember } from "@/app/about/type";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import LinkedInLogo from "@/assets/linkedin_logo.png";
 import FacebookLogo from "@/assets/facebook_logo.png";
 import InstagramLogo from "@/assets/instagram_logo.png";
+
+type Tmember = {
+  name: string;
+  post: string;
+  fb_link?: string;
+  insta_link?: string;
+  linkedin_link?: string;
+  image: StaticImageData | string;
+};
 
 export default function Member({ data }: { data: Tmember }) {
   const { name, post, fb_link, insta_link, linkedin_link, image } = data;

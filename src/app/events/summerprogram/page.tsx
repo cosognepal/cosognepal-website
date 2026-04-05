@@ -1,8 +1,8 @@
 import EventDescripter from "@/components/ui/EventAbout";
 import Landing from "./_components/Landing";
-import { GuestsSection } from "../techafterten/_components/Guests";
-import TimeLine from "../techafterten/_components/TimeLine";
-import FAQ from "../../_components/FAQ";
+import { GuestsSection } from "./_components/Guests";
+import TimeLine from "./_components/TimeLine";
+import FAQ from "./_components/FAQ";
 import { PrizeSection } from "./_components/Prizes";
 import { cn } from "@/lib/utils";
 import { lora } from "@/lib/fonts";
@@ -15,7 +15,7 @@ const SummerProgramPage = () => {
         <EventDescripter
             eventTitle="About the Program"
             description={[
-                `Coding for Social Good Nepal Summer Program is a 16-week (4-month) learning fellowship for high school students and recent graduates (below 20) in Nepal who want to solve real environmental problems using technology.`,
+                `Coding for Social Good Nepal Summer Camp is a 16-week (4-month) learning fellowship for high school students and recent graduates (below 20) in Nepal who want to solve real environmental problems using technology.`,
                 `The program is designed for around 60 students, with priority for students from public schools and rural regions. Fellows learn environmental literacy and practical computer science in beginner-friendly tracks, then build real prototypes in small teams with mentor support.`,
                 `By the end of the program, students present their work in a public showcase, strengthen communication and teamwork skills, and gain pathways for further learning, projects, and future STEM opportunities. The program is flexible and mostly online, so students can participate alongside school.`,
             ]}
@@ -153,7 +153,7 @@ const SummerProgramPage = () => {
         {/* CTA */}
         <section className="w-full max-w-[1400px] mx-auto px-standard brk-1400:px-0">
             <div className="rounded-md bg-gradient-to-br from-white to-empactathon-primary/20 p-standard md:p-block text-center space-y-3">
-                <h2 className="text-2xl font-bold text-empactathon-dark">Excited to join the Summer Program?</h2>
+                <h2 className="text-2xl font-bold text-empactathon-dark">Excited to join the Summer Camp?</h2>
                 <p className="text-black-mid">
                     If you are motivated to learn and build with a supportive community, we would love to see your application.
                 </p>
@@ -175,7 +175,7 @@ const SummerProgramPage = () => {
             }}
             data={[
                 {
-                    question: "Who can apply to this summer program?",
+                    question: "Who can apply to this summer camp?",
                     answer:
                         "Students below 20 years old who are currently in high school or have recently graduated can apply.",
                     value: "item-1",
