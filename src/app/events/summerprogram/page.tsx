@@ -4,6 +4,7 @@ import { GuestsSection } from "./_components/Guests";
 import TimeLine from "./_components/TimeLine";
 import FAQ from "./_components/FAQ";
 import { PrizeSection } from "./_components/Prizes";
+import BottomSectionNav from "./_components/BottomSectionNav";
 import { cn } from "@/lib/utils";
 import { lora } from "@/lib/fonts";
 
@@ -12,18 +13,20 @@ const SummerProgramPage = () => {
         <Landing />
 
         {/* About */}
-        <EventDescripter
-            eventTitle="About the Program"
-            description={[
-                `Coding for Social Good Nepal Summer Camp is a 16-week (4-month) learning fellowship for high school students and recent graduates (below 20) in Nepal who want to solve real environmental problems using technology.`,
-                `The program is designed for around 60 students, with priority for students from public schools and rural regions. Fellows learn environmental literacy and practical computer science in beginner-friendly tracks, then build real prototypes in small teams with mentor support.`,
-                `By the end of the program, students present their work in a public showcase, strengthen communication and teamwork skills, and gain pathways for further learning, projects, and future STEM opportunities. The program is flexible and mostly online, so students can participate alongside school.`,
-            ]}
-            className={{
-                container: ` brk-1400:px-[calc((100%-1400px)/2)] px-standard
+        <section id="about" className="scroll-mt-24">
+            <EventDescripter
+                eventTitle="About the Program"
+                description={[
+                    `Coding for Social Good Nepal Summer Camp is a 16-week (4-month) learning fellowship for high school students and recent graduates (below 20) in Nepal who want to solve real environmental problems using technology.`,
+                    `The program is designed for around 60 students, with priority for students from public schools and rural regions. Fellows learn environmental literacy and practical computer science in beginner-friendly tracks, then build real prototypes in small teams with mentor support.`,
+                    `By the end of the program, students present their work in a public showcase, strengthen communication and teamwork skills, and gain pathways for further learning, projects, and future STEM opportunities. The program is flexible and mostly online, so students can participate alongside school.`,
+                ]}
+                className={{
+                    container: ` brk-1400:px-[calc((100%-1400px)/2)] px-standard
                             `
-            }}
-        />
+                }}
+            />
+        </section>
 
         {/* Sponsors section from empactathon kept for future reference.
             <SupportersSection ... />
@@ -31,73 +34,77 @@ const SummerProgramPage = () => {
 
 
         {/* Mentors */}
-        <GuestsSection
-            sectionTitle="Mentors"
-            className={{
-                notPublicYetCard: "bg-gradient-to-br to-empactathon-primary/45 min-h-[450px] rounded-md w-full",
-                sectionContainer: {
-                    container: "w-full max-w-[1400px] mx-auto px-standard brk-1400:px-0 ",
-                },
-            }}
-            guestData={[
-                {
-                    id: "1",
-                    notPublicYet: true,
-                    placeholder: <p>Mentor announcements coming soon</p>,
-                },
-                {
-                    id: "2",
-                    notPublicYet: true,
-                    placeholder: <p>Mentor announcements coming soon</p>,
-                },
-                {
-                    id: "3",
-                    notPublicYet: true,
-                    placeholder: <p>Mentor announcements coming soon</p>,
-                },
-                {
-                    id: "4",
-                    notPublicYet: true,
-                    placeholder: <p>Mentor announcements coming soon</p>,
-                },
-            ]}
-        />
+        <section id="mentors" className="scroll-mt-24">
+            <GuestsSection
+                sectionTitle="Mentors"
+                className={{
+                    notPublicYetCard: "bg-gradient-to-br to-empactathon-primary/45 min-h-[450px] rounded-md w-full",
+                    sectionContainer: {
+                        container: "w-full max-w-[1400px] mx-auto px-standard brk-1400:px-0 ",
+                    },
+                }}
+                guestData={[
+                    {
+                        id: "1",
+                        notPublicYet: true,
+                        placeholder: <p>Mentor announcements coming soon</p>,
+                    },
+                    {
+                        id: "2",
+                        notPublicYet: true,
+                        placeholder: <p>Mentor announcements coming soon</p>,
+                    },
+                    {
+                        id: "3",
+                        notPublicYet: true,
+                        placeholder: <p>Mentor announcements coming soon</p>,
+                    },
+                    {
+                        id: "4",
+                        notPublicYet: true,
+                        placeholder: <p>Mentor announcements coming soon</p>,
+                    },
+                ]}
+            />
+        </section>
 
         {/* Timeline */}
-        <TimeLine
-            timelineTitle="General Timeline"
-            className={{
-                iconContainer: "w-10 h-10 bg-empactathon-bg-green text-black-mid",
-                container: "brk-1400:px-0 px-standard w-full max-w-[1400px] mx-auto"
-            }}
-            tasks={[
-                {
-                    description: "Nationwide applications begin for mentees.",
-                    icon: "star",
-                    title: "April - Mentee application opens",
-                },
-                {
-                    description: "Application form closes and review process starts.",
-                    icon: "speaker",
-                    title: "May - Mentee application closes",
-                },
-                {
-                    description: "Selected students are notified and mentor updates are announced.",
-                    icon: "speaker",
-                    title: "May - Selection notices and mentors announcement",
-                },
-                {
-                    description: "Workshops, team formation, and project phase begin.",
-                    icon: "speaker",
-                    title: "June - Program starts",
-                },
-                {
-                    description: "Teams present outcomes and the cohort wraps up with a final showcase.",
-                    icon: "description",
-                    title: "September - Program concludes",
-                },
-            ]}
-        />
+        <section id="general-timeline" className="scroll-mt-24">
+            <TimeLine
+                timelineTitle="General Timeline"
+                className={{
+                    iconContainer: "w-10 h-10 bg-empactathon-bg-green text-black-mid",
+                    container: "brk-1400:px-0 px-standard w-full max-w-[1400px] mx-auto"
+                }}
+                tasks={[
+                    {
+                        description: "Nationwide applications begin for mentees.",
+                        icon: "star",
+                        title: "April - Mentee application opens",
+                    },
+                    {
+                        description: "Application form closes and review process starts.",
+                        icon: "speaker",
+                        title: "May - Mentee application closes",
+                    },
+                    {
+                        description: "Selected students are notified and mentor updates are announced.",
+                        icon: "speaker",
+                        title: "May - Selection notices and mentors announcement",
+                    },
+                    {
+                        description: "Workshops, team formation, and project phase begin.",
+                        icon: "speaker",
+                        title: "June - Program starts",
+                    },
+                    {
+                        description: "Teams present outcomes and the cohort wraps up with a final showcase.",
+                        icon: "description",
+                        title: "September - Program concludes",
+                    },
+                ]}
+            />
+        </section>
 
         {/* Program highlights cards */}
         <PrizeSection
@@ -169,55 +176,59 @@ const SummerProgramPage = () => {
         </section>
 
         {/* FAQ */}
-        <FAQ
-            className={{
-                accordionItem: "hover:bg-empactathon-bg-green"
-            }}
-            data={[
-                {
-                    question: "Who can apply to this summer camp?",
-                    answer:
-                        "Students below 20 years old who are currently in high school or have recently graduated can apply.",
-                    value: "item-1",
-                },
-                {
-                    question: "Do you prioritize specific applicants?",
-                    answer:
-                        "Yes. We prioritize students from public schools and rural regions to make access to STEM learning more equitable.",
-                    value: "item-2",
-                },
-                {
-                    question: "Do I need prior programming skills?",
-                    answer:
-                        "No prior programming experience is required. We welcome students who are eager to learn, put in effort, and are curious about how technology works.",
-                    value: "item-3",
-                },
-                {
-                    question: "How long is the program and what do students do?",
-                    answer:
-                        "The program runs for 16 weeks. Students go through workshops, work in teams on environment + computer science projects, and present final prototypes in a public showcase.",
-                    value: "item-4",
-                },
-                {
-                    question: "Is the program paid?",
-                    answer:
-                        "No. It is completely free to apply and participate, and essential student expenses are covered by the program.",
-                    value: "item-5",
-                },
-                {
-                    question: "Can I participate alongside my school schedule?",
-                    answer:
-                        "Yes. The program is flexible and mostly online, so students can join while continuing school, with occasional in-person events when possible.",
-                    value: "item-6",
-                },
-                {
-                    question: "What will I gain after finishing?",
-                    answer:
-                        "You will gain practical project experience, mentor feedback, stronger environmental and technical understanding, and a portfolio-ready showcase output.",
-                    value: "item-7",
-                },
-            ]}
-        />
+        <section id="faqs" className="scroll-mt-24">
+            <FAQ
+                className={{
+                    accordionItem: "hover:bg-empactathon-bg-green"
+                }}
+                data={[
+                    {
+                        question: "Who can apply to this summer camp?",
+                        answer:
+                            "Students below 20 years old who are currently in high school or have recently graduated can apply.",
+                        value: "item-1",
+                    },
+                    {
+                        question: "Do you prioritize specific applicants?",
+                        answer:
+                            "Yes. We prioritize students from public schools and rural regions to make access to STEM learning more equitable.",
+                        value: "item-2",
+                    },
+                    {
+                        question: "Do I need prior programming skills?",
+                        answer:
+                            "No prior programming experience is required. We welcome students who are eager to learn, put in effort, and are curious about how technology works.",
+                        value: "item-3",
+                    },
+                    {
+                        question: "How long is the program and what do students do?",
+                        answer:
+                            "The program runs for 16 weeks. Students go through workshops, work in teams on environment + computer science projects, and present final prototypes in a public showcase.",
+                        value: "item-4",
+                    },
+                    {
+                        question: "Is the program paid?",
+                        answer:
+                            "No. It is completely free to apply and participate, and essential student expenses are covered by the program.",
+                        value: "item-5",
+                    },
+                    {
+                        question: "Can I participate alongside my school schedule?",
+                        answer:
+                            "Yes. The program is flexible and mostly online, so students can join while continuing school, with occasional in-person events when possible.",
+                        value: "item-6",
+                    },
+                    {
+                        question: "What will I gain after finishing?",
+                        answer:
+                            "You will gain practical project experience, mentor feedback, stronger environmental and technical understanding, and a portfolio-ready showcase output.",
+                        value: "item-7",
+                    },
+                ]}
+            />
+        </section>
+
+        <BottomSectionNav />
 
     </div >
 };
