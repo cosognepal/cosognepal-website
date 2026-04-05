@@ -4,7 +4,7 @@ import { Icon } from "@/components/Icon";
 import { margarine, rubik_wet_paint } from "@/lib/fonts";
 import { useEffect, useState } from "react";
 
-function Landing() {
+function Landing({ applyLink }: { applyLink: string }) {
     const [scrollProgress, setScrollProgress] = useState(0);
 
     useEffect(() => {
@@ -101,7 +101,7 @@ function Landing() {
 
                 <a
                     className="inline-block cta px-10 py-4 bg-empactathon-primary text-white rounded-md mt-section uppercase font-bold hover:scale-[1.02] transition-transform duration-200"
-                    href="https://instagram.com/cosognepal"
+                    href={applyLink}
                     target="_blank"
                     rel="noreferrer"
                 >

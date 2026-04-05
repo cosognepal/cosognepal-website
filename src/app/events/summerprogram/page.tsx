@@ -5,12 +5,15 @@ import TimeLine from "./_components/TimeLine";
 import FAQ from "./_components/FAQ";
 import { PrizeSection } from "./_components/Prizes";
 import BottomSectionNav from "./_components/BottomSectionNav";
+import Footer from "./_components/Footer";
 import { cn } from "@/lib/utils";
 import { lora } from "@/lib/fonts";
 
 const SummerProgramPage = () => {
+    const menteeApplicationLink = process.env.SUMMER_PROGRAM_MENTEE_APPLICATION_LINK ?? "#";
+
     return <div className="space-y-section">
-        <Landing />
+        <Landing applyLink={menteeApplicationLink} />
 
         {/* About */}
         <section id="about" className="scroll-mt-24">
@@ -166,7 +169,7 @@ const SummerProgramPage = () => {
                 </p>
                 <a
                     className="inline-block cta px-8 py-3 bg-empactathon-primary text-white rounded-md uppercase font-bold hover:scale-[1.02] transition-transform duration-200"
-                    href="https://instagram.com/cosognepal"
+                    href={menteeApplicationLink}
                     target="_blank"
                     rel="noreferrer"
                 >
@@ -227,6 +230,8 @@ const SummerProgramPage = () => {
                 ]}
             />
         </section>
+
+        <Footer />
 
         <BottomSectionNav />
 
