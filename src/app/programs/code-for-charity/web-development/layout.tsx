@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     "A hands-on, impact-driven web development program for students in Grades 8–12. Over 2 weeks of online learning, students build real school websites while gaining practical web development skills. Learn WordPress, Elementor, CMS, SEO, and more.",
   metadataBase: new URL("https://cosognepal.org/programs/code-for-charity/web-development"),
   openGraph: {
-    title: "Web Development Program | Code for Charity | CoSoG Nepal",
+    title: "Web Development Program | Code for Charity | Cosog Nepal",
     description:
       "A hands-on, impact-driven web development program for students. Build real school websites while learning WordPress, Elementor, and web development fundamentals.",
     url: "https://cosognepal.org/programs/code-for-charity/web-development",

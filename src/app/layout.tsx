@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "./_components/Footer";
+import AnnouncementBanner from "@/components/AnnouncementBanner";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -42,6 +43,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <AnnouncementBanner
+          message="Applications for Summer Camp are open."
+          ctaText="Apply now"
+          ctaHref="https://summercamp.cosognepal.org"
+          deadline="2026-05-07T23:59:59"
+        />
         <Navbar />
         {children}
         <Footer />

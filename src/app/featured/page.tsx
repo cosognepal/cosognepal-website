@@ -54,9 +54,9 @@ const featuredNews: FeaturedCard[] = [
     date: "December 2, 2025",
     imageUrl: ArthaBazar,
     imageAlt:
-      "Two Teenagers Spark a National Movement in Tech Education Through COSOG Nepal",
+      "Two Teenagers Spark a National Movement in Tech Education Through Cosog Nepal",
     title:
-      "Two Teenagers Spark a National Movement in Tech Education Through COSOG Nepal",
+      "Two Teenagers Spark a National Movement in Tech Education Through Cosog Nepal",
     link: "https://arthabazar.com/120226",
   },
   // 4. ICT Award

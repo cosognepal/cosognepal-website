@@ -27,6 +27,11 @@ const nextConfig: NextConfig = {
         hostname: "www.cornortech.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.hashnode.com",
+        pathname: "/**",
+      },
     ],
   },
 };

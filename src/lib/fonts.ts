@@ -3,6 +3,7 @@ import {
     Margarine,
     Rubik_Wet_Paint,
     Lora,
+    Playfair_Display,
 } from "next/font/google"
 
 export const inter = Inter({
@@ -23,4 +24,10 @@ export const margarine = Margarine({
 export const lora = Lora({
     weight: "400",
     subsets: ["latin"]
+})
+
+export const playfair = Playfair_Display({
+    weight: "variable",
+    subsets: ["latin"],
+    style: ["normal", "italic"]
 })

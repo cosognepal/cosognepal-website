@@ -4,7 +4,7 @@ import Member from "@/components/Member";
 import getMembers from "./getMembersInfo";
 import InfoBanner from "@/components/InfoBanner";
 import Image from "next/image";
-import BannerImage from "@/assets/about_banner.png";
+import BannerImage from "@/assets/about_banner.jpeg";
 
 export default async function AboutPage() {
   const members = await getMembers();
@@ -59,31 +59,36 @@ export default async function AboutPage() {
         <div className="board_members space-y-block " id="team">
           <SectionTitle title="Founding Members" />
           <div className="members grid grid-cols-auto-fit-320 grid-rows-max gap-standard justify-center">
-            {members.map((member, index) => {
-              if (
-                member.name === "Bibek Bhandari" ||
-                member.name === "Aashish Panthi"
-              ) {
+            {members
+              .filter(
+                (member) =>
+                  member.name === "Bibek Bhandari" ||
+                  member.name === "Aashish Panthi"
+              )
+              .map((member, index) => {
                 const post = "Founder/" + member.post;
-
                 return (
                   <Member
                     key={index + member.name}
                     data={{ ...member, post }}
                   />
                 );
-              }
-            })}
+              })}
           </div>
         </div>
 
         <div className="board_members space-y-block " id="members">
-          <SectionTitle title="Our team members" />
+          <SectionTitle title="Our members" />
           <div className="members grid grid-cols-auto-fit-320 grid-rows-max gap-standard justify-center">
-            {members.map((member, index) => {
-              if (member.name != "Bibek Bhandari")
-                return <Member key={index + member.name} data={member} />;
-            })}
+            {members
+              .filter(
+                (member) =>
+                  member.name !== "Bibek Bhandari" &&
+                  member.name !== "Aashish Panthi"
+              )
+              .map((member, index) => (
+                <Member key={index + member.name} data={member} />
+              ))}
           </div>
         </div>
       </div>

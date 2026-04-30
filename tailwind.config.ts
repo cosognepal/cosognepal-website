@@ -70,6 +70,14 @@ module.exports = {
           primary: "#14A250",
           dark: "#002F23",
         },
+        accent_yellow: {
+          50: "#FFFBEB",
+          100: "#FEF3C7",
+          200: "#FDE68A",
+          400: "#FBBF24",
+          600: "#D97706",
+          800: "#92400E",
+        },
       },
 
       keyframes: {

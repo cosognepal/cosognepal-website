@@ -99,7 +99,7 @@ const EsewaDonation = () => {
             </div>
             <div className="text-title  text-faded mx-[0] md:mx-auto space-y-small">
                 <h2 className="text-mid-title font-bold text-black-mid">
-                    Thank you for donating to CoSoG Nepal.
+                    Thank you for donating to Cosog Nepal.
                 </h2>
                 <p className="text-sub-para font-medium text-black-light">
                     Please fill this below form so, that we can track your donation and

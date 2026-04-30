@@ -107,9 +107,9 @@ export default function YouTubePlaylist({ playlistId }: YouTubePlaylistProps) {
   };
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-2">
       <div className="flex items-center justify-between">
-        <h2 className="font-bold text-para md:text-sub-title text-black-dark">
+        <h2 className="font-semibold text-para md:text-sub-title text-black-dark">
           {playlistTitle}
         </h2>
       </div>

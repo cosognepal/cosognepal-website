@@ -1,157 +1,192 @@
-import { Descriptor } from "@/app/about/_components";
-import YouTubePlaylist from "./_components/YouTubePlaylist";
-import InfoBanner from "@/components/InfoBanner";
+import Image from "next/image";
+import { ArrowRight, BookOpen, CalendarDays, MapPin, Users } from "lucide-react";
 
-export default async function WebDevelopmentPage() {
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
+import Pill from "@/components/ui/Pill";
+import Button from "@/components/ui/Button";
+
+import graduationImage from "@/assets/images/Programs/web-dev-with-wordpress.png";
+
+import YouTubePlaylist from "./_components/YouTubePlaylist";
+import StudentTestimonials from "./_components/StudentTestimonials";
+
+const BLOG_URL =
+  "https://blog.cosognepal.org/web-dev-with-wordpress-concluded";
+
+const PARTNERS = [
+  {
+    name: "Paymentology",
+    role: "Financial supporter via Changing Lives Initiative",
+  },
+  {
+    name: "Fleckor Tech",
+    role: "Mentorship and internship review for graduating students",
+  },
+  {
+    name: "ICT Club, Kalika Manavgyan Secondary School",
+    role: "Local coordination and student facilitation",
+  },
+];
+
+const PROJECTS = [
+  {
+    title: "Non-profit organization website",
+    description:
+      "A team built a clean, easy-to-navigate site featuring a strong hero section, project showcases highlighting community impact, and ways for visitors to volunteer or support the organization.",
+  },
+  {
+    title: "School website prototype",
+    description:
+      "Inspired by Kalika Manavgyan Secondary School. Minimal, organized layout with an icon-based homepage, an interactive faculty section, a gallery of school activities, and a contact page with an integrated map.",
+  },
+];
+
+export default function WebDevelopmentPage() {
   return (
-    <div>
-      <div className="main_container h-max flex flex-col space-y-section w-full px-standard sm:px-block max-w-[1400px] m-auto">
-        {/* Hero Section */}
-        <div className="space-y-6 py-8">
-          <div className="space-y-4">
-            <h1 className="font-bold text-title md:text-heading text-black-dark">
-              Web Development Program
-            </h1>
-            <p className="font-medium text-mid-title text-black-mid">
-              An educational initiative under Code for Charity
-            </p>
-            <div className="bg-blue-blue/10 border-l-4 border-blue-blue p-4 rounded-r-md">
-              <p className="font-medium text-para text-black-dark mb-2">
-                The Web Development Program is an educational initiative under Code for Charity.
+    <main className="space-y-block">
+      {/* Header */}
+      <Section spacing="block">
+        <Container className="space-y-standard">
+          <span className="inline-flex items-center gap-2 rounded-full bg-empactathon-bg-green text-empactathon-dark px-3 py-1 text-info md:text-sub-para font-semibold uppercase tracking-wide">
+            Code for Charity · Concluded
+          </span>
+
+          <h1 className="font-bold text-title md:text-heading text-black-dark leading-tight max-w-[900px]">
+            Web Development with WordPress
+          </h1>
+
+          <p className="text-para md:text-sub-title text-black-mid max-w-[760px] leading-relaxed">
+            A two-week program where 20 public-school students from Grades 9–12
+            learned to build real websites with WordPress and Elementor — and
+            graduated by presenting their projects in person.
+          </p>
+
+          <div className="flex flex-wrap gap-2 pt-2">
+            <Pill icon={<Users className="h-4 w-4" aria-hidden />}>
+              20 students
+            </Pill>
+            <Pill icon={<BookOpen className="h-4 w-4" aria-hidden />}>
+              Grades 9–12
+            </Pill>
+            <Pill icon={<CalendarDays className="h-4 w-4" aria-hidden />}>
+              2 weeks · Hybrid
+            </Pill>
+            <Pill icon={<MapPin className="h-4 w-4" aria-hidden />}>
+              Kalika Manavgyan Secondary School
+            </Pill>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Featured graduation image */}
+      <Container>
+        <figure className="space-y-3">
+          <div className="relative w-full overflow-hidden rounded-md md:rounded-lg border border-black-dark/10 bg-gray-bg aspect-[21/9]">
+            <Image
+              src={graduationImage}
+              alt="Students at the Web Development with WordPress graduation ceremony at Kalika Manavgyan Secondary School, holding their certificates."
+              fill
+              priority
+              sizes="(max-width: 1400px) 100vw, 1400px"
+              className="object-cover"
+              placeholder="blur"
+            />
+          </div>
+          <figcaption className="text-info md:text-sub-para text-black-mid text-center">
+            Graduation ceremony at Kalika Manavgyan Secondary School.
+          </figcaption>
+        </figure>
+      </Container>
+
+      {/* Partners */}
+      <Section tone="muted" spacing="block">
+        <Container className="space-y-standard">
+          <h2 className="text-title font-bold text-black-dark">
+            Made possible by our partners
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-standard">
+            {PARTNERS.map((partner) => (
+              <div
+                key={partner.name}
+                className="bg-white border border-black-dark/10 rounded-md p-standard space-y-2"
+              >
+                <p className="text-mid-title font-bold text-black-dark">
+                  {partner.name}
+                </p>
+                <p className="text-sub-para text-black-mid">{partner.role}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* Projects built */}
+      <Section spacing="block">
+        <Container className="space-y-standard">
+          <h2 className="text-title font-bold text-black-dark">
+            What students built
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-standard">
+            {PROJECTS.map((project) => (
+              <article
+                key={project.title}
+                className="bg-white border border-black-dark/10 rounded-md p-standard md:p-block space-y-3"
+              >
+                <h3 className="text-mid-title font-bold text-black-dark">
+                  {project.title}
+                </h3>
+                <p className="text-sub-para text-black-mid leading-relaxed">
+                  {project.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* Video lectures */}
+      <Section tone="muted" spacing="block">
+        <Container className="space-y-standard">
+          <h2 className="text-title font-bold text-black-dark">
+            Recorded lectures
+          </h2>
+
+          <YouTubePlaylist playlistId="PLKE1X1xZFAFflaCfTlyzfp40ZykAaJfb-" />
+        </Container>
+      </Section>
+
+      {/* Testimonials */}
+      <Section spacing="block">
+        <Container>
+          <StudentTestimonials />
+        </Container>
+      </Section>
+
+      {/* Blog CTA */}
+      <Section spacing="block">
+        <Container>
+          <div className="rounded-md bg-primary text-white p-standard md:p-block flex flex-col md:flex-row md:items-center gap-standard md:justify-between">
+            <div className="space-y-2 max-w-[680px]">
+              <h2 className="text-mid-title md:text-title font-bold">
+                Want the full story?
+              </h2>
+              <p className="text-sub-para md:text-para text-white/85">
+                Read about the partnerships, the graduation ceremony, and the
+                projects students shipped.
               </p>
             </div>
-            <p className="font-normal text-para text-black-mid max-w-3xl">
-              A hands-on, impact-driven web development program for students in Grades 8–12. 
-              Over 2 weeks of online learning, students build real school websites while gaining 
-              practical web development skills. Upon completion, students receive certificates, 
-              mentorship, and outstanding participants may be offered remote internship opportunities.
-            </p>
+            <Button
+              href={BLOG_URL}
+              size="lg"
+              className="bg-white text-primary hover:bg-white/90 normal-case rounded-full px-8"
+            >
+              Read on our blog
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </Button>
           </div>
-
-          {/* Quick Info Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
-            <div className="bg-gray-bg p-4 rounded-lg">
-              <p className="text-info text-black-mid uppercase mb-1">Who</p>
-              <p className="font-bold text-mid-title text-black-dark">Grades 8–12</p>
-            </div>
-            <div className="bg-gray-bg p-4 rounded-lg">
-              <p className="text-info text-black-mid uppercase mb-1">Duration</p>
-              <p className="font-bold text-mid-title text-black-dark">2 Weeks</p>
-            </div>
-            <div className="bg-gray-bg p-4 rounded-lg">
-              <p className="text-info text-black-mid uppercase mb-1">Mode</p>
-              <p className="font-bold text-mid-title text-black-dark">Online</p>
-            </div>
-            <div className="bg-gray-bg p-4 rounded-lg">
-              <p className="text-info text-black-mid uppercase mb-1">Outcome</p>
-              <p className="font-bold text-mid-title text-black-dark">Live Website + Certificate</p>
-            </div>
-          </div>
-        </div>
-
-        {/* How This Fits Into Code for Charity */}
-        <div className="space-y-10" id="about">
-          <Descriptor
-            title="How This Fits Into Code for Charity"
-            descriptions={[
-              "Code for Charity operates multiple initiatives, each serving different aspects of our mission to provide pro-bono tech support to non-profits and build digital solutions for social impact.",
-              "The Web Development Program is one educational initiative under Code for Charity, focused on capacity building and student learning. While Code for Charity's core work involves matching volunteers and student developers with NGOs to build digital solutions, this initiative specifically focuses on:",
-            ]}
-            list={[
-              "Capacity Building: Teaching web development skills to school students",
-              "Student Learning: Providing early exposure to real-world tech projects",
-              "Real-World Impact: Students contribute to digital access by building websites for schools",
-            ]}
-          />
-
-          <Descriptor
-            title="About the Program"
-            descriptions={[
-              "The Web Development Program is designed to provide students with hands-on experience in building real-world websites for schools. The program emphasizes learning by building, where students don't just learn theory but create actual, live websites that schools can use.",
-              "This program bridges the gap between education and real-world application. Students work on actual projects, learning web development fundamentals while making a tangible impact on their communities. The websites built during the program are handed over to schools, providing them with a professional online presence.",
-              "The program is structured to be intensive yet accessible, focusing on practical skills that students can immediately apply. Through mentorship and guided learning, students gain confidence in web development and content management systems.",
-            ]}
-          />
-
-          {/* What Students Learn */}
-          <Descriptor
-            title="What Students Learn"
-            descriptions={[
-              "Throughout the 2-week program, students gain comprehensive knowledge and hands-on experience in modern web development. The curriculum is designed to be practical and immediately applicable.",
-            ]}
-            list={[
-              "How the web works: Understanding the fundamentals of web technologies, HTTP protocols, and how websites function",
-              "WordPress & Elementor: Hands-on experience with WordPress CMS and Elementor page builder for creating professional websites",
-              "Content Management Systems (CMS): Learning how to manage, update, and maintain website content effectively",
-              "Basic SEO & Security: Introduction to search engine optimization and website security best practices",
-              "Domain & Hosting Basics: Understanding how to register domains, set up hosting, and deploy websites",
-              "Website Handover & Maintenance: Learning the process of transferring websites to clients and maintaining them long-term",
-            ]}
-          />
-
-          {/* Program Structure & Details */}
-          <Descriptor
-            title="Program Structure & Details"
-            descriptions={[]}
-            list={[
-              "Cohort Size: Small, focused cohorts to ensure personalized attention and effective learning",
-              "Duration: 2 weeks of intensive, hands-on learning",
-              "Sessions: 14 sessions covering all aspects of web development and website creation",
-              "Tools: WordPress, Elementor, and other industry-standard web development tools",
-              "Delivery Mode: Fully online, allowing students to participate from anywhere",
-              "Final Output: A complete, live website delivered to a school, ready for use",
-              "Selection Process: Students are nominated and go through an application form and interview process to ensure commitment and readiness",
-            ]}
-          />
-
-          {/* Partners & Opportunities */}
-          <Descriptor
-            title="Partners & Opportunities"
-            descriptions={[
-              "The Web Development Program is conducted in partnership with Fleckor Tech, bringing industry expertise and real-world perspective to the learning experience.",
-              "Students receive dedicated mentorship throughout the program, with guidance from experienced developers and industry professionals. This mentorship extends beyond just technical skills, covering best practices, professional development, and career guidance.",
-              "Outstanding students who demonstrate exceptional performance and commitment may be offered remote internship opportunities with Fleckor Tech. These internships are flexible and provide valuable real-world experience, allowing students to continue learning while contributing to professional projects.",
-            ]}
-          />
-
-          {/* Outcomes */}
-          <Descriptor
-            title="Outcomes"
-            descriptions={[
-              "Upon successful completion of the Web Development Program, students achieve multiple valuable outcomes:",
-            ]}
-            list={[
-              "Practical Technical Skills: Hands-on experience with WordPress, Elementor, and web development fundamentals that are immediately applicable",
-              "Certification: Official certificates recognizing completion of the program and acquired skills",
-              "Real-World Project Experience: Experience working on actual client projects, understanding project requirements, and delivering professional results",
-              "Early Exposure to IT Careers: Introduction to the IT industry and real-world tech projects",
-              "Live Website: Each student contributes to building a real, live website that is delivered to a school, providing tangible proof of their work",
-              "Mentorship: Ongoing support and guidance from industry professionals",
-            ]}
-          />
-        </div>
-
-        {/* Video Lectures Section */}
-        <div className="space-y-6 py-8">
-          <YouTubePlaylist playlistId="PLKE1X1xZFAFflaCfTlyzfp40ZykAaJfb-" />
-        </div>
-      </div>
-
-      {/* CTA Banner */}
-      <InfoBanner
-        leftContent={
-          <article className="max-w-[800px]">
-            <h1 className="font-bold text-mid-title">
-              Ready to build real websites and make an impact?
-            </h1>
-            <p>Join the Web Development Program and start your journey in web development.</p>
-          </article>
-        }
-        cta={{
-          text: "Learn More",
-          link: "https://forms.gle/euosQkdUW45P8mYc9",
-        }}
-      />
-    </div>
+        </Container>
+      </Section>
+    </main>
   );
 }

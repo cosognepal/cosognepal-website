@@ -166,7 +166,7 @@ const ContactPage = () => {
             value={formData.message}
             onChange={handleChange}
             className="rounded-md w-full h-44 py-3 px-2 text-black-light text-sub-para border-2 border-[#D9D9D9] focus:border-blue focus-visible:outline-none"
-            placeholder="Ex: Hey CoSoG Nepal thank you for your work I love what you are doing keep doing the same work..."
+            placeholder="Ex: Hey Cosog Nepal thank you for your work I love what you are doing keep doing the same work..."
           ></textarea>
           {errors.message && <p className="text-red-500">{errors.message}</p>}
         </div>

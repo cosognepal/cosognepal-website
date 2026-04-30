@@ -100,6 +100,11 @@ import photo20_1 from "@/assets/images/Events/Open_Souce_101/photo1.jpeg";
 import photo20_2 from "@/assets/images/Events/Open_Souce_101/photo2.jpeg";
 import photo20_3 from "@/assets/images/Events/Open_Souce_101/photo3.jpeg";
 
+// twenty-first event
+import photo21_1 from "@/assets/images/Events/Web_Development_With_WordPress/photo1.png";
+import photo21_2 from "@/assets/images/Events/Web_Development_With_WordPress/photo2.png";
+import photo21_3 from "@/assets/images/Events/Web_Development_With_WordPress/photo3.png";
+
 const events = [
   {
     id: "1",
@@ -116,16 +121,16 @@ const events = [
     title:
       "Workshop on Computer Science Opportunities at Everest Boarding School, Kathmandu",
     descriptions: [
-      "CoSoG Nepal conducted an informative session at Everest Boarding School, Kathmandu. We discussed the wide array of opportunities within the field of computer science in Nepal. Additionally, we provided insights into the functioning of CS clubs, offering guidance on starting and structuring clubs effectively. We express gratitude to all who supported us in organizing this event.",
+      "Cosog Nepal conducted an informative session at Everest Boarding School, Kathmandu. We discussed the wide array of opportunities within the field of computer science in Nepal. Additionally, we provided insights into the functioning of CS clubs, offering guidance on starting and structuring clubs effectively. We express gratitude to all who supported us in organizing this event.",
     ],
     date: "10th August 2023",
     images: [photo2_1, photo2_2, photo2_3],
   },
   {
     id: "3",
-    title: "CoSoG Nepal at Constellation Secondary English Boarding School",
+    title: "Cosog Nepal at Constellation Secondary English Boarding School",
     descriptions: [
-      "It was a remarkable day at Constellation Secondary English Boarding School as CoSoG Nepal engaged with students in a discussion on the diverse prospects within the realm of Computer Science. Drawing from our of experience, we shared valuable insights from our past projects and shed light on the transformative role of CS clubs.",
+      "It was a remarkable day at Constellation Secondary English Boarding School as Cosog Nepal engaged with students in a discussion on the diverse prospects within the realm of Computer Science. Drawing from our of experience, we shared valuable insights from our past projects and shed light on the transformative role of CS clubs.",
     ],
     date: "28th August 2023",
     images: [photo3_1, photo3_2, photo3_3],
@@ -142,7 +147,7 @@ const events = [
   {
     id: "5",
     title:
-      "CoSoG Nepal at Skylark Secondary English Boarding School, Kapilvastu",
+      "Cosog Nepal at Skylark Secondary English Boarding School, Kapilvastu",
     descriptions: [
       "We conducted an engaging session with the grade 8 and 9 students, where Aashish took the stage to discuss the various CS opportunities in Nepal. We had a blast dicussing how to form a CS club, how to organize events and sharing insights from our previous CS club experiences.",
     ],
@@ -153,7 +158,7 @@ const events = [
     id: "6",
     title: "Computer Science Seminar at Deep Boarding High School, Kathmandu",
     descriptions: [
-      "Our CoSoG Nepal team recently hosted an informative seminar at Deep Boarding High School in Kathmandu, where we talked about the ever-evolving field of technology, specifically computer science. We examined the wide range of opportunities available and discussed ways in which students can capitalize on them. Furthermore, we offered valuable insights into improving the school's CS culture, stressing the significance of CS clubs in nurturing interest and improving skills. We provided strategies for starting and managing CS clubs effectively, so that students can  engage actively with the CS community at their school. We express our sincere gratitude to all who contributed to the success of this event.",
+      "Our Cosog Nepal team recently hosted an informative seminar at Deep Boarding High School in Kathmandu, where we talked about the ever-evolving field of technology, specifically computer science. We examined the wide range of opportunities available and discussed ways in which students can capitalize on them. Furthermore, we offered valuable insights into improving the school's CS culture, stressing the significance of CS clubs in nurturing interest and improving skills. We provided strategies for starting and managing CS clubs effectively, so that students can  engage actively with the CS community at their school. We express our sincere gratitude to all who contributed to the success of this event.",
     ],
     date: "3rd October 2023",
     images: [photo6_1, photo6_2, photo6_3],
@@ -162,7 +167,7 @@ const events = [
     id: "7",
     title: "Presentation at Green Village English Boarding Secondary School",
     descriptions: [
-      "It was an exciting day at Green Village English Boarding Secondary School as CoSoG Nepal organized  a conversation on the wide range of career options in computer science. We shared a lot of lessons learned from our past initiatives and we shed light on the significant impact of CS clubs. Thank you to everyone involved!",
+      "It was an exciting day at Green Village English Boarding Secondary School as Cosog Nepal organized  a conversation on the wide range of career options in computer science. We shared a lot of lessons learned from our past initiatives and we shed light on the significant impact of CS clubs. Thank you to everyone involved!",
     ],
     date: "17th June 2023",
     images: [photo7_1, photo7_2, photo7_3],
@@ -179,7 +184,7 @@ const events = [
   },
   {
     id: "9",
-    title: "CoSoG Nepal at  LB Namuna Academy, Butwal.",
+    title: "Cosog Nepal at  LB Namuna Academy, Butwal.",
     descriptions: [
       "We delved into exciting opportunities, abundant resources, and our mission to foster a thriving CS culture. Plus, we shared insights from our previous projects and CS club experiences.",
     ],
@@ -188,7 +193,7 @@ const events = [
   },
   {
     id: "10",
-    title: "CoSoG Nepal had an amazing day at Butwal Madina School, Butwal.",
+    title: "Cosog Nepal had an amazing day at Butwal Madina School, Butwal.",
     descriptions: [
       "We took the stage to unfold the various opportunities in the field of Computer Science. Additionally, we discussed the hierarchy of a CS club, how to form a CS club, and how to organize events.",
     ],
@@ -198,7 +203,7 @@ const events = [
   {
     id: "11",
     title:
-      "CoSoG Nepal recently organized a mini-event at Gyanodaya Secondary School, Kathmandu.",
+      "Cosog Nepal recently organized a mini-event at Gyanodaya Secondary School, Kathmandu.",
     descriptions: [
       "We took the stage to unfold the myriad opportunities in the dynamic field of Computer Science💻 in Nepal. Furthermore, we discussed the hierarchy of a CS club, how to form a CS club, and how to organize events. We thank everyone who helped us organize this event, especially to all the students at Gyanodaya who gave their valuable time for this event.",
     ],
@@ -218,7 +223,7 @@ const events = [
   },
   {
     id: "13",
-    title: "CoSoG Nepal opened a CS Club at Annapurna Vidhya Mandir",
+    title: "Cosog Nepal opened a CS Club at Annapurna Vidhya Mandir",
     descriptions: [
       "On the 25th of June, 2024 Aashish Panthi, the vice-president of Cosog Nepal took the stage to discuss the opportunities in the field of Computer Science💻 in Nepal. Furthermore, he discussed the hierarchy of a CS club, how to form a CS club, and how to organize events.",
       "The session was concluded by forming a CS club at Shree Annapurna Vidhya Mandir Secondary School, Kapuwa Kapilvastu.",
@@ -302,6 +307,18 @@ const events = [
     ],
     date: "16th January 2026",
     images: [photo20_1, photo20_2, photo20_3],
+  },
+  {
+    id: "21",
+    title:
+      "Web Development with WordPress Program Concluded at Kalika Manavgyan Secondary School",
+    descriptions: [
+      "Coding for Social Good Nepal successfully concluded the Web Development with WordPress Program under our flagship Code for Charity initiative. The program brought together 20 public school students from Grades 9 to 12 and was conducted through a hybrid learning model — online instruction over Microsoft Teams, collaboration on Discord, and an in-person graduation at Kalika Manavgyan Secondary School.",
+      "Across two weeks, students learned to build real websites with WordPress and Elementor, manage content using a CMS, design user-friendly layouts, and apply basic SEO and security practices. Towards the end, students split into teams and shipped two real-world projects, which they presented at the graduation ceremony.",
+    ],
+    date: "9th March 2026",
+    images: [photo21_1, photo21_2, photo21_3],
+    link: "/programs/code-for-charity/web-development",
   },
 ];
 
