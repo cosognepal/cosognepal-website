@@ -51,7 +51,7 @@ function PostCard({ post }: { post: BlogPost }) {
       href={post.url}
       target="_blank"
       rel="noreferrer"
-      className="group flex h-full flex-col overflow-hidden rounded-lg bg-white border border-black-dark/10 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:border-black-dark/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
+      className="group flex h-full flex-col overflow-hidden rounded-lg bg-white border border-black-mid/20 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:border-black-mid/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
     >
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-bg">
         {post.coverImage ? (
@@ -80,7 +80,7 @@ function PostCard({ post }: { post: BlogPost }) {
           ) : null}
         </div>
 
-        <h3 className="font-bold text-mid-title text-black-dark leading-snug line-clamp-2">
+        <h3 className="font-bold text-mid-title text-black-mid leading-snug line-clamp-2">
           {post.title}
         </h3>
 
@@ -89,7 +89,7 @@ function PostCard({ post }: { post: BlogPost }) {
         </p>
 
         <div className="mt-auto pt-2">
-          <span className="inline-flex items-center gap-2 rounded-full bg-black-dark text-white px-4 py-2 text-sub-para font-semibold">
+          <span className="inline-flex items-center gap-2 rounded-full bg-black-mid text-white px-4 py-2 text-sub-para font-semibold">
             Read article
             <ArrowRight
               className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"

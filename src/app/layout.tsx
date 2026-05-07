@@ -47,7 +47,7 @@ export default function RootLayout({
           message="Applications for Summer Camp are open."
           ctaText="Apply now"
           ctaHref="https://summercamp.cosognepal.org"
-          deadline="2026-05-07T23:59:59"
+          deadline="2026-05-20T23:59:59"
         />
         <Navbar />
         {children}
