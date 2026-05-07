@@ -64,7 +64,7 @@ type TGuestModalParam = TGuestProps & {
 
 const GuestModal = (props: TGuestModalParam) => {
   return (
-    <div className="text-center md:text-left p-small py-standard w-full max-w-[1400px] md:px-standard brk-1400:mx-auto sm:px-block">
+    <div className="text-center md:text-left p-small py-standard pb-[calc(theme(spacing.standard)+20px)] w-full max-w-[1400px] md:px-standard brk-1400:mx-auto sm:px-block">
       <div className="close cursor-pointer" onClick={props.closeModal}>
         <Icon iconName="close" className="h-5 w-5 text-black-dark" />
       </div>

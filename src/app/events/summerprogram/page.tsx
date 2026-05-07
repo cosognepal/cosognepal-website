@@ -1,4 +1,6 @@
 import EventDescripter from "@/components/ui/EventAbout";
+import samikshaKhadkaPhoto from "@/assets/images/SummerCamp/SamikshaKhadka.jpeg";
+import sarojRegmiPhoto from "@/assets/images/SummerCamp/SarojRegmi.jpeg";
 import Landing from "./_components/Landing";
 import { GuestsSection } from "./_components/Guests";
 import TimeLine from "./_components/TimeLine";
@@ -49,13 +51,27 @@ const SummerProgramPage = () => {
                 guestData={[
                     {
                         id: "1",
-                        notPublicYet: true,
-                        placeholder: <p>Mentor announcements coming soon</p>,
+                        name: "Samiksha Khadka",
+                        image: samikshaKhadkaPhoto,
+                        designation:
+                            "Software engineer",
+                        short_intro: [
+                            "Samiksha Khadka is a multifaceted software engineer, tech content creator, and dedicated community builder bridging the gap between innovation and advocacy. As a co-founder of The Algorithm, she has been instrumental in fostering a thriving tech space for women, complemented by her prestigious role as a GitHub Campus Expert.",
+                            "Her professional trajectory blends technical rigor with public impact, having served as a Research Assistant to a Member of Parliament and honing her analytical expertise within Equitech's Applied Data Lab. Deeply committed to the future of responsible technology, Samiksha is a vocal advocate for AI safety, security, and ethics.",
+                            "She consistently shares her insights at major industry stages, including PyLadiesCon, Ubucon and AWS Community Day, championing a more inclusive and ethically grounded tech ecosystem. Through her work, she empowers the next generation of technologists to build with purpose and integrity.",
+                        ],
                     },
                     {
                         id: "2",
-                        notPublicYet: true,
-                        placeholder: <p>Mentor announcements coming soon</p>,
+                        name: "Saroj Regmi",
+                        image: sarojRegmiPhoto,
+                        designation:
+                            "Web & mobile developer",
+                        short_intro: [
+                            "Saroj Regmi is a web and mobile application developer with over two years of experience as a project team lead in Nepal's one of the largest School Management Software.",
+                            "He is also an open-source enthusiast exploring the depths of WebAssembly, Vim, and Linux. He has contributed to several command-line utilities and tools including tmux-sessionizer, hyprcursor etc., reflecting his passion for terminal-driven workflows and low-level tooling.",
+                            "He also believes in serving the community by giving back to it, and has worked as IT head of COSOG Nepal for over a year.",
+                        ],
                     },
                     {
                         id: "3",
@@ -206,7 +222,7 @@ const SummerProgramPage = () => {
                     {
                         question: "How long is the program and what do students do?",
                         answer:
-                            "The program runs for 16 weeks. Students go through workshops, work in teams on environment + computer science projects, and present final prototypes in a public showcase.",
+                            "The program runs for 16 weeks. Students go through workshops, work in teams on environmental + computer science projects, and present final prototypes in a public showcase.",
                         value: "item-4",
                     },
                     {

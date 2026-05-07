@@ -89,7 +89,7 @@ function Landing({ applyLink }: { applyLink: string }) {
 
                 <p className={`space-x-2 text-empactathon-dark md:text-sub-title text-para font-medium`}>
                     <span className={`${margarine.className}`}>
-                        Environment
+                        Environmental
                     </span>
                     <span className={`${margarine.className}`}>
                         and
