@@ -1,4 +1,5 @@
 import EventDescripter from "@/components/ui/EventAbout";
+import prashantBhattaPhoto from "@/assets/images/SummerCamp/PrashantBhatta.jpeg";
 import samikshaKhadkaPhoto from "@/assets/images/SummerCamp/SamikshaKhadka.jpeg";
 import sarojRegmiPhoto from "@/assets/images/SummerCamp/SarojRegmi.jpeg";
 import Landing from "./_components/Landing";
@@ -51,6 +52,18 @@ const SummerProgramPage = () => {
                 guestData={[
                     {
                         id: "1",
+                        name: "Prashant Bhatta",
+                        image: prashantBhattaPhoto,
+                        designation:
+                            "Embedded systems lead, Yatri Motorcycles",
+                        short_intro: [
+                            "Prashant Bhatta is a Senior Embedded Systems Engineer and the co-founder of SanoEngineer, where he focuses on creating STEM and electronics learning tools that demystify complex engineering for the next generation.",
+                            "With over six years of experience in hardware architecture—from high-speed, multi-layer PCB design to the development of complex vehicle control units (VCUs)—he bridges the gap between high-level industrial engineering and accessible, hands-on education.",
+                            "His work reflects a commitment to building robust, innovative technology while fostering a culture of curiosity and practical learning within the global engineering community.",
+                        ],
+                    },
+                    {
+                        id: "2",
                         name: "Samiksha Khadka",
                         image: samikshaKhadkaPhoto,
                         designation:
@@ -62,7 +75,7 @@ const SummerProgramPage = () => {
                         ],
                     },
                     {
-                        id: "2",
+                        id: "3",
                         name: "Saroj Regmi",
                         image: sarojRegmiPhoto,
                         designation:
@@ -72,11 +85,6 @@ const SummerProgramPage = () => {
                             "He is also an open-source enthusiast exploring the depths of WebAssembly, Vim, and Linux. He has contributed to several command-line utilities and tools including tmux-sessionizer, hyprcursor etc., reflecting his passion for terminal-driven workflows and low-level tooling.",
                             "He also believes in serving the community by giving back to it, and has worked as IT head of COSOG Nepal for over a year.",
                         ],
-                    },
-                    {
-                        id: "3",
-                        notPublicYet: true,
-                        placeholder: <p>Mentor announcements coming soon</p>,
                     },
                     {
                         id: "4",
