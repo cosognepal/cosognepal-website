@@ -4,8 +4,51 @@ import { Icon } from "@/components/Icon";
 import { margarine, rubik_wet_paint } from "@/lib/fonts";
 import { useEffect, useState } from "react";
 
+type Countdown = {
+    status: "open" | "closed";
+    days: number;
+    hours: number;
+    minutes: number;
+    seconds: number;
+};
+
+function getCountdown(targetIsoWithOffset: string): Countdown {
+    const target = new Date(targetIsoWithOffset).getTime();
+    const now = Date.now();
+    const diff = target - now;
+
+    if (!Number.isFinite(target) || diff <= 0) {
+        return { status: "closed", days: 0, hours: 0, minutes: 0, seconds: 0 };
+    }
+
+    const totalSeconds = Math.floor(diff / 1000);
+    const days = Math.floor(totalSeconds / (24 * 60 * 60));
+    const hours = Math.floor((totalSeconds % (24 * 60 * 60)) / (60 * 60));
+    const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+    const seconds = totalSeconds % 60;
+
+    return { status: "open", days, hours, minutes, seconds };
+}
+
+function TimeBox({ label, value }: { label: string; value: number }) {
+    return (
+        <div className="rounded-lg bg-white/70 backdrop-blur-sm border border-empactathon-primary/20 px-3 py-2 min-w-[68px]">
+            <div className="text-empactathon-dark text-xl md:text-2xl font-extrabold leading-none tabular-nums">
+                {String(value).padStart(2, "0")}
+            </div>
+            <div className="text-[11px] md:text-xs uppercase tracking-widest text-black-mid/80 mt-1">
+                {label}
+            </div>
+        </div>
+    );
+}
+
 function Landing({ applyLink }: { applyLink: string }) {
     const [scrollProgress, setScrollProgress] = useState(0);
+    const deadline = "2026-05-20T23:59:59+05:45";
+    const [countdown, setCountdown] = useState<Countdown>(() =>
+        getCountdown(deadline)
+    );
 
     useEffect(() => {
         let ticking = false;
@@ -26,6 +69,12 @@ function Landing({ applyLink }: { applyLink: string }) {
 
         window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    useEffect(() => {
+        const t = window.setInterval(() => setCountdown(getCountdown(deadline)), 1000);
+        setCountdown(getCountdown(deadline));
+        return () => window.clearInterval(t);
     }, []);
 
     const rightBushScale = 1 + scrollProgress * 0.60;
@@ -103,6 +152,23 @@ function Landing({ applyLink }: { applyLink: string }) {
                     Application deadline:{" "}
                     <time dateTime="2026-05-20">May 20, 2026</time>
                 </p>
+
+                <div className="mt-4 flex flex-col items-center gap-3">
+                    {countdown.status === "open" ? (
+                        <>
+                            <div className="flex items-center justify-center gap-2 md:gap-3 flex-wrap">
+                                <TimeBox label="Days" value={countdown.days} />
+                                <TimeBox label="Hours" value={countdown.hours} />
+                                <TimeBox label="Min" value={countdown.minutes} />
+                                <TimeBox label="Sec" value={countdown.seconds} />
+                            </div>
+                        </>
+                    ) : (
+                        <div className="inline-flex items-center rounded-full bg-white/70 backdrop-blur-sm border border-empactathon-primary/20 px-4 py-2 text-empactathon-dark font-bold">
+                            Applications closed
+                        </div>
+                    )}
+                </div>
 
                 <a
                     className="inline-block cta px-10 py-4 bg-empactathon-primary text-white rounded-md mt-10 uppercase font-bold hover:scale-[1.02] transition-transform duration-200"

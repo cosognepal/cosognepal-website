@@ -12,6 +12,7 @@
 
 # testing
 /coverage
+students.txt
 
 # next.js
 /.next/

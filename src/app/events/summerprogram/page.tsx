@@ -11,13 +11,17 @@ import FAQ from "./_components/FAQ";
 import { PrizeSection } from "./_components/Prizes";
 import BottomSectionNav from "./_components/BottomSectionNav";
 import Footer from "./_components/Footer";
+import SupportedBy from "./_components/SupportedBy";
+import ProjectTracksSection from "./_components/ProjectTracks";
+import OutcomesSection from "./_components/Outcomes";
+import MobileStickyApply from "./_components/MobileStickyApply";
 import { cn } from "@/lib/utils";
 import { lora } from "@/lib/fonts";
 
 const SummerProgramPage = () => {
     const menteeApplicationLink = process.env.SUMMER_PROGRAM_MENTEE_APPLICATION_LINK ?? "#";
 
-    return <div className="space-y-section">
+    return <div className="space-y-section pb-24 md:pb-0">
         <Landing applyLink={menteeApplicationLink} />
 
         {/* About */}
@@ -25,8 +29,10 @@ const SummerProgramPage = () => {
             <EventDescripter
                 eventTitle="About the Program"
                 description={[
-                    `Summer Camp is a fully funded, mostly online 16-week fellowship for high school students and recent graduates (under 20) in Nepal who want to tackle real environmental problems with technology — with guidance from top mentors from industry and the wider tech community (for example, an embedded systems lead from Yatri Motorcycles, software engineers, and more).`,
-                    `We welcome about 60 fellows, with priority for public schools and rural regions. You’ll study environmental literacy and practical computer science in beginner-friendly tracks, build team prototypes with mentor support, and present your work in a public showcase — all designed to fit alongside school.`,
+                    `Cosog Nepal Summer Camp is a fully funded, 16-week online fellowship where up to 60 high school students and recent graduates across Nepal build real technology projects that tackle urgent environmental problems — wildfires, deforestation, air pollution, and more.`,
+                    `Supported internationally by the North American Association for Environmental Education (NAAEE) and RTX Corporation, our summer camp doesn't require any programming experience. We start from zero — then pair you with the kind of industry mentorship most students in Nepal rarely get access to (including mentors like the embedded systems lead at Yatri Motorcycles, AI engineers, and software engineers).`,
+                    `Completely free for students: participation costs nothing, project expenses are covered, and we work to support internet access challenges so cost or connectivity isn’t a barrier.`,
+            
                 ]}
                 className={{
                     container: ` brk-1400:px-[calc((100%-1400px)/2)] px-standard
@@ -35,10 +41,10 @@ const SummerProgramPage = () => {
             />
         </section>
 
-        {/* Sponsors section from empactathon kept for future reference.
-            <SupportersSection ... />
-        */}
+        <SupportedBy />
 
+        {/* What you'll build */}
+        <ProjectTracksSection id="what-youll-build" />
 
         {/* Mentors */}
         <section id="mentors" className="scroll-mt-24">
@@ -58,7 +64,7 @@ const SummerProgramPage = () => {
                         designation:
                             "Embedded systems lead, Yatri Motorcycles",
                         short_intro: [
-                            "Prashant Bhatta is a Senior Embedded Systems Engineer and the co-founder of SanoEngineer, where he focuses on creating STEM and electronics learning tools that demystify complex engineering for the next generation.",
+                            "Prashant Bhatta is a Senior Embedded Systems Engineer at Yatri Motorcycles and the co-founder of SanoEngineer, where he focuses on creating STEM and electronics learning tools that demystify complex engineering for the next generation.",
                             "With over six years of experience in hardware architecture—from high-speed, multi-layer PCB design to the development of complex vehicle control units (VCUs)—he bridges the gap between high-level industrial engineering and accessible, hands-on education.",
                             "His work reflects a commitment to building robust, innovative technology while fostering a culture of curiosity and practical learning within the global engineering community.",
                         ],
@@ -204,6 +210,9 @@ const SummerProgramPage = () => {
 
         />
 
+        {/* After the program */}
+        <OutcomesSection id="outcomes" title="After the program" />
+
         {/* CTA */}
         <section className="w-full max-w-[1400px] mx-auto px-standard brk-1400:px-0">
             <div className="rounded-md bg-gradient-to-br from-white to-empactathon-primary/20 p-standard md:p-block text-center space-y-3">
@@ -279,11 +288,24 @@ const SummerProgramPage = () => {
                     },
                 ]}
             />
+            <div className="w-full max-w-[1400px] mx-auto px-standard brk-1400:px-0">
+                <p className="mt-standard text-black-mid">
+                    <span className="font-semibold text-empactathon-dark">
+                        Are you a parent, teacher, or guidance counselor?
+                    </span>{" "}
+                    We&apos;re happy to answer any questions. Email{" "}
+                    <a className="text-empactathon-primary font-semibold hover:underline" href="mailto:cosognepal@gmail.com">
+                        cosognepal@gmail.com
+                    </a>
+                </p>
+            </div>
         </section>
 
         <Footer />
 
         <BottomSectionNav />
+
+        <MobileStickyApply applyLink={menteeApplicationLink} />
 
     </div >
 };

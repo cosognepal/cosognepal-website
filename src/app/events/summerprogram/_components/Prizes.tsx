@@ -75,7 +75,7 @@ export function Prize(
       <Icon
         iconName={props.prizeIcon}
         className={cn(
-          "h-44 saturate-50 opacity-20 absolute top-standard left-0 ",
+          "h-44 w-auto max-w-none object-contain saturate-50 opacity-20 absolute top-standard left-0 ",
           props.className?.icon
         )}
       />
