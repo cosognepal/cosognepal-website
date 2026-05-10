@@ -33,9 +33,9 @@ const NAV_COLUMNS = [
 
 export default function Footer() {
   return (
-    <footer className="relative mt-section overflow-hidden rounded-t-[24px] bg-[#0a5ea9] text-white">
+    <footer className="relative mt-section overflow-hidden rounded-t-[24px] bg-empactathon-dark text-white">
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:28px_28px]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0f74ca]/40 to-[#0a5ea9]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-empactathon-primary/35 to-empactathon-dark" />
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-standard py-block md:py-section pb-24 md:pb-28 space-y-standard">
         <div className="grid gap-standard md:grid-cols-4">

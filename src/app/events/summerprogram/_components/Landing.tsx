@@ -99,8 +99,13 @@ function Landing({ applyLink }: { applyLink: string }) {
                     </span>
                 </p>
 
+                <p className="mt-6 text-empactathon-dark text-sm md:text-base font-semibold">
+                    Application deadline:{" "}
+                    <time dateTime="2026-05-20">May 20, 2026</time>
+                </p>
+
                 <a
-                    className="inline-block cta px-10 py-4 bg-empactathon-primary text-white rounded-md mt-section uppercase font-bold hover:scale-[1.02] transition-transform duration-200"
+                    className="inline-block cta px-10 py-4 bg-empactathon-primary text-white rounded-md mt-10 uppercase font-bold hover:scale-[1.02] transition-transform duration-200"
                     href={applyLink}
                     target="_blank"
                     rel="noreferrer"

@@ -92,7 +92,7 @@ const SummerProgramPage = () => {
                         name: "Ashish Pandey",
                         image: ashishPandeyPhoto,
                         designation:
-                            "AI practitioner & researcher, Pulchowk Campus",
+                            "AI Researcher, IOE Pulchowk Campus",
                         short_intro: [
                             "Ashish is an AI practitioner and researcher focused on responsible AI, machine learning systems, and accessibility technology. He is pursuing Computer Engineering at Pulchowk Campus, Institute of Engineering, Nepal, and serves as an AI Research Intern, where he co-authored research on sociocultural bias in large language models for underrepresented languages.",
                             "His work extends further into responsible AI frameworks and the application of AI in high-stakes, real-world domains. Ashish has built AI-powered accessibility tools, multi-agent systems, and production-grade ML pipelines, with hands-on experience deploying systems on AWS, where he holds a Solutions Architect certification.",
@@ -230,34 +230,40 @@ const SummerProgramPage = () => {
                         value: "item-2",
                     },
                     {
+                        question: "Is this opportunity for students inside the Kathmandu Valley only?",
+                        answer:
+                            "No. The Summer Camp is open to students across Nepal. The program uses a hybrid format: most sessions and activities are online so you can participate from anywhere in the country, with occasional in-person gatherings (optional) when possible.",
+                        value: "item-3",
+                    },
+                    {
                         question: "Do I need prior programming skills?",
                         answer:
                             "No prior programming experience is required. We welcome students who are eager to learn, put in effort, and are curious about how technology works.",
-                        value: "item-3",
+                        value: "item-4",
                     },
                     {
                         question: "How long is the program and what do students do?",
                         answer:
                             "The program runs for 16 weeks. Students go through workshops, work in teams on environmental + computer science projects, and present final prototypes in a public showcase.",
-                        value: "item-4",
+                        value: "item-5",
                     },
                     {
                         question: "Is the program paid?",
                         answer:
                             "No. It is completely free to apply and participate, and essential student expenses are covered by the program.",
-                        value: "item-5",
+                        value: "item-6",
                     },
                     {
                         question: "Can I participate alongside my school schedule?",
                         answer:
                             "Yes. The program is flexible and mostly online, so students can join while continuing school, with occasional in-person events when possible.",
-                        value: "item-6",
+                        value: "item-7",
                     },
                     {
                         question: "What will I gain after finishing?",
                         answer:
                             "You will gain practical project experience, mentor feedback, stronger environmental and technical understanding, and a portfolio-ready showcase output.",
-                        value: "item-7",
+                        value: "item-8",
                     },
                 ]}
             />
