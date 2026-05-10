@@ -3,6 +3,7 @@ import prashantBhattaPhoto from "@/assets/images/SummerCamp/PrashantBhatta.jpeg"
 import samikshaKhadkaPhoto from "@/assets/images/SummerCamp/SamikshaKhadka.jpeg";
 import sarojRegmiPhoto from "@/assets/images/SummerCamp/SarojRegmi.jpeg";
 import ashishPandeyPhoto from "@/assets/images/SummerCamp/AshishPandey.jpg";
+import kailashPanthaPhoto from "@/assets/images/SummerCamp/KailashPantha.jpeg";
 import Landing from "./_components/Landing";
 import { GuestsSection } from "./_components/Guests";
 import TimeLine from "./_components/TimeLine";
@@ -24,9 +25,8 @@ const SummerProgramPage = () => {
             <EventDescripter
                 eventTitle="About the Program"
                 description={[
-                    `Coding for Social Good Nepal Summer Camp is a 16-week (4-month) learning fellowship for high school students and recent graduates (below 20) in Nepal who want to solve real environmental problems using technology.`,
-                    `The program is designed for around 60 students, with priority for students from public schools and rural regions. Fellows learn environmental literacy and practical computer science in beginner-friendly tracks, then build real prototypes in small teams with mentor support.`,
-                    `By the end of the program, students present their work in a public showcase, strengthen communication and teamwork skills, and gain pathways for further learning, projects, and future STEM opportunities. The program is flexible and mostly online, so students can participate alongside school.`,
+                    `Summer Camp is a fully funded, mostly online 16-week fellowship for high school students and recent graduates (under 20) in Nepal who want to tackle real environmental problems with technology — with guidance from top mentors from industry and the wider tech community (for example, an embedded systems lead from Yatri Motorcycles, software engineers, and more).`,
+                    `We welcome about 60 fellows, with priority for public schools and rural regions. You’ll study environmental literacy and practical computer science in beginner-friendly tracks, build team prototypes with mentor support, and present your work in a public showcase — all designed to fit alongside school.`,
                 ]}
                 className={{
                     container: ` brk-1400:px-[calc((100%-1400px)/2)] px-standard
@@ -97,6 +97,18 @@ const SummerProgramPage = () => {
                             "Ashish is an AI practitioner and researcher focused on responsible AI, machine learning systems, and accessibility technology. He is pursuing Computer Engineering at Pulchowk Campus, Institute of Engineering, Nepal, and serves as an AI Research Intern, where he co-authored research on sociocultural bias in large language models for underrepresented languages.",
                             "His work extends further into responsible AI frameworks and the application of AI in high-stakes, real-world domains. Ashish has built AI-powered accessibility tools, multi-agent systems, and production-grade ML pipelines, with hands-on experience deploying systems on AWS, where he holds a Solutions Architect certification.",
                             "He has won multiple national hackathons and actively contributes to AI education and community-building initiatives across Nepal.",
+                        ],
+                    },
+                    {
+                        id: "5",
+                        name: "Kailash Pantha",
+                        image: kailashPanthaPhoto,
+                        designation:
+                            "AI Engineer",
+                        short_intro: [
+                            "Kailash Pantha is an AI Engineer dedicated to bridging the gap between theoretical research and real-world application. His expertise spans computer vision, embedded systems, and scalable software development, with a focus on solving complex challenges through innovative, data-driven approaches.",
+                            "Driven by curiosity and a commitment to continuous learning, Kailash specializes in autonomous systems and multimodal AI. He is passionate about developing solutions that are both technically sophisticated and socially impactful.",
+                            "Beyond technical execution, he is committed to fostering collaborative innovation and making emerging technologies more accessible to a global community.",
                         ],
                     },
                 ]}
