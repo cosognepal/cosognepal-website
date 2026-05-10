@@ -2,6 +2,7 @@ import EventDescripter from "@/components/ui/EventAbout";
 import prashantBhattaPhoto from "@/assets/images/SummerCamp/PrashantBhatta.jpeg";
 import samikshaKhadkaPhoto from "@/assets/images/SummerCamp/SamikshaKhadka.jpeg";
 import sarojRegmiPhoto from "@/assets/images/SummerCamp/SarojRegmi.jpeg";
+import ashishPandeyPhoto from "@/assets/images/SummerCamp/AshishPandey.jpg";
 import Landing from "./_components/Landing";
 import { GuestsSection } from "./_components/Guests";
 import TimeLine from "./_components/TimeLine";
@@ -88,8 +89,15 @@ const SummerProgramPage = () => {
                     },
                     {
                         id: "4",
-                        notPublicYet: true,
-                        placeholder: <p>Mentor announcements coming soon</p>,
+                        name: "Ashish Pandey",
+                        image: ashishPandeyPhoto,
+                        designation:
+                            "AI practitioner & researcher, Pulchowk Campus",
+                        short_intro: [
+                            "Ashish is an AI practitioner and researcher focused on responsible AI, machine learning systems, and accessibility technology. He is pursuing Computer Engineering at Pulchowk Campus, Institute of Engineering, Nepal, and serves as an AI Research Intern, where he co-authored research on sociocultural bias in large language models for underrepresented languages.",
+                            "His work extends further into responsible AI frameworks and the application of AI in high-stakes, real-world domains. Ashish has built AI-powered accessibility tools, multi-agent systems, and production-grade ML pipelines, with hands-on experience deploying systems on AWS, where he holds a Solutions Architect certification.",
+                            "He has won multiple national hackathons and actively contributes to AI education and community-building initiatives across Nepal.",
+                        ],
                     },
                 ]}
             />
