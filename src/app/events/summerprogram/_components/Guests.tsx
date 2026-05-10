@@ -64,9 +64,16 @@ type TGuestModalParam = TGuestProps & {
 
 const GuestModal = (props: TGuestModalParam) => {
   return (
-    <div className="text-center md:text-left p-small py-standard pb-[calc(theme(spacing.standard)+20px)] w-full max-w-[1400px] md:px-standard brk-1400:mx-auto sm:px-block">
-      <div className="close cursor-pointer" onClick={props.closeModal}>
-        <Icon iconName="close" className="h-5 w-5 text-black-dark" />
+    <div className="text-center md:text-left w-full max-w-[1400px] md:px-standard brk-1400:mx-auto sm:px-block">
+      <div className="sticky top-3 z-10 flex justify-end px-small">
+        <button
+          type="button"
+          className="close cursor-pointer p-2 rounded-md bg-white/85 backdrop-blur-md border border-empactathon-primary/10 shadow-sm hover:bg-white"
+          onClick={props.closeModal}
+          aria-label="Close"
+        >
+          <Icon iconName="close" className="h-5 w-5 text-black-dark" />
+        </button>
       </div>
       <div className="speakerDetails flex justify-between flex-wrap-reverse gap-small mt-5">
         <div className="textdetails flex-1 space-y-small min-w-96">
@@ -184,6 +191,7 @@ const GuestsSection = ({
             : "translate-y-full opacity-40"
         }`}
       >
+        <div className="max-h-[85vh] overflow-y-auto overscroll-contain pb-[calc(96px+env(safe-area-inset-bottom))] md:pb-[max(16px,env(safe-area-inset-bottom))]">
         {guestData
           ?.filter((guest) => guest.id === guestModal.active)
           .map((speaker) => (
@@ -194,6 +202,7 @@ const GuestsSection = ({
               {...speaker}
             />
           ))}
+        </div>
       </div>
     </section>
   );

@@ -214,10 +214,10 @@ const SummerProgramPage = () => {
         <OutcomesSection id="outcomes" title="After the program" />
 
         {/* CTA */}
-        <section className="w-full max-w-[1400px] mx-auto px-standard brk-1400:px-0">
+        <section className="w-full max-w-[1400px] mx-auto px-standard brk-1400:px-0 mb-section">
             <div className="rounded-md bg-gradient-to-br from-white to-empactathon-primary/20 p-standard md:p-block text-center space-y-3">
                 <h2 className="text-2xl font-bold text-empactathon-dark">Excited to join the Summer Camp?</h2>
-                <p className="text-black-mid">
+                <p className="text-black-mid hidden md:block">
                     If you are motivated to learn and build with a supportive community, we would love to see your application.
                 </p>
                 <a

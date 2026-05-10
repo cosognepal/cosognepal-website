@@ -10,32 +10,32 @@ const TRACKS: Track[] = [
   {
     emoji: "🔥",
     name: "Forest‑Fire Detection",
-    problem: "Early warnings can reduce damage to forests and communities.",
+    problem: "Detect wildfire risk early to protect forests and communities.",
   },
   {
     emoji: "🌳",
     name: "Deforestation Watch",
-    problem: "Protect ecosystems by detecting illegal or rapid clearing sooner.",
+    problem: "Spot forest-cover loss sooner to help protect ecosystems.",
   },
   {
     emoji: "🦏",
     name: "Endangered‑Species Tracker",
-    problem: "Better data helps conservation teams act faster and smarter.",
+    problem: "Track sightings and habitats so conservation teams can act faster.",
   },
   {
     emoji: "💬",
     name: "Nepali Eco‑Chatbot",
-    problem: "Access to trusted info improves awareness and real‑world action.",
+    problem: "Make trusted environmental guidance accessible in Nepali.",
   },
   {
     emoji: "🍅",
     name: "Plant‑Disease Detector",
-    problem: "Early diagnosis can improve yield and farmer livelihoods.",
+    problem: "Catch crop disease early to improve yield and farmer livelihoods.",
   },
   {
     emoji: "🌫️",
     name: "Urban Air‑Quality Alarm",
-    problem: "Timely alerts help people reduce exposure to pollution.",
+    problem: "Send alerts when air gets unsafe so people can reduce exposure.",
   },
 ];
 
@@ -65,16 +65,16 @@ export default function ProjectTracksSection(props: { id?: string; className?: s
               className="group rounded-xl bg-white/90 backdrop-blur-sm border border-empactathon-primary/12 hover:border-empactathon-primary/25 shadow-sm p-standard md:p-block transition-colors"
             >
               <div className="flex items-start gap-3">
-                <div className="h-16 w-16 rounded-2xl bg-empactathon-bg-green border border-empactathon-primary/10 flex items-center justify-center text-3xl">
+                <div className="h-[72px] w-[72px] md:h-16 md:w-16 rounded-2xl bg-empactathon-bg-green border border-empactathon-primary/10 flex items-center justify-center text-2xl md:text-3xl">
                   {t.emoji}
                 </div>
                 <div className="">
                   <div className="text-lg font-extrabold text-empactathon-dark">
                     {t.name}
                   </div>
-                  <p className="text-black-mid/90 leading-relaxed">
+                  <p className="text-black-mid/90 leading-relaxed text-[0.95rem]">
                     <span className="font-semibold text-empactathon-dark">
-                      Problem:
+                      You’ll:
                     </span>{" "}
                     {t.problem}
                   </p>

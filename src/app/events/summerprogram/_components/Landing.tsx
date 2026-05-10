@@ -81,7 +81,7 @@ function Landing({ applyLink }: { applyLink: string }) {
     const leftBushScale = 1 + scrollProgress * 0.60;
 
     return (
-        <section className="relative min-h-screen overflow-hidden bg-empactathon-bg-green flex justify-center w-full items-center flex-col gap-3 md:gap-1 text-center">
+        <section id="hero" className="relative min-h-screen overflow-hidden bg-empactathon-bg-green flex justify-center w-full items-center flex-col gap-3 md:gap-1 text-center">
 
             {/* cloud  leaf */}
             <Icon

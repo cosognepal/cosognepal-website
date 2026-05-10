@@ -48,7 +48,7 @@ export default function OutcomesSection(props: { id?: string; className?: string
                 className="rounded-xl bg-white/90 border border-empactathon-primary/12 p-standard"
               >
                 <div className="flex items-start gap-3">
-                  <div className="mt-[2px] h-10 w-10 rounded-xl bg-empactathon-bg-green border border-empactathon-primary/10 flex items-center justify-center">
+                  <div className="mt-[2px] h-10 w-10 rounded-xl bg-transparent md:bg-empactathon-bg-green border border-empactathon-primary/10 flex items-center justify-center">
                     <span className="text-empactathon-primary font-extrabold text-lg">✓</span>
                   </div>
                   <div className="min-w-0">
