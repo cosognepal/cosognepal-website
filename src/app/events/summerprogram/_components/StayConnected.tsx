@@ -26,9 +26,10 @@ export default function StayConnected() {
         <h2 className="text-2xl font-bold text-empactathon-dark">
           Missed this cohort?
         </h2>
-        <p className="text-black-mid max-w-xl mx-auto">
-          Follow Cosog Nepal on social media for future programs, events, and ways
-          to connect with our community across Nepal.
+        <p className="text-black-mid max-w-2xl mx-auto">
+          Applications for this cohort are now closed. Follow Cosog Nepal on social
+          media for future programs, events, and ways to connect with our community
+          across Nepal.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-3 pt-1">

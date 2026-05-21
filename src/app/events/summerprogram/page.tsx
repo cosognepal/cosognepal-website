@@ -234,58 +234,64 @@ const SummerProgramPage = () => {
                 }}
                 data={[
                     {
+                        question: "Are applications still open?",
+                        answer:
+                            "No. Applications for the 2026 Summer Camp cohort are now closed.",
+                        value: "item-1",
+                    },
+                    {
                         question: "When will I hear about my application decision?",
                         answer:
                             "Decisions are sent before June. Please keep checking your inbox and spam folder.",
-                        value: "item-1",
+                        value: "item-2",
                     },
                     {
                         question: "Who can apply to this summer camp?",
                         answer:
                             "Students below 20 years old who are currently in high school or have recently graduated can apply.",
-                        value: "item-2",
+                        value: "item-3",
                     },
                     {
                         question: "Do you prioritize specific applicants?",
                         answer:
                             "Yes. We prioritize students from public schools and rural regions to make access to STEM learning more equitable.",
-                        value: "item-3",
+                        value: "item-4",
                     },
                     {
                         question: "Is this opportunity for students inside the Kathmandu Valley only?",
                         answer:
                             "No. The Summer Camp is open to students across Nepal. The program uses a hybrid format: most sessions and activities are online so you can participate from anywhere in the country, with occasional in-person gatherings (optional) when possible.",
-                        value: "item-4",
+                        value: "item-5",
                     },
                     {
                         question: "Do I need prior programming skills?",
                         answer:
                             "No prior programming experience is required. We welcome students who are eager to learn, put in effort, and are curious about how technology works.",
-                        value: "item-5",
+                        value: "item-6",
                     },
                     {
                         question: "How long is the program and what do students do?",
                         answer:
                             "The program runs for 16 weeks. Students go through workshops, work in teams on environmental + computer science projects, and present final prototypes in a public showcase.",
-                        value: "item-6",
+                        value: "item-7",
                     },
                     {
                         question: "Is the program paid?",
                         answer:
                             "No. It is completely free to apply and participate, and essential student expenses are covered by the program.",
-                        value: "item-7",
+                        value: "item-8",
                     },
                     {
                         question: "Can I participate alongside my school schedule?",
                         answer:
                             "Yes. The program is flexible and mostly online, so students can join while continuing school, with occasional in-person events when possible.",
-                        value: "item-8",
+                        value: "item-9",
                     },
                     {
                         question: "What will I gain after finishing?",
                         answer:
                             "You will gain practical project experience, mentor feedback, stronger environmental and technical understanding, and a portfolio-ready showcase output.",
-                        value: "item-9",
+                        value: "item-10",
                     },
                 ]}
             />
