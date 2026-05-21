@@ -4,51 +4,8 @@ import { Icon } from "@/components/Icon";
 import { margarine, rubik_wet_paint } from "@/lib/fonts";
 import { useEffect, useState } from "react";
 
-type Countdown = {
-    status: "open" | "closed";
-    days: number;
-    hours: number;
-    minutes: number;
-    seconds: number;
-};
-
-function getCountdown(targetIsoWithOffset: string): Countdown {
-    const target = new Date(targetIsoWithOffset).getTime();
-    const now = Date.now();
-    const diff = target - now;
-
-    if (!Number.isFinite(target) || diff <= 0) {
-        return { status: "closed", days: 0, hours: 0, minutes: 0, seconds: 0 };
-    }
-
-    const totalSeconds = Math.floor(diff / 1000);
-    const days = Math.floor(totalSeconds / (24 * 60 * 60));
-    const hours = Math.floor((totalSeconds % (24 * 60 * 60)) / (60 * 60));
-    const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
-    const seconds = totalSeconds % 60;
-
-    return { status: "open", days, hours, minutes, seconds };
-}
-
-function TimeBox({ label, value }: { label: string; value: number }) {
-    return (
-        <div className="rounded-lg bg-white/70 backdrop-blur-sm border border-empactathon-primary/20 px-3 py-2 min-w-[68px]">
-            <div className="text-empactathon-dark text-xl md:text-2xl font-extrabold leading-none tabular-nums">
-                {String(value).padStart(2, "0")}
-            </div>
-            <div className="text-[11px] md:text-xs uppercase tracking-widest text-black-mid/80 mt-1">
-                {label}
-            </div>
-        </div>
-    );
-}
-
-function Landing({ applyLink }: { applyLink: string }) {
+function Landing() {
     const [scrollProgress, setScrollProgress] = useState(0);
-    const deadline = "2026-05-20T23:59:59+05:45";
-    const [countdown, setCountdown] = useState<Countdown>(() =>
-        getCountdown(deadline)
-    );
 
     useEffect(() => {
         let ticking = false;
@@ -69,12 +26,6 @@ function Landing({ applyLink }: { applyLink: string }) {
 
         window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
-    useEffect(() => {
-        const t = window.setInterval(() => setCountdown(getCountdown(deadline)), 1000);
-        setCountdown(getCountdown(deadline));
-        return () => window.clearInterval(t);
     }, []);
 
     const rightBushScale = 1 + scrollProgress * 0.60;
@@ -148,36 +99,45 @@ function Landing({ applyLink }: { applyLink: string }) {
                     </span>
                 </p>
 
-                <p className="mt-6 text-empactathon-dark text-sm md:text-base font-semibold">
-                    Application deadline:{" "}
-                    <time dateTime="2026-05-20">May 20, 2026</time>
-                </p>
+                <div className="mt-5 md:mt-6 flex flex-col items-center gap-1.5">
+                    <p className="text-[10px] uppercase tracking-[0.22em] text-empactathon-dark/70 font-bold">
+                        Program timeline ·{" "}
+                        <time dateTime="2026-06/2026-09" className="tabular-nums">
+                            2026
+                        </time>
+                    </p>
 
-                <div className="mt-4 flex flex-col items-center gap-3">
-                    {countdown.status === "open" ? (
-                        <>
-                            <div className="flex items-center justify-center gap-2 md:gap-3 flex-wrap">
-                                <TimeBox label="Days" value={countdown.days} />
-                                <TimeBox label="Hours" value={countdown.hours} />
-                                <TimeBox label="Min" value={countdown.minutes} />
-                                <TimeBox label="Sec" value={countdown.seconds} />
-                            </div>
-                        </>
-                    ) : (
-                        <div className="inline-flex items-center rounded-full bg-white/70 backdrop-blur-sm border border-empactathon-primary/20 px-4 py-2 text-empactathon-dark font-bold">
-                            Applications closed
+                    <div className="inline-flex items-center gap-1.5 md:gap-3 rounded-xl bg-white/80 backdrop-blur-md border border-empactathon-primary/20 px-3 md:px-6 py-2 md:py-2.5 shadow-[0_6px_20px_rgba(0,0,0,0.06)]">
+                        <div className="text-center min-w-[64px] md:min-w-[76px]">
+                            <p className={`${margarine.className} text-xl md:text-2xl text-empactathon-primary leading-none`}>
+                                June
+                            </p>
+                            <p className="text-[9px] md:text-[10px] uppercase tracking-widest text-black-mid/70 mt-0.5 font-semibold">
+                                Starts
+                            </p>
                         </div>
-                    )}
-                </div>
 
-                <a
-                    className="inline-block cta px-10 py-4 bg-empactathon-primary text-white rounded-md mt-10 uppercase font-bold hover:scale-[1.02] transition-transform duration-200"
-                    href={applyLink}
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    Apply Now
-                </a>
+                        <div className="flex flex-col items-center gap-1 px-0.5 md:px-1">
+                            <div className="flex items-center gap-0.5">
+                                <span className="h-1.5 w-1.5 rounded-full bg-empactathon-primary" />
+                                <span className="h-px w-7 md:w-12 bg-gradient-to-r from-empactathon-primary/40 via-empactathon-primary to-empactathon-primary/40 rounded-full" />
+                                <span className="h-1.5 w-1.5 rounded-full bg-empactathon-primary" />
+                            </div>
+                            <span className="text-[9px] md:text-[10px] uppercase tracking-[0.16em] font-bold text-empactathon-dark/70 whitespace-nowrap">
+                                16 weeks
+                            </span>
+                        </div>
+
+                        <div className="text-center min-w-[64px] md:min-w-[76px]">
+                            <p className={`${margarine.className} text-xl md:text-2xl text-empactathon-primary leading-none`}>
+                                September
+                            </p>
+                            <p className="text-[9px] md:text-[10px] uppercase tracking-widest text-black-mid/70 mt-0.5 font-semibold">
+                                Showcase
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <style jsx global>{`

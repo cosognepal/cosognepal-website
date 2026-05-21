@@ -4,6 +4,7 @@ import samikshaKhadkaPhoto from "@/assets/images/SummerCamp/SamikshaKhadka.jpeg"
 import sarojRegmiPhoto from "@/assets/images/SummerCamp/SarojRegmi.jpeg";
 import ashishPandeyPhoto from "@/assets/images/SummerCamp/AshishPandey.jpg";
 import kailashPanthaPhoto from "@/assets/images/SummerCamp/KailashPantha.jpeg";
+import bhishmaBhandariPhoto from "@/assets/images/SummerCamp/BhismaBhandari.png";
 import Landing from "./_components/Landing";
 import { GuestsSection } from "./_components/Guests";
 import TimeLine from "./_components/TimeLine";
@@ -14,15 +15,13 @@ import Footer from "./_components/Footer";
 import SupportedBy from "./_components/SupportedBy";
 import ProjectTracksSection from "./_components/ProjectTracks";
 import OutcomesSection from "./_components/Outcomes";
-import MobileStickyApply from "./_components/MobileStickyApply";
+import StayConnected from "./_components/StayConnected";
 import { cn } from "@/lib/utils";
 import { lora } from "@/lib/fonts";
 
 const SummerProgramPage = () => {
-    const menteeApplicationLink = process.env.SUMMER_PROGRAM_MENTEE_APPLICATION_LINK ?? "#";
-
-    return <div className="space-y-section pb-24 md:pb-0">
-        <Landing applyLink={menteeApplicationLink} />
+    return <div className="space-y-section">
+        <Landing />
 
         {/* About */}
         <section id="about" className="scroll-mt-24">
@@ -115,6 +114,18 @@ const SummerProgramPage = () => {
                             "Kailash Pantha is an AI Engineer dedicated to bridging the gap between theoretical research and real-world application. His expertise spans computer vision, embedded systems, and scalable software development, with a focus on solving complex challenges through innovative, data-driven approaches.",
                             "Driven by curiosity and a commitment to continuous learning, Kailash specializes in autonomous systems and multimodal AI. He is passionate about developing solutions that are both technically sophisticated and socially impactful.",
                             "Beyond technical execution, he is committed to fostering collaborative innovation and making emerging technologies more accessible to a global community.",
+                        ],
+                    },
+                    {
+                        id: "6",
+                        name: "Bhishma Bhandari",
+                        image: bhishmaBhandariPhoto,
+                        designation:
+                            "Research @IoT R&D Lab KU × Kyra Works",
+                        short_intro: [
+                            "Bhishma Bhandari is a final-year Computer Engineering student at Kathmandu University. He is a Research Intern at the IoT R&D Lab (KU × Kyra Works), where he develops a physics-based theft detection system using 3D volumetric analysis, depth estimation, and human tracking—eliminating the need for per-item training. His work focuses on real-time systems that combine computer vision, geometry, and efficient inference.",
+                            "He enjoys building AI and ML systems and has worked on projects involving computer vision, transformer models, and web apps. He has experience across the ML pipeline, from dataset creation and annotation to deployment and evaluation.",
+                            "With a strong passion for teaching and education, he has taught school students, supervised academic projects, and conducted machine learning workshops at school and college levels. Outside of work, he enjoys exploring emerging technologies, mentoring peers, and working on meaningful, impactful ideas.",
                         ],
                     },
                 ]}
@@ -213,23 +224,7 @@ const SummerProgramPage = () => {
         {/* After the program */}
         <OutcomesSection id="outcomes" title="After the program" />
 
-        {/* CTA */}
-        <section className="w-full max-w-[1400px] mx-auto px-standard brk-1400:px-0 mb-section">
-            <div className="rounded-md bg-gradient-to-br from-white to-empactathon-primary/20 p-standard md:p-block text-center space-y-3">
-                <h2 className="text-2xl font-bold text-empactathon-dark">Excited to join the Summer Camp?</h2>
-                <p className="text-black-mid hidden md:block">
-                    If you are motivated to learn and build with a supportive community, we would love to see your application.
-                </p>
-                <a
-                    className="inline-block cta px-8 py-3 bg-empactathon-primary text-white rounded-md uppercase font-bold hover:scale-[1.02] transition-transform duration-200"
-                    href={menteeApplicationLink}
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    Apply Now
-                </a>
-            </div>
-        </section>
+        <StayConnected />
 
         {/* FAQ */}
         <section id="faqs" className="scroll-mt-24">
@@ -239,73 +234,66 @@ const SummerProgramPage = () => {
                 }}
                 data={[
                     {
+                        question: "When will I hear about my application decision?",
+                        answer:
+                            "Decisions are sent before June. Please keep checking your inbox and spam folder.",
+                        value: "item-1",
+                    },
+                    {
                         question: "Who can apply to this summer camp?",
                         answer:
                             "Students below 20 years old who are currently in high school or have recently graduated can apply.",
-                        value: "item-1",
+                        value: "item-2",
                     },
                     {
                         question: "Do you prioritize specific applicants?",
                         answer:
                             "Yes. We prioritize students from public schools and rural regions to make access to STEM learning more equitable.",
-                        value: "item-2",
+                        value: "item-3",
                     },
                     {
                         question: "Is this opportunity for students inside the Kathmandu Valley only?",
                         answer:
                             "No. The Summer Camp is open to students across Nepal. The program uses a hybrid format: most sessions and activities are online so you can participate from anywhere in the country, with occasional in-person gatherings (optional) when possible.",
-                        value: "item-3",
+                        value: "item-4",
                     },
                     {
                         question: "Do I need prior programming skills?",
                         answer:
                             "No prior programming experience is required. We welcome students who are eager to learn, put in effort, and are curious about how technology works.",
-                        value: "item-4",
+                        value: "item-5",
                     },
                     {
                         question: "How long is the program and what do students do?",
                         answer:
                             "The program runs for 16 weeks. Students go through workshops, work in teams on environmental + computer science projects, and present final prototypes in a public showcase.",
-                        value: "item-5",
+                        value: "item-6",
                     },
                     {
                         question: "Is the program paid?",
                         answer:
                             "No. It is completely free to apply and participate, and essential student expenses are covered by the program.",
-                        value: "item-6",
+                        value: "item-7",
                     },
                     {
                         question: "Can I participate alongside my school schedule?",
                         answer:
                             "Yes. The program is flexible and mostly online, so students can join while continuing school, with occasional in-person events when possible.",
-                        value: "item-7",
+                        value: "item-8",
                     },
                     {
                         question: "What will I gain after finishing?",
                         answer:
                             "You will gain practical project experience, mentor feedback, stronger environmental and technical understanding, and a portfolio-ready showcase output.",
-                        value: "item-8",
+                        value: "item-9",
                     },
                 ]}
             />
-            <div className="w-full max-w-[1400px] mx-auto px-standard brk-1400:px-0">
-                <p className="mt-standard text-black-mid">
-                    <span className="font-semibold text-empactathon-dark">
-                        Are you a parent, teacher, or guidance counselor?
-                    </span>{" "}
-                    We&apos;re happy to answer any questions. Email{" "}
-                    <a className="text-empactathon-primary font-semibold hover:underline" href="mailto:cosognepal@gmail.com">
-                        cosognepal@gmail.com
-                    </a>
-                </p>
-            </div>
         </section>
 
         <Footer />
 
         <BottomSectionNav />
-
-        <MobileStickyApply applyLink={menteeApplicationLink} />
 
     </div >
 };
