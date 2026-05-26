@@ -5,6 +5,7 @@ import sarojRegmiPhoto from "@/assets/images/SummerCamp/SarojRegmi.jpeg";
 import ashishPandeyPhoto from "@/assets/images/SummerCamp/AshishPandey.jpg";
 import kailashPanthaPhoto from "@/assets/images/SummerCamp/KailashPantha.jpeg";
 import bhishmaBhandariPhoto from "@/assets/images/SummerCamp/BhismaBhandari.png";
+import sabinaShakyaPhoto from "@/assets/images/SummerCamp/SabinaSakhya.jpeg";
 import Landing from "./_components/Landing";
 import { GuestsSection } from "./_components/Guests";
 import TimeLine from "./_components/TimeLine";
@@ -128,6 +129,18 @@ const SummerProgramPage = () => {
                             "With a strong passion for teaching and education, he has taught school students, supervised academic projects, and conducted machine learning workshops at school and college levels. Outside of work, he enjoys exploring emerging technologies, mentoring peers, and working on meaningful, impactful ideas.",
                         ],
                     },
+                    {
+                        id: "7",
+                        name: "Sabina Shakya",
+                        image: sabinaShakyaPhoto,
+                        designation:
+                            "Environmental science mentor",
+                        short_intro: [
+                            "Sabina Shakya is an environmental science graduate, wildlife conservationist, and storyteller passionate about bridging science, nature, and people.",
+                            "She currently works as a Program Associate at Greenhood Nepal, where she engages in biodiversity conservation, environmental education, and community-focused initiatives. Her interests lie in the ecological and socio-economic dimensions of wildlife conservation, and her work has included research on species such as crocodiles and tigers, as well as broader studies on human-wildlife interactions.",
+                            "She believes that environment and conservation education should form the foundation of every innovation, and that inclusive, science-based storytelling can inspire meaningful conservation action.",
+                        ],
+                    },
                 ]}
             />
         </section>
@@ -242,7 +255,7 @@ const SummerProgramPage = () => {
                     {
                         question: "When will I hear about my application decision?",
                         answer:
-                            "Decisions are sent before June. Please keep checking your inbox and spam folder.",
+                            "Application decisions have already been sent. Please check your email inbox and spam folder for the update.",
                         value: "item-2",
                     },
                     {
