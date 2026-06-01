@@ -4,7 +4,7 @@ import Belief from "./_components/Belief";
 import Partners from "./_components/Partners";
 import Events from "./_components/Events";
 import Numbers from "./_components/Numbers";
-import FoundersMessage from "./_components/FoundersMessage";
+// import FoundersMessage from "./_components/FoundersMessage";
 import Goals from "./_components/Goals";
 import RecentPosts from "./_components/RecentPosts";
 import InfoBanner from "@/components/InfoBanner";

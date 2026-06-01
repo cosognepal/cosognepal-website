@@ -7,7 +7,7 @@ const STORAGE_KEY = "cosog_announcement_summer_camp_2026_dismissed";
 
 type AnnouncementBannerProps = {
   message: string;
-  ctaText: string;
+  ctaText?: string;
   ctaHref: string;
   /** ISO date string. When provided, a live countdown chip is shown. */
   deadline?: string;
@@ -75,15 +75,7 @@ export default function AnnouncementBanner({
         <div className="flex-1 min-w-0 flex flex-wrap items-center gap-x-3 gap-y-1 text-sub-para md:text-para leading-snug">
           <span className="font-medium">{message}</span>
 
-          <a
-            href={ctaHref}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1 font-bold underline-offset-4 hover:underline transition-colors duration-200"
-          >
-            {ctaText}
-            <ArrowRight className="h-3.5 w-3.5" aria-hidden />
-          </a>
+
         </div>
 
         {countdownText && (
@@ -96,11 +88,21 @@ export default function AnnouncementBanner({
           </span>
         )}
 
-        {isClosed && (
+        {/* {isClosed && (
           <span className="inline-flex shrink-0 items-center rounded-full bg-accent_yellow-200/80 px-2.5 py-0.5 text-info md:text-sub-para font-semibold text-accent_yellow-800">
             Applications closed
           </span>
-        )}
+        )} */}
+
+        {ctaText && <a
+          href={ctaHref}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-1 font-bold underline-offset-4 hover:underline transition-colors duration-200 pr-4"
+        >
+          {ctaText}
+          <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+        </a>}
 
         <button
           type="button"

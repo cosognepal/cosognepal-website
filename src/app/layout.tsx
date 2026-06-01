@@ -44,8 +44,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AnnouncementBanner
-          message="Applications for Summer Camp are open."
-          ctaText="Apply now"
+          message="Applications for Summer Camp are now closed."
+          ctaText="Read more"
           ctaHref="https://summercamp.cosognepal.org"
           deadline="2026-05-20T23:59:59"
         />
