@@ -33,9 +33,5 @@ export default function SummerProgramLayout({
 }: {
     children: React.ReactNode;
 }) {
-    return (
-        <>
-            {children}
-        </>
-    );
+    return <>{children}</>;
 }
