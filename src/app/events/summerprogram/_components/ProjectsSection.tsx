@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import {
   PROJECTS_SECTION_SUBTITLE,
@@ -10,6 +11,9 @@ import {
 import { scBorder, scMuted, scRadius, scSageSurface } from "../_data/ui";
 
 export default function ProjectsSection() {
+  const pathname = usePathname();
+  const isProjectModalOpen = pathname.startsWith("/projects/");
+
   return (
     <section
       id="the-six-projects"
@@ -27,6 +31,7 @@ export default function ProjectsSection() {
           <Link
             key={project.slug}
             href={`/projects/${project.slug}`}
+            replace={isProjectModalOpen}
             scroll={false}
             className={cn(
               "group flex flex-col p-6 transition-all duration-200",

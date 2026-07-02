@@ -10,17 +10,19 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Check, Copy, X } from "lucide-react";
+import { Check, Copy } from "lucide-react";
+import { Icon } from "@/components/Icon";
 import PlaceholderAvatar from "@/components/ui/PlaceholderAvatar";
 import { cn } from "@/lib/utils";
 import type { ProjectPerson, SummerProject } from "../_data/projects";
-import { scBorder, scMuted, scRadius, scSageBg } from "../_data/ui";
+import { scBorder, scMuted, scRadius } from "../_data/ui";
 
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
 type ProjectModalProps = {
   project: SummerProject;
+  /** "back" when opened over the homepage via intercepting route; "home" for direct /projects/[slug] visits */
   closeMode?: "back" | "home";
 };
 
@@ -34,7 +36,9 @@ function PersonCard({
   const displayName = person.name.trim() || "To be announced";
 
   return (
-    <div className={`flex flex-1 items-center gap-3 ${scRadius} ${scBorder} p-3`}>
+    <div
+      className={`flex flex-1 items-center gap-3 rounded-md border border-empactathon-primary/15 bg-white/60 p-3`}
+    >
       {person.photo ? (
         <Image
           src={person.photo}
@@ -50,7 +54,7 @@ function PersonCard({
         />
       )}
       <div className="min-w-0">
-        <p className="text-xs font-medium text-[#1B5E20]">{label}</p>
+        <p className="text-xs font-medium text-empactathon-primary">{label}</p>
         <p className="text-sm font-semibold text-empactathon-dark truncate">
           {displayName}
         </p>
@@ -71,16 +75,21 @@ export default function ProjectModal({
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const [copied, setCopied] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const closeModal = useCallback(() => {
+    document.body.style.overflow = "";
+
     if (closeMode === "back") {
       router.back();
       return;
     }
-    router.push("/");
+
+    router.replace("/", { scroll: false });
   }, [closeMode, router]);
 
   useEffect(() => {
+    setMounted(true);
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     closeButtonRef.current?.focus();
@@ -129,66 +138,28 @@ export default function ProjectModal({
   const visibleLinks = project.links.filter((link) => link.url.trim());
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-end md:items-center justify-center p-0 md:p-4">
-      <button
-        type="button"
-        aria-label="Close project details"
-        className="absolute inset-0 bg-black/50"
-        onClick={closeModal}
-      />
-
-      <div
-        ref={dialogRef}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby={titleId}
-        className={cn(
-          "project-modal-panel relative z-10 flex w-full max-w-2xl flex-col bg-white",
-          "max-h-[92vh] md:max-h-[85vh]",
-          scRadius,
-          "h-[100dvh] md:h-auto md:shadow-[0_8px_30px_rgba(27,94,32,0.12)]"
-        )}
-      >
-        <div
-          className={`shrink-0 ${scSageBg} border-b border-[#1B5E20]/15 px-5 py-4 md:rounded-t-xl`}
-        >
-          <div className="flex items-start justify-between gap-3">
-            <div className="flex items-center gap-3 min-w-0">
-              <span className="text-2xl shrink-0" aria-hidden>
-                {project.emoji}
-              </span>
-              <div className="min-w-0">
-                <h2
-                  id={titleId}
-                  className="text-lg font-semibold text-empactathon-dark leading-tight"
-                >
-                  {project.name}
-                </h2>
-                <p className={`text-sm ${scMuted} mt-0.5`}>{project.hook}</p>
-              </div>
-            </div>
-            <button
-              ref={closeButtonRef}
-              type="button"
-              onClick={closeModal}
-              aria-label="Close"
-              className={`shrink-0 ${scRadius} ${scBorder} p-2 text-empactathon-dark hover:bg-white transition-colors`}
-            >
-              <X className="h-4 w-4" />
-            </button>
-          </div>
-        </div>
-
-        <div className="relative flex-1 overflow-y-auto px-5 py-5 space-y-5">
-          <div className="absolute top-4 right-5">
+    <div
+      ref={dialogRef}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={titleId}
+      className={cn(
+        "project-modal-panel w-full min-h-96 bg-white/80 backdrop-blur-md fixed bottom-0 left-0 z-50",
+        "[box-shadow:0px_-20px_50px_rgba(0,0,0,0.18)] transition-all duration-300 ease-in-out",
+        mounted ? "translate-y-0 opacity-100" : "translate-y-full opacity-40"
+      )}
+    >
+      <div className="max-h-[85vh] overflow-y-auto overscroll-contain pb-[calc(96px+env(safe-area-inset-bottom))] md:pb-[max(16px,env(safe-area-inset-bottom))]">
+        <div className="w-full max-w-[1400px] md:px-standard brk-1400:mx-auto sm:px-block px-standard">
+          <div className="sticky top-3 z-10 flex justify-end gap-2 px-small pt-3">
             <button
               type="button"
               onClick={copyLink}
-              className={`inline-flex items-center gap-1.5 ${scRadius} ${scBorder} px-3 py-1.5 text-xs font-medium text-empactathon-dark hover:bg-[#D4E8C4]/30 transition-colors`}
+              className="inline-flex items-center gap-1.5 rounded-md bg-white/85 backdrop-blur-md border border-empactathon-primary/10 shadow-sm px-3 py-2 text-xs font-medium text-empactathon-dark hover:bg-white transition-colors"
             >
               {copied ? (
                 <>
-                  <Check className="h-3.5 w-3.5 text-[#1B5E20]" />
+                  <Check className="h-3.5 w-3.5 text-empactathon-primary" />
                   Copied
                 </>
               ) : (
@@ -198,79 +169,100 @@ export default function ProjectModal({
                 </>
               )}
             </button>
+            <button
+              ref={closeButtonRef}
+              type="button"
+              className="close cursor-pointer p-2 rounded-md bg-white/85 backdrop-blur-md border border-empactathon-primary/10 shadow-sm hover:bg-white"
+              onClick={closeModal}
+              aria-label="Close"
+            >
+              <Icon iconName="close" className="h-5 w-5 text-black-dark" />
+            </button>
           </div>
 
-          <section className="space-y-2 pt-6">
-            <h3 className="text-sm font-semibold text-[#1B5E20]">About</h3>
-            <p className={`text-sm ${scMuted} leading-relaxed`}>{project.about}</p>
-          </section>
-
-          <section className="space-y-2">
-            <h3 className="text-sm font-semibold text-[#1B5E20]">The Problem</h3>
-            <p className={`text-sm ${scMuted} leading-relaxed`}>{project.problem}</p>
-          </section>
-
-          <section className="space-y-2">
-            <h3 className="text-sm font-semibold text-[#1B5E20]">Tech Stack</h3>
-            <div className="flex flex-wrap gap-2">
-              {project.techStack.map((tech) => (
-                <span
-                  key={tech}
-                  className={`${scRadius} ${scBorder} px-2.5 py-1 text-xs text-empactathon-dark`}
+          <div className="text-center md:text-left space-y-5 mt-4 pb-6">
+            <div className="flex flex-col md:flex-row md:items-start gap-4">
+              <span className="text-3xl shrink-0" aria-hidden>
+                {project.emoji}
+              </span>
+              <div className="min-w-0 flex-1">
+                <h2
+                  id={titleId}
+                  className="text-2xl text-black-dark font-bold leading-tight"
                 >
-                  {tech}
-                </span>
-              ))}
+                  {project.name}
+                </h2>
+                <p className={`text-primary mt-1`}>{project.hook}</p>
+              </div>
             </div>
-          </section>
 
-          <section className="space-y-2">
-            <h3 className="text-sm font-semibold text-[#1B5E20]">
-              Mentor &amp; Co-Mentor
-            </h3>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <PersonCard person={project.mentor} label="Mentor" />
-              <PersonCard person={project.coMentor} label="Co-Mentor" />
-            </div>
-          </section>
-
-          {visibleLinks.length > 0 && (
             <section className="space-y-2">
-              <h3 className="text-sm font-semibold text-[#1B5E20]">Links</h3>
-              <div className="flex flex-wrap gap-2">
-                {visibleLinks.map((link) => (
-                  <Link
-                    key={link.label}
-                    href={link.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`inline-flex items-center ${scRadius} ${scBorder} px-3 py-2 text-sm font-medium text-[#1B5E20] hover:bg-[#D4E8C4]/30 transition-colors`}
+              <h3 className="text-sm font-semibold text-empactathon-primary uppercase tracking-wide">
+                About
+              </h3>
+              <p className={`text-sm ${scMuted} leading-relaxed px-5 md:px-0`}>
+                {project.about}
+              </p>
+            </section>
+
+            <section className="space-y-2">
+              <h3 className="text-sm font-semibold text-empactathon-primary uppercase tracking-wide">
+                The Problem
+              </h3>
+              <p className={`text-sm ${scMuted} leading-relaxed px-5 md:px-0`}>
+                {project.problem}
+              </p>
+            </section>
+
+            <section className="space-y-2">
+              <h3 className="text-sm font-semibold text-empactathon-primary uppercase tracking-wide">
+                Tech Stack
+              </h3>
+              <div className="flex flex-wrap gap-2 px-5 md:px-0">
+                {project.techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className={`${scRadius} ${scBorder} bg-white/60 px-2.5 py-1 text-xs text-empactathon-dark`}
                   >
-                    {link.label}
-                  </Link>
+                    {tech}
+                  </span>
                 ))}
               </div>
             </section>
-          )}
+
+            <section className="space-y-3">
+              <h3 className="text-sm font-semibold text-empactathon-primary uppercase tracking-wide">
+                Mentor &amp; Co-Mentor
+              </h3>
+              <div className="flex flex-col sm:flex-row gap-3 px-5 md:px-0">
+                <PersonCard person={project.mentor} label="Mentor" />
+                <PersonCard person={project.coMentor} label="Co-Mentor" />
+              </div>
+            </section>
+
+            {visibleLinks.length > 0 && (
+              <section className="space-y-2">
+                <h3 className="text-sm font-semibold text-empactathon-primary uppercase tracking-wide">
+                  Links
+                </h3>
+                <div className="flex flex-wrap gap-2 px-5 md:px-0">
+                  {visibleLinks.map((link) => (
+                    <Link
+                      key={link.label}
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={`inline-flex items-center ${scRadius} ${scBorder} bg-white/60 px-3 py-2 text-sm font-medium text-empactathon-primary hover:bg-white transition-colors`}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+          </div>
         </div>
       </div>
-
-      <style jsx global>{`
-        @keyframes projectModalSlideUp {
-          from {
-            transform: translateY(100%);
-          }
-          to {
-            transform: translateY(0);
-          }
-        }
-        @media (max-width: 767px) {
-          .project-modal-panel {
-            animation: projectModalSlideUp 0.25s ease-out;
-            border-radius: 0;
-          }
-        }
-      `}</style>
     </div>
   );
 }
