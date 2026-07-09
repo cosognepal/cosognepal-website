@@ -1,41 +1,16 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Our programs",
-  description:
-    "Coding for Social Good Nepal is a non-profit organization working to promote Computer Science Education and Initiate CS Clubs in Sec/High Schools in Nepal and facilitating charitable coding initiatives to aid in Nepal's digitalization.",
-  metadataBase: new URL("https://cosognepal.org/programs"),
-  openGraph: {
-    images: [
-      {
-        url: "/assets/about_banner.png",
-        width: 1600,
-        height: 1200,
-        type: "image/png",
-      },
-    ],
-    emails: "contact@cosognepal.com",
-    phoneNumbers: "+977 9863196247",
-  },
-  twitter: {
-    card: "summary",
-    site: "@cosognepal",
-    title: "Programs | Coding for Social Good Nepal",
-    description:
-      "Cosog Nepal (Coding for Social Good) is a non-profit organization working to promote Computer Science Education and Initiate CS Clubs in Sec/High Schools in Nepal and facilitating charitable coding initiatives to aid in Nepal's digitalization.",
-    images: [
-      {
-        url: "/assets/about_banner.png",
-        width: 1600,
-        height: 1200,
-        type: "image/png",
-      },
-    ],
-  },
-  icons: [{ url: "/favicon.ico", sizes: "any" }],
-};
+import { APP_ROUTES } from "@/lib/routes";
+import { createPageMetadata } from "@/lib/seo";
 
-export default function AboutLayout({
+export const metadata: Metadata = createPageMetadata({
+  title: "Programs",
+  description:
+    "Explore Cosog Nepal programs — CS awareness in schools, E-STEM Summer Camp, Code for Charity builds, and skills fellowships.",
+  path: APP_ROUTES.PROGRAMS,
+});
+
+export default function ProgramsLayout({
   children,
 }: {
   children: React.ReactNode;

@@ -6,6 +6,7 @@ import LogoWall from "@/components/LogoWall";
 import CTABanner from "@/components/CTABanner";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/SectionHeading";
+import JsonLd from "@/components/JsonLd";
 import {
   Accordion,
   AccordionContent,
@@ -21,6 +22,12 @@ import {
   getPartnersForHomepage,
 } from "@/content";
 import { APP_ROUTES } from "@/lib/routes";
+import {
+  organizationJsonLd,
+  PRIORITY_SEO_PATHS,
+  webPageJsonLd,
+  websiteJsonLd,
+} from "@/lib/seo";
 import placeholderImage from "@/assets/images/hero_video_placeholder.png";
 import sdg4 from "@/assets/sdgs/E_WEB_04.png";
 import sdg8 from "@/assets/sdgs/E_WEB_08.png";
@@ -75,7 +82,19 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col space-y-10">
+    <main id="main-content" tabIndex={-1} className="flex flex-col space-y-10 outline-none">
+      <JsonLd
+        data={[
+          organizationJsonLd(),
+          websiteJsonLd(),
+          webPageJsonLd({
+            title: "Cosog Nepal — Computer Science Education in Nepal",
+            description:
+              "Cosog Nepal brings computer science education to schools across Nepal through CS clubs, skills fellowships, and Code for Charity.",
+            path: PRIORITY_SEO_PATHS.home,
+          }),
+        ]}
+      />
       {/* 1. Hero */}
       <Hero
         headline="Bringing Computer Science to every classroom in Nepal"
@@ -151,7 +170,7 @@ export default function Home() {
                   href={goal.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="block w-24 md:w-28 border border-rule bg-surface p-1 rounded transition-colors duration-[var(--dur-fast)] ease-[var(--ease)] hover:border-brand hover:bg-brand-wash"
+                  className="block w-24 md:w-[10.5rem] border border-rule bg-surface p-1 rounded transition-colors duration-[var(--dur-fast)] ease-[var(--ease)] hover:border-brand hover:bg-brand-wash"
                 >
                   <Image
                     src={goal.image}
@@ -241,6 +260,6 @@ export default function Home() {
           href: APP_ROUTES.GET_INVOLVED.PARTNER,
         }}
       />
-    </div>
+    </main>
   );
 }

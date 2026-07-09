@@ -64,7 +64,11 @@ export default function AnnouncementBanner({
   };
 
   return (
-    <div className="w-full bg-accent_yellow-100 border-b border-accent_yellow-200 text-black-dark">
+    <div
+      role="region"
+      aria-label="Site announcement"
+      className="w-full bg-accent_yellow-100 border-b border-accent_yellow-200 text-black-dark"
+    >
       <div className="w-full max-w-content mx-auto px-standard py-2 flex items-center gap-3">
         <Megaphone
           className="h-4 w-4 shrink-0 text-accent_yellow-800"

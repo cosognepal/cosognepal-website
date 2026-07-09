@@ -43,6 +43,7 @@ export default function Hero({
             muted
             loop
             playsInline
+            aria-label="Background video showcasing Cosog Nepal's work in computer science education"
             className="absolute inset-0 w-full h-full object-cover"
           />
         )}

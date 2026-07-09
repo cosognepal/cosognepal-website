@@ -6,6 +6,7 @@ import {
   getPrograms,
 } from "@/content";
 import ProgramPageTemplate from "@/components/ProgramPageTemplate";
+import { createPageMetadata } from "@/lib/seo";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -22,11 +23,24 @@ export async function generateMetadata({
   const program = getProgramBySlug(slug);
   if (!program) return {};
 
-  return {
-    title: `${program.title} | Cosog Nepal`,
+  const keywords =
+    slug === "summer-camp"
+      ? [
+          "E-STEM Summer Camp Nepal",
+          "summer coding camp Nepal",
+          "Cosog Nepal summer camp",
+          "environmental STEM fellowship",
+          "student tech projects Nepal",
+        ]
+      : undefined;
+
+  return createPageMetadata({
+    title: program.title,
     description: program.summary,
-    ...(program.noindex ? { robots: { index: false, follow: false } } : {}),
-  };
+    path: `/programs/${program.slug}`,
+    noindex: program.noindex,
+    keywords,
+  });
 }
 
 export default async function ProgramPage({ params }: PageProps) {

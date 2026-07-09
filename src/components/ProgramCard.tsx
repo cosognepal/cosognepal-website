@@ -44,7 +44,7 @@ export default function ProgramCard({ program }: ProgramCardProps) {
         <div className="relative aspect-video w-full overflow-hidden bg-paper">
           <Image
             src={program.hero}
-            alt=""
+            alt={`${program.title} — program cover image`}
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 33vw"

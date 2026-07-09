@@ -4,12 +4,15 @@ import { getPress } from "@/content";
 import PressList from "@/components/PressList";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/SectionHeading";
+import { APP_ROUTES } from "@/lib/routes";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Press & Features | Cosog Nepal",
+export const metadata: Metadata = createPageMetadata({
+  title: "Press & Features",
   description:
     "Media coverage and press features about Cosog Nepal and our work in CS education.",
-};
+  path: APP_ROUTES.ABOUT_PRESS,
+});
 
 export default function PressPage() {
   const press = getPress();

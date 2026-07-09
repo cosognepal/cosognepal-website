@@ -18,6 +18,11 @@ import EventDescripter from "@/components/ui/EventAbout";
 import { GuestsSection } from "@/app/events/techafterten/_components/Guests";
 import YouTubePlaylistEmbed from "@/components/YouTubePlaylistEmbed";
 import LiteYouTubeEmbed from "@/components/LiteYouTubeEmbed";
+import JsonLd from "@/components/JsonLd";
+import {
+  educationalProgramJsonLd,
+  PRIORITY_SEO_PATHS,
+} from "@/lib/seo";
 import Pratikshya from "@/assets/images/Events/CS_in_high_school/Pratiksha_Pandey.jpg";
 import Aashish from "@/assets/images/Events/CS_in_high_school/Aashish_Panthi.jpeg";
 import Siddhartha from "@/assets/images/Events/CS_in_high_school/Siddhartha_Neupane.jpg";
@@ -220,7 +225,16 @@ export default function ProgramPageTemplate({
   };
 
   return (
-    <main className="space-y-12 py-12">
+    <main id="main-content" tabIndex={-1} className="space-y-12 py-12 outline-none">
+      {program.slug === "summer-camp" && (
+        <JsonLd
+          data={educationalProgramJsonLd({
+            name: program.title,
+            description: program.summary,
+            path: PRIORITY_SEO_PATHS.summerCamp,
+          })}
+        />
+      )}
       <Container className="space-y-8">
         <Link
           href={backLink.href}

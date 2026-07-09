@@ -1,16 +1,18 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 
 import { getAwards } from "@/content";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/SectionHeading";
 import type { Award } from "@/content/types";
+import { APP_ROUTES } from "@/lib/routes";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Awards & Recognition | Cosog Nepal",
+export const metadata = createPageMetadata({
+  title: "Awards & Recognition",
   description:
     "Awards and recognition received by Cosog Nepal and our team members.",
-};
+  path: APP_ROUTES.ABOUT_AWARDS,
+});
 
 const LEVEL_LABELS: Record<Award["level"], string> = {
   winner: "Winner",
@@ -30,7 +32,7 @@ export default function AwardsPage() {
   const awards = getAwards();
 
   return (
-    <main className="py-12 md:py-16">
+    <main id="main-content" tabIndex={-1} className="py-12 md:py-16 outline-none">
       <Container className="space-y-10">
         <div className="space-y-4 max-w-2xl">
           <SectionHeading as="h1">Awards &amp; Recognition</SectionHeading>

@@ -84,13 +84,22 @@ export const PROGRAMS: Program[] = [
   },
   {
     slug: "summer-camp",
-    title: "Summer Camp",
+    title: "E-STEM Summer Camp",
     focusArea: "skills",
     status: "running",
     hero: SummerCampImage,
-    external: "https://summercamp.cosognepal.org",
     summary:
-      "A 16 week long program where students learn environmental and computer science then build tech projects with experienced mentors. At last, all six team will present their work at a physical showcase.",
+      "A 16-week fellowship where students learn environmental science and computer science, then build real tech projects with experienced mentors. Six teams present their work at a physical showcase.",
+    origin: [
+      "The E-STEM Summer Camp is Cosog Nepal's flagship skills fellowship. Students aged 11–22 work in mentored teams to design technology prototypes that address environmental challenges in their communities.",
+      "The program is supported by the Global E-STEM Innovation Grant from Pratt & Whitney and NAAEE, and runs on our dedicated camp site at summercamp.cosognepal.org.",
+    ],
+    approach: [
+      "Participants learn environmental literacy alongside practical coding and prototyping skills over 16 weeks.",
+      "Teams ship a real project and present at an in-person showcase at the end of the fellowship.",
+    ],
+    ctaLabel: "Visit the Summer Camp site",
+    ctaHref: "https://summercamp.cosognepal.org",
   },
   {
     slug: "web-development-wordpress",

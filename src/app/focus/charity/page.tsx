@@ -11,6 +11,7 @@ import SectionRule from "@/components/SectionRule";
 import FAQ from "@/app/_components/FAQ";
 import CTABanner from "@/components/CTABanner";
 import LogoWall from "@/components/LogoWall";
+import JsonLd from "@/components/JsonLd";
 
 import {
   charityFocusArea,
@@ -22,6 +23,12 @@ import {
 } from "@/content";
 import { AWARDS } from "@/content/awards";
 import { PARTNERS } from "@/content/partners";
+import {
+  createPageMetadata,
+  educationalProgramJsonLd,
+  PRIORITY_SEO_PATHS,
+  webPageJsonLd,
+} from "@/lib/seo";
 
 const NONPROFIT_FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLScojNFk_uLuQd48KgT8zkCrbRqPjApYeWPGPVeESG19rlxZ3A/viewform?usp=pp_url&entry.76041240=President&entry.145747725=Nepal";
@@ -71,10 +78,18 @@ const FAQ_ITEMS = [
   },
 ];
 
-export const metadata: Metadata = {
-  title: "Code for Charity | Cosog Nepal",
+export const metadata: Metadata = createPageMetadata({
+  title: "Code for Charity",
   description: charityFocusArea.summary,
-};
+  path: PRIORITY_SEO_PATHS.charity,
+  keywords: [
+    "Code for Charity Nepal",
+    "free website for nonprofits",
+    "pro bono web development Nepal",
+    "volunteer developers Nepal",
+    "Cosog Nepal charity",
+  ],
+});
 
 export default function CharityFocusPage() {
   const charityPrograms = getProgramsByFocus("charity");
@@ -90,7 +105,21 @@ export default function CharityFocusPage() {
   );
 
   return (
-    <div className="flex flex-col">
+    <main id="main-content" tabIndex={-1} className="flex flex-col outline-none">
+      <JsonLd
+        data={[
+          webPageJsonLd({
+            title: charityFocusArea.title,
+            description: charityFocusArea.summary,
+            path: PRIORITY_SEO_PATHS.charity,
+          }),
+          educationalProgramJsonLd({
+            name: charityFocusArea.title,
+            description: charityFocusArea.summary,
+            path: PRIORITY_SEO_PATHS.charity,
+          }),
+        ]}
+      />
       {/* 1. Hero */}
       <section className="py-16 md:py-20">
         <Container className="space-y-6">
@@ -345,6 +374,6 @@ export default function CharityFocusPage() {
           external: true,
         }}
       />
-    </div>
+    </main>
   );
 }

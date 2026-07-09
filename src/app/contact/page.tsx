@@ -98,8 +98,8 @@ const ContactPage = () => {
 
   return (
     <>
-    <main className="px-standard w-full max-w-content mx-auto space-y-block">
-      <form onSubmit={handleSubmit} className="text-faded space-y-small">
+    <main id="main-content" tabIndex={-1} className="px-standard w-full max-w-content mx-auto space-y-block outline-none">
+      <form onSubmit={handleSubmit} className="text-faded space-y-small" noValidate>
         {/* Honeypot field - visually hidden off-screen but present in DOM */}
         <div
           style={{
@@ -124,51 +124,81 @@ const ContactPage = () => {
           />
         </div>
 
-        <h2 className="text-mid-title font-bold text-black-mid">
+        <h1 className="text-mid-title font-bold text-black-mid">
           Send a message
-        </h2>
+        </h1>
         <div className="emailSection space-y-small">
-          <p className="text-sub-para">Email</p>
+          <label htmlFor="contact-email" className="text-sub-para">
+            Email
+          </label>
           <input
             required
+            id="contact-email"
             name="email"
             type="email"
             value={formData.email}
             onChange={handleChange}
             placeholder="Ex: contact@cosognepal.org"
+            aria-invalid={Boolean(errors.email)}
+            aria-describedby={errors.email ? "contact-email-error" : undefined}
             className="rounded-md w-full h-12 py-3 px-2 text-black-light text-sub-para border-2 border-[#D9D9D9] focus:border-blue focus-visible:outline-none"
           />
-          {errors.email && <p className="text-red-500">{errors.email}</p>}
+          {errors.email && (
+            <p id="contact-email-error" className="text-red-500" role="alert">
+              {errors.email}
+            </p>
+          )}
         </div>
         <div className="phoneNumberSection space-y-small">
-          <p className="text-sub-para">Phone Number</p>
+          <label htmlFor="contact-phone" className="text-sub-para">
+            Phone Number
+          </label>
           <input
             required
+            id="contact-phone"
             name="phoneNumber"
-            type="text"
+            type="tel"
+            inputMode="numeric"
             onChange={handleChange}
             value={formData.phoneNumber}
             placeholder="Ex: 9866776670"
+            aria-invalid={Boolean(errors.phoneNumber)}
+            aria-describedby={
+              errors.phoneNumber ? "contact-phone-error" : undefined
+            }
             className="rounded-md w-full h-12 py-3 px-2 text-black-light text-sub-para border-2 border-[#D9D9D9] focus:border-blue focus-visible:outline-none"
           />
           {errors.phoneNumber && (
-            <p className="text-red-500">{errors.phoneNumber}</p>
+            <p id="contact-phone-error" className="text-red-500" role="alert">
+              {errors.phoneNumber}
+            </p>
           )}
         </div>
 
         <div className="textAreaSection space-y-small">
-          <p className="text-sub-para">Message</p>
+          <label htmlFor="contact-message" className="text-sub-para">
+            Message
+          </label>
           <textarea
             rows={10}
             cols={30}
             required
+            id="contact-message"
             name="message"
             value={formData.message}
             onChange={handleChange}
+            aria-invalid={Boolean(errors.message)}
+            aria-describedby={
+              errors.message ? "contact-message-error" : undefined
+            }
             className="rounded-md w-full h-44 py-3 px-2 text-black-light text-sub-para border-2 border-[#D9D9D9] focus:border-blue focus-visible:outline-none"
             placeholder="Ex: Hey Cosog Nepal thank you for your work I love what you are doing keep doing the same work..."
           ></textarea>
-          {errors.message && <p className="text-red-500">{errors.message}</p>}
+          {errors.message && (
+            <p id="contact-message-error" className="text-red-500" role="alert">
+              {errors.message}
+            </p>
+          )}
         </div>
 
         <div className="btn w-full flex text-para">

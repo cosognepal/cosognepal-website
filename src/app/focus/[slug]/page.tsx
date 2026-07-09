@@ -9,6 +9,12 @@ import {
 } from "@/content";
 import ProgramCard from "@/components/ProgramCard";
 import Container from "@/components/ui/Container";
+import JsonLd from "@/components/JsonLd";
+import {
+  createPageMetadata,
+  educationalProgramJsonLd,
+  webPageJsonLd,
+} from "@/lib/seo";
 
 const VALID_SLUGS: FocusSlug[] = ["schools", "skills"];
 
@@ -27,10 +33,27 @@ export async function generateMetadata({
   const focus = getFocusAreaBySlug(slug as FocusSlug);
   if (!focus) return {};
 
-  return {
-    title: `${focus.title} | Cosog Nepal`,
+  const path = `/focus/${focus.slug}`;
+  const isSkills = focus.slug === "skills";
+
+  return createPageMetadata({
+    title: focus.title,
     description: focus.summary,
-  };
+    path,
+    keywords: isSkills
+      ? [
+          "skills development Nepal",
+          "E-STEM fellowship",
+          "coding workshops Nepal",
+          "Cosog Nepal skills",
+          "computer science fellowships",
+        ]
+      : [
+          "CS clubs Nepal",
+          "computer science in schools",
+          "Cosog Nepal schools",
+        ],
+  });
 }
 
 export default async function FocusAreaPage({ params }: PageProps) {
@@ -42,9 +65,24 @@ export default async function FocusAreaPage({ params }: PageProps) {
   if (!focus) notFound();
 
   const programs = getProgramsByFocus(focus.slug);
+  const path = `/focus/${focus.slug}`;
 
   return (
-    <main className="py-12 space-y-12">
+    <main id="main-content" tabIndex={-1} className="py-12 space-y-12 outline-none">
+      <JsonLd
+        data={[
+          webPageJsonLd({
+            title: focus.title,
+            description: focus.summary,
+            path,
+          }),
+          educationalProgramJsonLd({
+            name: focus.title,
+            description: focus.summary,
+            path,
+          }),
+        ]}
+      />
       <Container className="space-y-8">
         <div className="space-y-4">
           <p className="text-sm font-semibold uppercase tracking-wide text-muted">

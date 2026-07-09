@@ -1,41 +1,19 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-    title: "Cosog Nepal || Donation",
-    description: "Your donation to Cosog Nepal will help us change many students life. Donate to improve Cs in Nepal.",
-    metadataBase: new URL("https://cosognepal.org/"),
-    openGraph: {
-        images: [{
-            url: "/assets/about_banner.png",
-            width: 1600,
-            height: 1200,
-            type: "image/png"
-        }],
-        emails: "contact@cosognepal.com",
-    },
-    twitter: {
-        card: "summary",
-        site: "@cosognepal",
-        title: "Cosog Nepal || Donation",
-        description: "Your donation to Cosog Nepal will help us change many students life. Donate to improve Cs in Nepal.",
-        images: [{
-            url: "/assets/about_banner.png",
-            width: 1600,
-            height: 1200,
-            type: "image/png"
-        }],
-    },
-    icons: [{ url: "/favicon.ico", sizes: "any" }]
-};
+import { APP_ROUTES } from "@/lib/routes";
+import { createPageMetadata } from "@/lib/seo";
 
-export default function AboutLayout({
-    children,
+export const metadata: Metadata = createPageMetadata({
+  title: "Donate",
+  description:
+    "Support Cosog Nepal's mission to bring computer science education and charitable coding to students across Nepal.",
+  path: APP_ROUTES.DONATE,
+});
+
+export default function DonateLayout({
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-    return (
-        <>
-            {children}
-        </>
-    );
+  return <>{children}</>;
 }
