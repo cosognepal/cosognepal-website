@@ -46,4 +46,7 @@ analysis_accepted_compact.csv
 analysis_filtered_pool.csv
 analysis_filtered_pool_compact.csv
 
-/lib/*email*.ts
+/src/lib/*email*.ts
+/src/lib/emails/*
+
+/scripts/*
