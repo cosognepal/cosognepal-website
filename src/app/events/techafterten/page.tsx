@@ -3,6 +3,7 @@ import TimeLine from "./_components/TimeLine";
 import EventDescripter from "@/components/ui/EventAbout";
 import { GuestsSection } from "./_components/Guests";
 import Image from "next/image";
+import YouTubePlaylistEmbed from "@/components/YouTubePlaylistEmbed";
 
 // images
 import TechAfterTen from "@/assets/techafter10.png";
@@ -13,7 +14,7 @@ import Saroj from "@/assets/images/Events/CS_in_high_school/Saroj_Dahal.jpeg";
 
 const Page = () => {
   return (
-    <div className="mainContainer  snap-mandatory snap-y space-y-section *:w-full *:max-w-[1400px] *:px-standard *:brk-1400:mx-auto *:sm:px-block">
+    <div className="mainContainer snap-mandatory snap-y space-y-section *:w-full *:max-w-content *:mx-auto *:px-standard *:sm:px-block">
       <section className="gap-5 herosection   flex flex-col snap-start">
         <div className="imageContainer bg-fixed">
           <Image
@@ -26,7 +27,7 @@ const Page = () => {
           <div className="title text-black-dark  text-2xl font-bold">
             Computer Science in +2?
           </div>
-          <div className="shortIntro text-black-mid brk-1400:max-w-[80%]">
+          <div className="shortIntro text-black-mid max-w-[80%]">
             Dear SEE graduates, Are you curious about a career in computer
             science? Wondering if you should choose computer science in +2 or
             not? Want to explore the plethora of opportunities in Nepal and
@@ -48,32 +49,33 @@ const Page = () => {
           </a>
           <a
             className="action2 bg-gray-bg text-gray-dark "
-            href="#learnMore"
-            id="learnMore"
+            href="#learn-more"
           >
             Learn More
           </a>
         </div>
       </section>
 
-      <EventDescripter
-        eventTitle="About the Event"
-        description={[
-          ` Computer Scinece in +2 program is designed to empower recent 10th
-                    grade (SEE) graduates in Nepal to make informed decisions about
-                    their future academic paths and careers. Choosing the right stream
-                    after 10th grade is a critical step that can significantly impact
-                    one's future opportunities. This program aims to equip students with
-                    the knowledge and awareness to confidently choose a stream that
-                    aligns with their interests, strengths, and future goals.
-                `,
-          ` Join us as we lay out the differences between Computer Science in
-                    science and management; as we explore different career paths within
-                    Computer Science; as we explore the job and educational
-                    opportunities in Nepal and abroad, and discover the boundless
-                    potential that awaits you in this ever-evolving landscape. `,
-        ]}
-      />
+      <div id="learn-more" className="scroll-mt-28">
+        <EventDescripter
+          eventTitle="About the Event"
+          description={[
+            ` Computer Scinece in +2 program is designed to empower recent 10th
+                      grade (SEE) graduates in Nepal to make informed decisions about
+                      their future academic paths and careers. Choosing the right stream
+                      after 10th grade is a critical step that can significantly impact
+                      one's future opportunities. This program aims to equip students with
+                      the knowledge and awareness to confidently choose a stream that
+                      aligns with their interests, strengths, and future goals.
+                  `,
+            ` Join us as we lay out the differences between Computer Science in
+                      science and management; as we explore different career paths within
+                      Computer Science; as we explore the job and educational
+                      opportunities in Nepal and abroad, and discover the boundless
+                      potential that awaits you in this ever-evolving landscape. `,
+          ]}
+        />
+      </div>
 
       <GuestsSection
         sectionTitle="Speakers"
@@ -192,6 +194,11 @@ const Page = () => {
           ]}
         />
       </section>
+
+      <YouTubePlaylistEmbed
+        playlistId="PLKE1X1xZFAFfvK1tq5GH5fiy4HGXCT_De"
+        title="Watch the session playlist"
+      />
 
       <section className="faq">
         <FAQ

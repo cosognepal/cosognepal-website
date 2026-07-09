@@ -2,18 +2,8 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "./_components/Footer";
 import AnnouncementBanner from "@/components/AnnouncementBanner";
-import { Geist, Geist_Mono } from "next/font/google";
+import { body, display } from "@/lib/fonts";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Coding for Social Good Nepal | Cosog Nepal",
@@ -41,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${body.variable} ${display.variable} font-body antialiased`}
       >
         <AnnouncementBanner
           message="Applications for Summer Camp are now closed."

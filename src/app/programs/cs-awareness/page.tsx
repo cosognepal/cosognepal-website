@@ -8,7 +8,8 @@ import Banner from "@/assets/images/Programs/cs_awareness_banner.png";
 export default async function CSAwareness() {
   return (
     <>
-      <div className="main_container h-max flex flex-col space-y-section w-full px-standard sm:px-block  max-w-[1400px] m-auto">
+      <h1 className="sr-only">CS Awareness</h1>
+      <div className="main_container h-max flex flex-col space-y-section w-full px-standard sm:px-block max-w-content mx-auto">
         <div className="aboutSection w-full">
           <Image
             src={Banner}
@@ -48,9 +49,9 @@ export default async function CSAwareness() {
       <InfoBanner
         leftContent={
           <article className="max-w-[800px]">
-            <h1 className="font-bold text-mid-title">
+            <h2 className="font-bold text-mid-title">
               Do you need help with a technical project?
-            </h1>
+            </h2>
             <p>We are here to help! Fill out the form.</p>
           </article>
         }

@@ -8,7 +8,8 @@ import Banner from "@/assets/images/Programs/skill_development_banner.png";
 export default async function SkillDevelopment() {
   return (
     <>
-      <div className="main_container h-max flex flex-col space-y-section w-full px-standard sm:px-block  max-w-[1400px] m-auto">
+      <h1 className="sr-only">Skill Development</h1>
+      <div className="main_container h-max flex flex-col space-y-section w-full px-standard sm:px-block max-w-content mx-auto">
         <div className="aboutSection w-full">
           <Image
             src={Banner}

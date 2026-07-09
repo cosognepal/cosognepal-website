@@ -39,3 +39,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+/summer_camp_analysis
+analysis_accepted_compact.csv
+analysis_filtered_pool.csv
+analysis_filtered_pool_compact.csv
+
+/src/lib/*email*.ts
+/src/lib/emails/*
+
+/scripts/*

@@ -3,11 +3,23 @@ import Image from "next/image";
 import LinkedInLogo from "@/assets/linkedin_logo.png";
 import FacebookLogo from "@/assets/facebook_logo.png";
 import InstagramLogo from "@/assets/instagram_logo.png";
+import { cn } from "@/lib/utils";
 
-export default function Member({ data }: { data: Tmember }) {
+export default function Member({
+  data,
+  className,
+}: {
+  data: Tmember;
+  className?: string;
+}) {
   const { name, post, fb_link, insta_link, linkedin_link, image } = data;
   return (
-    <div className="member member-container h-[350px] max-w-[320px] rounded-[5px] relative overflow-hidden group transition-all duration-100 ease-in-out">
+    <div
+      className={cn(
+        "member member-container relative h-[350px] w-full max-w-[320px] overflow-hidden rounded-[5px] group transition-all duration-100 ease-in-out",
+        className
+      )}
+    >
       <Image
         src={image}
         height={350}

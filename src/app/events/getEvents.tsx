@@ -31,7 +31,8 @@ export default async function getEvents({ numberOfEvents, order }: { numberOfEve
             : sortedEvents;
     }
     catch (e) {
-        console.log(e)
-        throw new Error(e as string)
+        throw e instanceof Error
+            ? e
+            : new Error("Failed to load events");
     }
 }

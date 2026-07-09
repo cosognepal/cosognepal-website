@@ -26,10 +26,10 @@ const partnersData = [
 
 const Partners = () => {
   return (
-    <main className="bg-gray-bg p-block space-y-block px-standard md:px-block brk-1400:px-0">
+    <main className="bg-gray-bg p-block space-y-block px-standard md:px-block max-w-content mx-auto">
       <SectionTitle title="we've worked with" />
       <section>
-        <div className="flex space-x-standard justify-center max-w-[1400px] mx-auto overflow-hidden">
+          <div className="flex space-x-standard justify-center max-w-content mx-auto overflow-hidden">
           {partnersData.map((partner, index) => (
             <div key={index}>
               <div

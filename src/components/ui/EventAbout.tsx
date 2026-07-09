@@ -14,11 +14,11 @@ interface eventDescripterProps {
 const EventDescripter = (props: eventDescripterProps) => {
     return (
         <section
-            className={cn(`about  space-y-5  snap-end bg-gray-bg py-block `, props.className?.container)} >
-            <h1 className={cn(`heading text-2xl font-semibold `, props.className?.paragraph)}>
+            className={cn("about space-y-5 snap-end bg-paper rounded-lg py-8 px-6 md:px-8", props.className?.container)} >
+            <h2 className={cn("font-display font-semibold text-2xl text-ink", props.className?.title)}>
                 {props.eventTitle}
-            </h1>
-            <div className={cn(`descirption text-black-mid space-y-2 `, props.className?.paragraphContainer)}>
+            </h2>
+            <div className={cn("text-ink-muted space-y-3 leading-relaxed", props.className?.paragraphContainer)}>
                 {
                     props.description.map((paragraph, index) => <p key={`description-para-${index}`} className={cn("", props.className?.paragraph)}>
                         {paragraph}

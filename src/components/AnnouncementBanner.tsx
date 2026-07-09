@@ -53,7 +53,6 @@ export default function AnnouncementBanner({
 
   const deadlineMs = deadline ? new Date(deadline).getTime() : null;
   const remaining = deadlineMs !== null ? Math.max(0, deadlineMs - now) : null;
-  const isClosed = remaining === 0;
   const countdownText =
     remaining !== null && remaining > 0 ? formatRemaining(remaining) : null;
 
@@ -66,7 +65,7 @@ export default function AnnouncementBanner({
 
   return (
     <div className="w-full bg-accent_yellow-100 border-b border-accent_yellow-200 text-black-dark">
-      <div className="w-full max-w-[1400px] mx-auto px-standard py-2 flex items-center gap-3">
+      <div className="w-full max-w-content mx-auto px-standard py-2 flex items-center gap-3">
         <Megaphone
           className="h-4 w-4 shrink-0 text-accent_yellow-800"
           aria-hidden

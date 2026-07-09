@@ -5,7 +5,6 @@ import TimeLine from "../techafterten/_components/TimeLine";
 import FAQ from "../../_components/FAQ";
 import { PrizeSection } from "./_components/Prizes";
 import { cn } from "@/lib/utils";
-import { lora } from "@/lib/fonts";
 
 const SummerProgramPage = () => {
     return <div className="space-y-section">
@@ -20,8 +19,7 @@ const SummerProgramPage = () => {
                 `By the end of the program, students present their work in a public showcase, strengthen communication and teamwork skills, and gain pathways for further learning, projects, and future STEM opportunities. The program is flexible and mostly online, so students can participate alongside school.`,
             ]}
             className={{
-                container: ` brk-1400:px-[calc((100%-1400px)/2)] px-standard
-                            `
+                container: "w-full max-w-content mx-auto px-standard"
             }}
         />
 
@@ -36,7 +34,7 @@ const SummerProgramPage = () => {
             className={{
                 notPublicYetCard: "bg-gradient-to-br to-empactathon-primary/45 min-h-[450px] rounded-md w-full",
                 sectionContainer: {
-                    container: "w-full max-w-[1400px] mx-auto px-standard brk-1400:px-0 ",
+                    container: "w-full max-w-content mx-auto px-standard",
                 },
             }}
             guestData={[
@@ -68,7 +66,7 @@ const SummerProgramPage = () => {
             timelineTitle="General Timeline"
             className={{
                 iconContainer: "w-10 h-10 bg-empactathon-bg-green text-black-mid",
-                container: "brk-1400:px-0 px-standard w-full max-w-[1400px] mx-auto"
+                container: "px-standard w-full max-w-content mx-auto"
             }}
             tasks={[
                 {
@@ -105,11 +103,11 @@ const SummerProgramPage = () => {
                 <div className={cn(
                     "title text-heading font-bold  text-center",
                 )}>
-                    <span className={`${lora.className} text-empactathon-dark`}>
+                    <span className="font-display text-empactathon-dark">
                         Our program at a glance
                     </span>
                     <br />
-                    <span className={`${lora.className} bg-yellow-100 p-1 px-3 text-empactathon-dark`}>
+                    <span className="font-display bg-yellow-100 p-1 px-3 text-empactathon-dark">
                         Learn. Build. Showcase.
                     </span>
                 </div >
@@ -141,9 +139,7 @@ const SummerProgramPage = () => {
                 ]}
             className={{
                 section: {
-                    container: `w-full min-h-screen px-standard brk-1400:px-[calc((100%-1400px)/2)] bg-gradient-to-br from-white to-empactathon-primary/25 
-                                flex flex-col justify-center items-center space-y-section 
-                                `,
+                    container: "w-full min-h-screen px-standard max-w-content mx-auto bg-gradient-to-br from-white to-empactathon-primary/25 flex flex-col justify-center items-center space-y-section",
                     title: "text-black-dark"
                 },
             }}
@@ -151,7 +147,7 @@ const SummerProgramPage = () => {
         />
 
         {/* CTA */}
-        <section className="w-full max-w-[1400px] mx-auto px-standard brk-1400:px-0">
+        <section className="w-full max-w-content mx-auto px-standard">
             <div className="rounded-md bg-gradient-to-br from-white to-empactathon-primary/20 p-standard md:p-block text-center space-y-3">
                 <h2 className="text-2xl font-bold text-empactathon-dark">Excited to join the Summer Program?</h2>
                 <p className="text-black-mid">

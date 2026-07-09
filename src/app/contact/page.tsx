@@ -98,7 +98,7 @@ const ContactPage = () => {
 
   return (
     <>
-    <main className="px-standard w-full md:max-w-[750px] md:mx-auto md:px-0  space-y-block">
+    <main className="px-standard w-full max-w-content mx-auto space-y-block">
       <form onSubmit={handleSubmit} className="text-faded space-y-small">
         {/* Honeypot field - visually hidden off-screen but present in DOM */}
         <div
@@ -159,7 +159,7 @@ const ContactPage = () => {
         <div className="textAreaSection space-y-small">
           <p className="text-sub-para">Message</p>
           <textarea
-            rows={60}
+            rows={10}
             cols={30}
             required
             name="message"

@@ -1,7 +1,7 @@
 "use client";
 
 import type { Tevent } from "../type";
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import imgViewer from "awesome-image-viewer";
 import Image from "next/image";
 import Link from "next/link";
@@ -25,35 +25,37 @@ export default function Event({
   const { title, images, date, descriptions, link } = data;
   const main_container = useRef<HTMLDivElement | null>(null);
 
-  const visibleActions = () => {
+  const visibleActions = useCallback(() => {
     states.setCurrentDate(date);
     if (index === 0)
       return states.setActiveBarHeight(index * activeBarHeightPerEvent);
     states.setActiveBarHeight((index + 1) * activeBarHeightPerEvent);
-  };
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      if (entries[0].isIntersecting) visibleActions();
-    },
-    {
-      rootMargin: "0px",
-      threshold: 0.9,
-    }
-  );
+  }, [activeBarHeightPerEvent, date, index, states]);
 
   useEffect(() => {
-    if (!main_container.current) return;
-    observer.observe(main_container.current);
+    const currentContainer = main_container.current;
+
+    if (!currentContainer || typeof IntersectionObserver === "undefined") {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) visibleActions();
+      },
+      {
+        rootMargin: "0px",
+        threshold: 0.9,
+      }
+    );
+
+    observer.observe(currentContainer);
 
     // cleanup
     return () => {
-      const currentContainer = main_container.current;
-      if (currentContainer) {
-        observer.unobserve(currentContainer);
-      }
+      observer.unobserve(currentContainer);
     };
-  }, []);
+  }, [visibleActions]);
 
   const imageData = data.images.map((imageUrl) => ({
     mainUrl: imageUrl.src,
@@ -122,9 +124,9 @@ export default function Event({
         <div className="date font-normal text-black-mid text-sub-para">
           {date}
         </div>
-        <h1 className="title font-bold text-black-dark text-sub-title">
+        <h2 className="title font-bold text-black-dark text-sub-title">
           {title}
-        </h1>
+        </h2>
         <div className="desc text-black-mid text-para mt-small space-y-v-small">
           {descriptions.map((description, index) => {
             return <p key={index}> {description} </p>;

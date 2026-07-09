@@ -10,7 +10,8 @@ export default async function AboutPage() {
   const members = await getMembers();
   return (
     <>
-      <div className="main_container h-max flex flex-col space-y-section w-full px-standard sm:px-block  max-w-[1400px] m-auto">
+      <div className="main_container h-max flex flex-col space-y-section w-full px-standard sm:px-block max-w-content mx-auto">
+        <h1 className="sr-only">About Cosog Nepal</h1>
         <div className="aboutSection w-full">
           <Image
             src={BannerImage}
@@ -48,8 +49,8 @@ export default async function AboutPage() {
                 "At Cosog Nepal, we've made significant strides in advancing computer science education and supporting Nepal's digital transformation:",
               ]}
               list={[
-                "Raising Awareness in Schools: We've conducted informative presentations in over 30 schools across Nepal. These sessions have been instrumental in enlightening high school students about the value of computer science education and the career paths it offers.",
-                "Career Counseling Sessions: We organized a career counseling session for high school students, providing them with insights into the diverse career opportunities available in the tech industry, opportunities in Nepal and abroad in CS. This event was attended by over 200 students.",
+                "Raising Awareness in Schools: We've conducted informative presentations in schools across Nepal. These sessions have been instrumental in enlightening high school students about the value of computer science education and the career paths it offers.",
+                "Career Counseling Sessions: We organized a career counseling session for high school students, providing them with insights into the diverse career opportunities available in the tech industry, opportunities in Nepal and abroad in CS.",
                 "Charitable Coding Initiatives: We are currently engaged in charitable coding projects. These initiatives are crucial in driving forward Nepal's digitalization, demonstrating our commitment to using technology for societal advancement.",
               ]}
             />
@@ -58,7 +59,7 @@ export default async function AboutPage() {
 
         <div className="board_members space-y-block " id="team">
           <SectionTitle title="Founding Members" />
-          <div className="members grid grid-cols-auto-fit-320 grid-rows-max gap-standard justify-center">
+          <div className="members grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 justify-items-center">
             {members
               .filter(
                 (member) =>
@@ -71,6 +72,7 @@ export default async function AboutPage() {
                   <Member
                     key={index + member.name}
                     data={{ ...member, post }}
+                    className="h-[420px] max-w-[380px]"
                   />
                 );
               })}
@@ -79,7 +81,7 @@ export default async function AboutPage() {
 
         <div className="board_members space-y-block " id="members">
           <SectionTitle title="Our members" />
-          <div className="members grid grid-cols-auto-fit-320 grid-rows-max gap-standard justify-center">
+          <div className="members grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 justify-items-center">
             {members
               .filter(
                 (member) =>
@@ -96,9 +98,9 @@ export default async function AboutPage() {
       <InfoBanner
         leftContent={
           <article className="max-w-[800px]">
-            <h1 className="font-bold text-mid-title">
+            <h2 className="font-bold text-mid-title">
               Do you want to shape the situation of Computer Science in Nepal?
-            </h1>
+            </h2>
             <p>Let&apos;s change it together, Join Cosog Nepal.</p>
           </article>
         }

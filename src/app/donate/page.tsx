@@ -9,7 +9,7 @@ const Donate = () => {
     const [ShownComponent, setShownComponent] = useState({ shown: "esewa" });
     return (
         <>
-            <main className="px-standard w-full md:max-w-[750px] md:mx-auto md:px-0 space-y-block">
+            <main className="px-standard w-full max-w-content mx-auto space-y-block">
                 <div className="my-block text-faded mx-[0]  space-y-small">
                     <h2 className="text-mid-title font-bold text-black-mid">Why Donate Us?</h2>
                     <p className="text-sub-para font-medium text-black-light">

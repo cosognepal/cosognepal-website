@@ -9,7 +9,6 @@ export default async function getMembers(): Promise<Tmember[]> {
         return members as Tmember[];
     }
     catch (e) {
-        console.log(e)
-        throw new Error(e as string)
+        throw e instanceof Error ? e : new Error("Failed to load members");
     }
 }
