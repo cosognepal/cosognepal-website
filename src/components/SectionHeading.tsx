@@ -23,7 +23,7 @@ export default function SectionHeading({
         className
       )}
     >
-      <Tag className="font-display font-semibold text-xl md:text-2xl text-ink uppercase tracking-[-0.015em]">
+      <Tag className="font-display font-semibold text-xl md:text-2xl text-ink tracking-[-0.015em]">
         {children}
       </Tag>
       {viewall && (
@@ -32,7 +32,7 @@ export default function SectionHeading({
           {...(viewallExternal
             ? { target: "_blank", rel: "noreferrer" }
             : {})}
-          className="text-brand text-sm font-semibold uppercase tracking-[0.12em] hover:underline underline-offset-4"
+          className="text-brand text-sm font-semibold tracking-[0.02em] hover:underline underline-offset-4"
         >
           View all
         </a>

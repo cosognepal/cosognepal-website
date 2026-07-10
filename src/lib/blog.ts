@@ -8,87 +8,82 @@ export type BlogPost = {
   coverImage: string | null;
 };
 
-const HASHNODE_GQL_ENDPOINT = "https://gql.hashnode.com/";
-const PUBLICATION_HOST = "blog.cosognepal.org";
+const BLOG_RSS_URL = "https://blog.cosognepal.org/rss.xml";
 
-const RECENT_POSTS_QUERY = /* GraphQL */ `
-  query RecentPosts($host: String!, $first: Int!) {
-    publication(host: $host) {
-      posts(first: $first) {
-        edges {
-          node {
-            title
-            brief
-            slug
-            url
-            publishedAt
-            readTimeInMinutes
-            coverImage {
-              url
-            }
-          }
-        }
-      }
-    }
+function readRssTag(block: string, tag: string): string {
+  const cdataMatch = block.match(
+    new RegExp(`<${tag}><!\\[CDATA\\[([\\s\\S]*?)\\]\\]></${tag}>`)
+  );
+  if (cdataMatch?.[1]) return cdataMatch[1].trim();
+
+  const plainMatch = block.match(new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`));
+  return plainMatch?.[1]?.trim() ?? "";
+}
+
+function readEnclosureUrl(block: string): string | null {
+  const match = block.match(/<enclosure\s+url="([^"]+)"/);
+  return match?.[1] ?? null;
+}
+
+function slugFromUrl(url: string): string {
+  try {
+    const pathname = new URL(url).pathname;
+    return pathname.split("/").filter(Boolean).pop() ?? "";
+  } catch {
+    return "";
   }
-`;
+}
 
-type HashnodeResponse = {
-  data?: {
-    publication?: {
-      posts?: {
-        edges?: Array<{
-          node: {
-            title: string;
-            brief: string;
-            slug: string;
-            url: string;
-            publishedAt: string;
-            readTimeInMinutes: number;
-            coverImage: { url: string } | null;
-          };
-        }>;
-      };
-    };
+function estimateReadTime(text: string): number {
+  const words = text.trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
+}
+
+function parseRssItem(block: string): BlogPost | null {
+  const title = readRssTag(block, "title");
+  const url = readRssTag(block, "link");
+  if (!title || !url) return null;
+
+  const description = readRssTag(block, "description");
+  const pubDate = readRssTag(block, "pubDate");
+
+  return {
+    title,
+    brief: description,
+    slug: slugFromUrl(url),
+    url,
+    publishedAt: pubDate ? new Date(pubDate).toISOString() : "",
+    readTimeInMinutes: estimateReadTime(description),
+    coverImage: readEnclosureUrl(block),
   };
-};
+}
+
+function parseRss(xml: string, count: number): BlogPost[] {
+  const items = xml.split("<item>").slice(1, count + 1);
+
+  return items
+    .map((block) => parseRssItem(block.split("</item>")[0] ?? block))
+    .filter((post): post is BlogPost => post !== null);
+}
 
 /**
- * Fetches recent blog posts from the Cosog Nepal Hashnode blog.
- * Uses ISR-style caching (1 hour) so the homepage stays fresh
- * without hammering the API on every request.
- *
- * Returns an empty array on any error so callers can fall back
- * gracefully without breaking the page render.
+ * Fetches recent blog posts from the Cosog Nepal Hashnode blog RSS feed.
+ * Hashnode's public GraphQL API was retired, so RSS is the stable source.
  */
 export async function getRecentBlogPosts(
   count: number = 3
 ): Promise<BlogPost[]> {
   try {
-    const res = await fetch(HASHNODE_GQL_ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        query: RECENT_POSTS_QUERY,
-        variables: { host: PUBLICATION_HOST, first: count },
-      }),
+    const res = await fetch(BLOG_RSS_URL, {
       next: { revalidate: 3600 },
     });
 
     if (!res.ok) return [];
 
-    const json = (await res.json()) as HashnodeResponse;
-    const edges = json.data?.publication?.posts?.edges ?? [];
+    const xml = await res.text();
+    if (!xml.includes("<rss")) return [];
 
-    return edges.map(({ node }) => ({
-      title: node.title,
-      brief: node.brief,
-      slug: node.slug,
-      url: node.url,
-      publishedAt: node.publishedAt,
-      readTimeInMinutes: node.readTimeInMinutes,
-      coverImage: node.coverImage?.url ?? null,
-    }));
+    return parseRss(xml, count);
   } catch {
     return [];
   }

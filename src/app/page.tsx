@@ -3,6 +3,7 @@ import StatBar from "@/components/StatBar";
 import ProgramCard from "@/components/ProgramCard";
 import AudienceRouter from "@/components/AudienceRouter";
 import LogoWall from "@/components/LogoWall";
+import Leaders from "@/components/Leaders";
 import CTABanner from "@/components/CTABanner";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/SectionHeading";
@@ -82,13 +83,13 @@ export default function Home() {
   ];
 
   return (
-    <main id="main-content" tabIndex={-1} className="flex flex-col space-y-10 outline-none">
+    <main id="main-content" tabIndex={-1} className="flex flex-col outline-none">
       <JsonLd
         data={[
           organizationJsonLd(),
           websiteJsonLd(),
           webPageJsonLd({
-            title: "Cosog Nepal — Computer Science Education in Nepal",
+            title: "Coding for Social Good Nepal | Facilitating Computer Science Education in Nepal",
             description:
               "Cosog Nepal brings computer science education to schools across Nepal through CS clubs, skills fellowships, and Code for Charity.",
             path: PRIORITY_SEO_PATHS.home,
@@ -97,7 +98,7 @@ export default function Home() {
       />
       {/* 1. Hero */}
       <Hero
-        headline="Bringing Computer Science to every classroom in Nepal"
+        headline="Bringing Computer Science Education to every classroom"
         subline="Cosog Nepal helps students start CS clubs, build real skills, and use code for social good."
         primaryCta={{
           label: "Start a CS club at your school",
@@ -232,7 +233,7 @@ export default function Home() {
       <section className="py-12 md:py-16 bg-surface-alt">
         <Container className="space-y-8">
           <SectionHeading viewall={APP_ROUTES.PROGRAMS}>
-            Featured programs
+            Featured Programs
           </SectionHeading>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {programs.map((program) => (
@@ -245,7 +246,10 @@ export default function Home() {
       {/* 5. Audience router */}
       <AudienceRouter options={audienceOptions} />
 
-      {/* 7. Logo wall */}
+      {/* 7. From our leaders */}
+      <Leaders portraitStyle="cutout" colorScheme="full-accent" />
+
+      {/* 8. Logo wall */}
       <LogoWall partners={partners} />
 
       {/* 8. Recent posts */}

@@ -48,6 +48,8 @@ export {
   getFeaturedStory,
 } from "./stories";
 
+export { getLeaders, leaders, type Leader } from "./leaders";
+
 export { getCharityPartners } from "./partners";
 
 import type { FocusArea, FocusSlug } from "./types";

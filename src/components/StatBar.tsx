@@ -20,7 +20,7 @@ export default function StatBar({ stats }: StatBarProps) {
             <p className="text-3xl md:text-4xl font-bold font-display">
               {stat.value}
             </p>
-            <p className="text-sm md:text-base font-medium text-white/90 uppercase tracking-wide">
+            <p className="text-sm md:text-base font-medium text-white/90 tracking-wide">
               {stat.label}
             </p>
           </div>

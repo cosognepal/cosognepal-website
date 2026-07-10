@@ -97,6 +97,7 @@ const config: Config = {
       none: "0",
       DEFAULT: theme.borderRadius.DEFAULT,
       lg: theme.borderRadius.lg,
+      xl: theme.borderRadius.xl,
       full: theme.borderRadius.full,
       md: theme.borderRadius.DEFAULT,
     },

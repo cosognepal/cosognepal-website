@@ -48,6 +48,7 @@ export const editorialTheme: DesignTokens = {
   borderRadius: {
     DEFAULT: "6px",
     lg: "10px",
+    xl: "24px",
     full: "9999px",
   },
   boxShadow: {

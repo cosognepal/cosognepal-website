@@ -48,6 +48,7 @@ export const swissTheme: DesignTokens = {
   borderRadius: {
     DEFAULT: "0",
     lg: "0",
+    xl: "0",
     full: "0",
   },
   boxShadow: {

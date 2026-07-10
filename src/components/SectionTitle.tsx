@@ -17,14 +17,14 @@ export default function SectionTitle({
 
   return (
     <div className="title_container max-w-content mx-auto flex justify-between items-center">
-      <Tag className="font-bold text-xl md:text-2xl text-near-black uppercase font-display">
+      <Tag className="font-bold text-xl md:text-2xl text-near-black font-display">
         {title}
       </Tag>
       {viewall && (
         <Link
           href={viewall}
           {...(isExternal ? { target: "_blank", rel: "noreferrer" } : {})}
-          className="text-accent text-sm md:text-base font-medium uppercase hover:underline underline-offset-4"
+          className="text-accent text-sm md:text-base font-medium hover:underline underline-offset-4"
         >
           View all
         </Link>

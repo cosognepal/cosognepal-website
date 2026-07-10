@@ -32,6 +32,7 @@ export type DesignTokens = {
   borderRadius: {
     DEFAULT: string;
     lg: string;
+    xl: string;
     full: string;
   };
   boxShadow: {

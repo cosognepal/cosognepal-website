@@ -9,8 +9,8 @@ export default function LogoWall({ partners }: LogoWallProps) {
   return (
     <section aria-label="Partners and supporters" className="py-12 md:py-16 bg-paper">
       <div className="max-w-content mx-auto px-4 space-y-8">
-        <h2 className="font-display font-semibold text-2xl text-ink text-center uppercase">
-          Partners &amp; supporters
+        <h2 className="font-display font-semibold text-2xl text-ink text-center tracking-[-0.015em]">
+          Partners &amp; Supporters
         </h2>
         <div className="flex flex-wrap items-center justify-center gap-8">
           {partners.map((partner) => {

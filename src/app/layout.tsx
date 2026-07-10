@@ -15,7 +15,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   ...createPageMetadata({
-    title: `${SITE_NAME} — Computer Science Education in Nepal`,
+    title: `${SITE_NAME} | Computer Science Education in Nepal`,
     description: DEFAULT_DESCRIPTION,
     path: PRIORITY_SEO_PATHS.home,
     keywords: [
