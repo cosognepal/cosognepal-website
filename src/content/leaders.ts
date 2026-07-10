@@ -29,7 +29,7 @@ export const leaders: Leader[] = [
     name: "Aashish Panthi",
     role: "Founder and President, Cosog Nepal",
     quote:
-      "I studied Computer Engineering at a government school without knowing where it could lead. In 2026 we went back to that school and taught twenty of its students to build websites.",
+      "I started the first CS club at my high school. It taught me how to learn in team, how to organize an event, and participate in others. Cosog Nepal exists to set off that chain in every school we reach.",
     portrait: aashishPortrait,
     portraitInset: aashishPortrait,
     order: 2,
