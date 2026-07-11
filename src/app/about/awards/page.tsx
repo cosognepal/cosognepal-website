@@ -24,6 +24,7 @@ const LEVEL_LABELS: Record<Award["level"], string> = {
 const SHORT_LABELS: Record<string, string> = {
   "estem-grant-2025": "E-STEM Grant",
   "ict-award-2025": "ICT Award",
+  "diana-award-2024": "Diana Award",
   "cec-2023": "Citizen Entrepreneurship",
   "glocal-teen-hero-2024": "Glocal Teen Hero",
 };

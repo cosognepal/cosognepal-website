@@ -66,6 +66,7 @@
 }
 
 .card-shell {
+  animation: soft-fade-up var(--dur-slow) var(--ease) both;
   transition:
     border-color var(--dur-base) var(--ease),
     box-shadow var(--dur-base) var(--ease);
@@ -93,16 +94,23 @@
 }
 
 .logo-mark {
-  filter: grayscale(1);
-  opacity: 0.65;
   transition:
     filter var(--dur-base) var(--ease),
-    opacity var(--dur-base) var(--ease);
+    opacity var(--dur-base) var(--ease),
+    transform var(--dur-base) var(--ease);
 }
 
-.logo-mark:hover {
-  filter: grayscale(0);
-  opacity: 1;
+.partner-logo-tile:hover,
+.group:hover .partner-logo-tile {
+  background: theme("colors.surface");
+  border-color: theme("colors.brand");
+  box-shadow: theme("boxShadow.md");
+  transform: translateY(-2px);
+}
+
+.partner-logo-tile:hover .logo-mark,
+.group:hover .partner-logo-tile .logo-mark {
+  transform: scale(1.03);
 }
 
 .press-row {
@@ -126,6 +134,21 @@
 
 .imageViewer > .container {
   max-width: none;
+}
+
+.soft-reveal {
+  animation: soft-fade-up var(--dur-slow) var(--ease) both;
+}
+
+@keyframes soft-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

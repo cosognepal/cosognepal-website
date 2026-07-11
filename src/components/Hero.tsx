@@ -47,7 +47,7 @@ export default function Hero({
             className="absolute inset-0 w-full h-full object-cover"
           />
         )}
-        <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/50 to-ink/70" />
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-ink/75 via-ink/70 to-ink/85" />
       </div>
 
       <Container className="relative z-10 min-h-[60vh] md:min-h-[70vh] flex flex-col items-center justify-center text-center py-16">

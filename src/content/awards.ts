@@ -4,6 +4,7 @@ import ICTAward from "@/assets/images/Awards/ict_award.jpg";
 import ESTEMGrant from "@/assets/images/Awards/estem.jpeg";
 import CitizenEntrepreneurship from "@/assets/images/Awards/citizen_entrepreneurship_award.jpeg";
 import GlocalTeenHero from "@/assets/images/Awards/glocal_teen_hero.jpg";
+import DianaAward from "@/assets/images/Awards/diana_award.webp";
 
 export const AWARDS: Award[] = [
   {
@@ -35,7 +36,19 @@ export const AWARDS: Award[] = [
     featured: true,
     focusArea: "charity",
   },
-
+  {
+    id: "diana-award-2024",
+    title: "The Diana Award",
+    organization: "The Diana Award",
+    recipient: "Bibek Bhandari",
+    year: 2024,
+    level: "awardee",
+    description:
+      "Bibek Bhandari received The Diana Award 2024 for founding Cosog Nepal and expanding access to computer science education through CS clubs, coding competitions, career counselling workshops, Python Primer, and Code for Charity.",
+    imageUrl: DianaAward,
+    link: "https://blog.cosognepal.org/bibek-bhandari-receives-diana-award",
+    featured: true,
+  },
   {
     id: "glocal-teen-hero-2024",
     title: "Glocal Teen Hero Nepal",

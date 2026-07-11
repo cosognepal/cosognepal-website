@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Container from "@/components/ui/Container";
 
 type AudienceRouterProps = {
   options: { label: string; href: string; external?: boolean }[];
@@ -10,7 +11,7 @@ export default function AudienceRouter({ options }: AudienceRouterProps) {
 
   return (
     <section aria-label="Find your path" className="py-12 md:py-16">
-      <div className="max-w-content mx-auto px-4 space-y-6">
+      <Container className="space-y-6">
         <h2 className="font-display font-bold text-2xl text-near-black text-center">
           How do you want to get involved?
         </h2>
@@ -33,7 +34,7 @@ export default function AudienceRouter({ options }: AudienceRouterProps) {
             )
           )}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

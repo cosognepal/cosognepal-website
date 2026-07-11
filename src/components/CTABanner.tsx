@@ -1,4 +1,5 @@
 import Button from "@/components/ui/Button";
+import Container from "@/components/ui/Container";
 import type { CTA } from "@/content/types";
 
 type CTABannerProps = {
@@ -10,7 +11,7 @@ type CTABannerProps = {
 export default function CTABanner({ heading, cta, subtext }: CTABannerProps) {
   return (
     <section className="bg-brand text-white py-12 md:py-16">
-      <div className="max-w-content mx-auto px-4 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <Container className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
         <div className="space-y-2 max-w-xl">
           <h2 className="font-display font-bold text-xl md:text-2xl">
             {heading}
@@ -24,7 +25,7 @@ export default function CTABanner({ heading, cta, subtext }: CTABannerProps) {
         >
           {cta.label}
         </Button>
-      </div>
+      </Container>
     </section>
   );
 }

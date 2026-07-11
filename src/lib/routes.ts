@@ -81,9 +81,9 @@ export const NAV_NEWS: NavGroup = {
 };
 
 export const NAV_GROUPS: NavGroup[] = [
+  NAV_ABOUT,
   NAV_PROGRAMS,
   NAV_GET_INVOLVED,
-  NAV_ABOUT,
   NAV_NEWS,
 ];
 

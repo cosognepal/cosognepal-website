@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Partner } from "@/content/types";
+import Container from "@/components/ui/Container";
 
 type LogoWallProps = {
   partners: Partner[];
@@ -8,7 +9,7 @@ type LogoWallProps = {
 export default function LogoWall({ partners }: LogoWallProps) {
   return (
     <section aria-label="Partners and supporters" className="py-12 md:py-16 bg-paper">
-      <div className="max-w-content mx-auto px-4 space-y-8">
+      <Container className="space-y-8">
         <h2 className="font-display font-semibold text-2xl text-ink text-center tracking-[-0.015em]">
           Partners &amp; Supporters
         </h2>
@@ -19,7 +20,7 @@ export default function LogoWall({ partners }: LogoWallProps) {
             const tile = (
               <div
                 key={partner.id}
-                className="w-36 h-36 flex items-center justify-center bg-surface rounded-lg p-4 border border-rule"
+                className="partner-logo-tile w-36 h-36 flex items-center justify-center bg-surface rounded-lg p-4 border border-rule transition-[border-color,box-shadow,transform,background-color] duration-[var(--dur-base)] ease-[var(--ease)]"
               >
                 {hasLogo ? (
                   <Image
@@ -45,7 +46,7 @@ export default function LogoWall({ partners }: LogoWallProps) {
                   target="_blank"
                   rel="noreferrer"
                   title={partner.name}
-                  className="block"
+                  className="group block"
                 >
                   {tile}
                 </a>
@@ -55,7 +56,7 @@ export default function LogoWall({ partners }: LogoWallProps) {
             return tile;
           })}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

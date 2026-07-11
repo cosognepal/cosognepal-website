@@ -186,7 +186,7 @@ export default function LeaderCard({
       {/* Mobile portrait */}
       <div
         className={cn(
-          "relative z-[2] flex justify-center pointer-events-none md:hidden",
+          "relative z-0 flex justify-center pointer-events-none md:hidden",
           isCutout ? "-mt-6 mb-[-3.5rem]" : "mb-[-4rem]"
         )}
       >
@@ -207,7 +207,7 @@ export default function LeaderCard({
 
       <div
         className={cn(
-          "relative overflow-visible rounded-xl shadow-sm",
+          "relative z-[1] overflow-visible rounded-xl shadow-sm",
           "min-h-[280px] md:min-h-[300px]",
           theme.cardBg,
           theme.cardText,

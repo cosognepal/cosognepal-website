@@ -13,6 +13,7 @@ import {
   type NavGroup,
 } from "@/lib/routes";
 import CosogLogo from "@/assets/logo.png";
+import { cn } from "@/lib/utils";
 
 function isActiveHref(pathname: string, href: string) {
   if (!href.startsWith("/")) return false;
@@ -30,10 +31,14 @@ function NavDropdown({
   group,
   pathname,
   onNavigate,
+  open,
+  onToggle,
 }: {
   group: NavGroup;
   pathname: string;
   onNavigate: () => void;
+  open: boolean;
+  onToggle: () => void;
 }) {
   const groupActive = group.items.some((item) => isActiveHref(pathname, item.href));
 
@@ -41,20 +46,30 @@ function NavDropdown({
     <li className="relative group">
       <button
         type="button"
-        className={`nav-link relative flex items-center gap-1 pb-1 text-sm font-semibold uppercase tracking-[0.12em] ${
+        className={`nav-link relative flex w-full items-center justify-between gap-2 pb-1 text-left text-sm font-semibold uppercase tracking-[0.12em] md:w-auto md:justify-start ${
           groupActive ? "text-brand" : "text-ink"
         }`}
         aria-haspopup="true"
-        aria-expanded="false"
+        aria-expanded={open}
         data-active={groupActive}
+        onClick={onToggle}
       >
         {group.label}
-        <span aria-hidden className="text-xs">
+        <span
+          aria-hidden
+          className={`text-xs transition-transform duration-[var(--dur-base)] ease-[var(--ease)] md:group-hover:rotate-180 ${
+            open ? "rotate-180" : ""
+          }`}
+        >
           ▾
         </span>
       </button>
-      <ul className="mt-2 md:mt-0 md:absolute md:left-0 md:top-full md:min-w-[16rem] md:pt-2 md:opacity-0 md:invisible md:group-hover:opacity-100 md:group-hover:visible md:group-focus-within:opacity-100 md:group-focus-within:visible transition-[opacity,visibility,transform] duration-[var(--dur-slow)] ease-[var(--ease)] md:z-[70] md:translate-y-2 md:group-hover:translate-y-0 md:group-focus-within:translate-y-0">
-        <div className="md:bg-surface md:border md:border-rule md:rounded-lg md:shadow-[0_12px_32px_-8px_rgba(46,46,46,0.12)] md:py-3 md:px-2 pl-5 md:pl-2 space-y-0.5 md:space-y-0 overflow-hidden">
+      <ul
+        className={`grid transition-[grid-template-rows,opacity,visibility,transform] duration-[var(--dur-slow)] ease-[var(--ease)] md:mt-0 md:block md:absolute md:left-0 md:top-full md:min-w-[16rem] md:pt-2 md:opacity-0 md:invisible md:group-hover:opacity-100 md:group-hover:visible md:group-focus-within:opacity-100 md:group-focus-within:visible md:z-[70] md:translate-y-2 md:group-hover:translate-y-0 md:group-focus-within:translate-y-0 ${
+          open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
+      >
+        <div className="overflow-hidden md:overflow-visible md:bg-surface md:border md:border-rule md:rounded-lg md:shadow-[0_12px_32px_-8px_rgba(46,46,46,0.12)] md:py-3 md:px-2 pl-5 md:pl-2 pt-2 md:pt-0 space-y-0.5 md:space-y-0">
           {group.items.map((item) => (
             <li key={item.href}>
               <Link
@@ -83,13 +98,15 @@ function NavLinkItem({
   item,
   pathname,
   onNavigate,
+  className,
 }: {
   item: NavGroup["items"][number];
   pathname: string;
   onNavigate: () => void;
+  className?: string;
 }) {
   return (
-    <li>
+    <li className={className}>
       <Link
         href={item.href}
         onClick={onNavigate}
@@ -108,6 +125,7 @@ function NavLinkItem({
 export default function Navbar() {
   const [navActive, setNavActive] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({});
   const pathname = usePathname();
 
   useEffect(() => {
@@ -116,6 +134,17 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!navActive) setOpenGroups({});
+  }, [navActive]);
+
+  const toggleGroup = (label: string) => {
+    setOpenGroups((current) => ({
+      ...current,
+      [label]: !current[label],
+    }));
+  };
 
   return (
     <>
@@ -158,7 +187,7 @@ export default function Navbar() {
               </span>
             </Link>
 
-            <ul className="flex flex-col md:flex-row md:items-center gap-5 md:gap-10 pb-8 md:pb-0">
+            <ul className="flex flex-col md:flex-row md:items-center gap-5 md:gap-5 lg:gap-10 pb-8 md:pb-0">
               <li>
                 <Link
                   href={APP_ROUTES.HOME}
@@ -173,9 +202,22 @@ export default function Navbar() {
               </li>
               {NAV_GROUPS.map((group) =>
                 group.items.length === 1 ? (
-                  <NavLinkItem key={group.label} item={group.items[0]} pathname={pathname} onNavigate={() => setNavActive(false)} />
+                  <NavLinkItem
+                    key={group.label}
+                    item={group.items[0]}
+                    pathname={pathname}
+                    onNavigate={() => setNavActive(false)}
+                    className={cn(group.label === "Blog" && "md:hidden lg:block")}
+                  />
                 ) : (
-                  <NavDropdown key={group.label} group={group} pathname={pathname} onNavigate={() => setNavActive(false)} />
+                  <NavDropdown
+                    key={group.label}
+                    group={group}
+                    pathname={pathname}
+                    onNavigate={() => setNavActive(false)}
+                    open={Boolean(openGroups[group.label])}
+                    onToggle={() => toggleGroup(group.label)}
+                  />
                 )
               )}
               <NavLinkItem item={NAV_CTA} pathname={pathname} onNavigate={() => setNavActive(false)} />
