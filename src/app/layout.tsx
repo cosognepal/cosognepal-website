@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Navbar from "@/components/Navbar";
+import NavigationProgress from "@/components/NavigationProgress";
 import Footer from "./_components/Footer";
 import AnnouncementBanner from "@/components/AnnouncementBanner";
 import SkipLink from "@/components/SkipLink";
@@ -51,6 +53,9 @@ export default function RootLayout({
         className={`${body.variable} ${display.variable} font-body antialiased`}
       >
         <SkipLink />
+        <Suspense fallback={null}>
+          <NavigationProgress />
+        </Suspense>
         <AnnouncementBanner
           message="Applications for Summer Camp are now closed."
           ctaText="Read more"

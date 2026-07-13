@@ -19,7 +19,7 @@ export const leaders: Leader[] = [
     name: "Bibek Bhandari",
     role: "Founder and Executive Chairman, Cosog Nepal",
     quote:
-      "I went back to my old high school to teach and found there was no computer science club culture from Grade 9 onward. We started Cosog Nepal to change that, one school at a time.",
+      'Cosog Nepal is the chance I wish I had in school, the chance to discover technology early. My vision is a Nepal where every student gets that "early chance", where every school opens the door, and every student can walk right in.',
     portrait: bibekPortrait,
     portraitInset: bibekPortrait,
     order: 1,
