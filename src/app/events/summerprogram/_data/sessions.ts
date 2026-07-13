@@ -35,4 +35,19 @@ export const sessionSeries: SessionSeries[] = [
       { title: "Session 8: …", videoId: "cdsVx1w-U9g" },
     ],
   },
+  {
+    id: "ai-workshop",
+    label: "AI Workshop",
+    playlistId: "PLEvHOLj1yBkw",
+    videos: [
+      {
+        title: "Day 1: How to use NotebookLM as a research assistant",
+        videoId: "9kFIlaK2syk",
+      },
+      {
+        title: "Day 1: How AI Works and Prompt Engineering",
+        videoId: "Yk9DHUNAbww",
+      },
+    ],
+  },
 ];
