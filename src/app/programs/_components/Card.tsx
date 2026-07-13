@@ -4,6 +4,8 @@ import React, { FC } from "react";
 import { useRouter } from "next/navigation";
 import Image, { StaticImageData } from "next/image";
 
+import { startNavigation } from "@/lib/navigation";
+
 type CardProps = {
   title: string;
   description: string;
@@ -15,6 +17,7 @@ const Card: FC<CardProps> = ({ title, description, image, url }) => {
   const router = useRouter();
 
   const redirectUsers = () => {
+    startNavigation();
     router.push(url);
   };
 

@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
 import Container from "@/components/ui/Container";
-import Section from "@/components/ui/Section";
-import SectionTitle from "@/components/SectionTitle";
+import SectionHeading from "@/components/SectionHeading";
 import { getRecentBlogPosts, type BlogPost } from "@/lib/blog";
 
 const BLOG_HOME_URL = "https://blog.cosognepal.org";
+
+/** Hashnode / OG cover size used on blog.cosognepal.org */
+const BLOG_COVER_ASPECT = "1200 / 628";
 
 function formatDate(iso: string): string {
   try {
@@ -27,11 +28,13 @@ export default async function RecentPosts() {
   if (posts.length === 0) return null;
 
   return (
-    <Section spacing="block" className="bg-white">
-      <Container className="space-y-block">
-        <SectionTitle title="Recent posts" viewall={BLOG_HOME_URL} />
+    <section className="py-12 md:py-16 bg-surface-alt">
+      <Container className="space-y-8">
+        <SectionHeading viewall={BLOG_HOME_URL} viewallExternal>
+          Recent Posts
+        </SectionHeading>
 
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-standard">
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post) => (
             <li key={post.slug}>
               <PostCard post={post} />
@@ -39,7 +42,7 @@ export default async function RecentPosts() {
           ))}
         </ul>
       </Container>
-    </Section>
+    </section>
   );
 }
 
@@ -51,53 +54,59 @@ function PostCard({ post }: { post: BlogPost }) {
       href={post.url}
       target="_blank"
       rel="noreferrer"
-      className="group flex h-full flex-col overflow-hidden rounded-lg bg-white border border-black-mid/20 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:border-black-mid/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
+      className="block h-full"
     >
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-bg">
-        {post.coverImage ? (
-          <Image
-            src={post.coverImage}
-            alt={post.title}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
-          />
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-bg to-accent_yellow-50 text-black-mid text-sub-para">
-            Coding for Social Good Nepal
-          </div>
-        )}
-      </div>
-
-      <div className="flex flex-1 flex-col gap-3 p-standard">
-        <div className="flex items-center gap-2 text-info text-black-mid">
-          {date && <time dateTime={post.publishedAt}>{date}</time>}
-          {date && post.readTimeInMinutes ? (
-            <span aria-hidden className="h-1 w-1 rounded-full bg-black-mid/50" />
-          ) : null}
-          {post.readTimeInMinutes ? (
-            <span>{post.readTimeInMinutes} min read</span>
-          ) : null}
+      <article className="card-shell group flex h-full flex-col overflow-hidden rounded-lg border border-rule bg-surface">
+        <div
+          className="relative w-full overflow-hidden bg-brand-wash"
+          style={{ aspectRatio: BLOG_COVER_ASPECT }}
+        >
+          {post.coverImage ? (
+            <Image
+              src={post.coverImage}
+              alt={post.title}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover"
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center px-6 text-center">
+              <span className="font-display text-sm font-semibold text-brand">
+                Cosog Nepal Blog
+              </span>
+            </div>
+          )}
         </div>
 
-        <h3 className="font-bold text-mid-title text-black-mid leading-snug line-clamp-2">
-          {post.title}
-        </h3>
+        <div className="flex flex-1 flex-col gap-2 p-5">
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-ink-muted">
+            {date ? (
+              <time dateTime={post.publishedAt}>{date}</time>
+            ) : null}
+            {date && post.readTimeInMinutes ? (
+              <span aria-hidden className="text-rule">
+                ·
+              </span>
+            ) : null}
+            {post.readTimeInMinutes ? (
+              <span>{post.readTimeInMinutes} min read</span>
+            ) : null}
+          </div>
 
-        <p className="text-sub-para text-black-mid leading-relaxed line-clamp-3">
-          {post.brief}
-        </p>
+          <h3 className="font-display font-semibold text-lg text-ink leading-snug line-clamp-2">
+            {post.title}
+          </h3>
 
-        <div className="mt-auto pt-2">
-          <span className="inline-flex items-center gap-2 rounded-full bg-black-mid text-white px-4 py-2 text-sub-para font-semibold">
+          <p className="text-sm text-ink-muted leading-relaxed line-clamp-3 flex-1 max-w-prose">
+            {post.brief}
+          </p>
+
+          <span className="card-arrow inline-flex items-center gap-2 text-sm font-semibold text-brand pt-1">
             Read article
-            <ArrowRight
-              className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
-              aria-hidden
-            />
+            <span aria-hidden>→</span>
           </span>
         </div>
-      </div>
+      </article>
     </Link>
   );
 }

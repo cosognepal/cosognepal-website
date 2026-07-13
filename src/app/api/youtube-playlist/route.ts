@@ -1,5 +1,13 @@
 import { NextResponse } from "next/server";
 
+type PlaylistVideo = {
+  id: string;
+  title: string;
+  thumbnail: string;
+  duration: string;
+  publishedAt: string;
+};
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const playlistId = searchParams.get("playlistId");
@@ -33,7 +41,7 @@ export async function GET(request: Request) {
     if (ytInitialDataMatch) {
       try {
         const data = JSON.parse(ytInitialDataMatch[1]);
-        const videos: any[] = [];
+        const videos: PlaylistVideo[] = [];
         
         // Navigate through YouTube's data structure
         const contents = data?.contents?.twoColumnBrowseResultsRenderer?.tabs?.[0]?.tabRenderer?.content?.sectionListRenderer?.contents;

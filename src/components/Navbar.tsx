@@ -1,79 +1,230 @@
 "use client";
+
 import Link from "next/link";
-import React, { useState } from "react";
-import { Icon } from "./Icon";
-import { APP_ROUTES } from "@/lib/routes";
-import CosogLogo from "@/assets/logo.png";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
-const Navbar = () => {
+import { Icon } from "./Icon";
+import {
+  APP_ROUTES,
+  NAV_GROUPS,
+  NAV_CTA,
+  type NavGroup,
+} from "@/lib/routes";
+import CosogLogo from "@/assets/logo.png";
+import { cn } from "@/lib/utils";
+
+function isActiveHref(pathname: string, href: string) {
+  if (!href.startsWith("/")) return false;
+
+  const baseHref = href.split("#")[0];
+
+  if (baseHref === "/") return pathname === "/";
+  if (href.includes("#")) return pathname === baseHref;
+  if (baseHref === "/about") return pathname === baseHref;
+
+  return pathname === baseHref || pathname.startsWith(`${baseHref}/`);
+}
+
+function NavDropdown({
+  group,
+  pathname,
+  onNavigate,
+  open,
+  onToggle,
+}: {
+  group: NavGroup;
+  pathname: string;
+  onNavigate: () => void;
+  open: boolean;
+  onToggle: () => void;
+}) {
+  const groupActive = group.items.some((item) => isActiveHref(pathname, item.href));
+
+  return (
+    <li className="relative group">
+      <button
+        type="button"
+        className={`nav-link relative flex w-full items-center justify-between gap-2 pb-1 text-left text-sm font-semibold uppercase tracking-[0.12em] md:w-auto md:justify-start ${
+          groupActive ? "text-brand" : "text-ink"
+        }`}
+        aria-haspopup="true"
+        aria-expanded={open}
+        data-active={groupActive}
+        onClick={onToggle}
+      >
+        {group.label}
+        <span
+          aria-hidden
+          className={`text-xs transition-transform duration-[var(--dur-base)] ease-[var(--ease)] md:group-hover:rotate-180 ${
+            open ? "rotate-180" : ""
+          }`}
+        >
+          ▾
+        </span>
+      </button>
+      <ul
+        className={`grid transition-[grid-template-rows,opacity,visibility,transform] duration-[var(--dur-slow)] ease-[var(--ease)] md:mt-0 md:block md:absolute md:left-0 md:top-full md:min-w-[16rem] md:pt-2 md:opacity-0 md:invisible md:group-hover:opacity-100 md:group-hover:visible md:group-focus-within:opacity-100 md:group-focus-within:visible md:z-[70] md:translate-y-2 md:group-hover:translate-y-0 md:group-focus-within:translate-y-0 ${
+          open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
+      >
+        <div className="overflow-hidden md:overflow-visible md:bg-surface md:border md:border-rule md:rounded-lg md:shadow-[0_12px_32px_-8px_rgba(46,46,46,0.12)] md:py-3 md:px-2 pl-5 md:pl-2 pt-2 md:pt-0 space-y-0.5 md:space-y-0">
+          {group.items.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                onClick={onNavigate}
+                {...(item.external
+                  ? { target: "_blank", rel: "noreferrer" }
+                  : {})}
+                className={`block rounded-md py-2 md:px-4 md:py-3 text-[12px] md:text-sm font-semibold uppercase tracking-[0.08em] leading-snug hover:text-brand md:hover:bg-brand-wash transition-colors duration-[var(--dur-fast)] ease-[var(--ease)] ${
+                  isActiveHref(pathname, item.href)
+                    ? "text-brand md:bg-brand-wash"
+                    : "text-ink-muted"
+                }`}
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </div>
+      </ul>
+    </li>
+  );
+}
+
+function NavLinkItem({
+  item,
+  pathname,
+  onNavigate,
+  className,
+}: {
+  item: NavGroup["items"][number];
+  pathname: string;
+  onNavigate: () => void;
+  className?: string;
+}) {
+  return (
+    <li className={className}>
+      <Link
+        href={item.href}
+        onClick={onNavigate}
+        {...(item.external ? { target: "_blank", rel: "noreferrer" } : {})}
+        className={`nav-link relative pb-1 text-sm font-semibold uppercase tracking-[0.12em] ${
+          isActiveHref(pathname, item.href) ? "text-brand" : "text-ink"
+        }`}
+        data-active={isActiveHref(pathname, item.href)}
+      >
+        {item.label}
+      </Link>
+    </li>
+  );
+}
+
+export default function Navbar() {
   const [navActive, setNavActive] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({});
+  const pathname = usePathname();
 
-  const NAV_ITEMS = [
-    { name: "Home", link: APP_ROUTES.HOME },
-    { name: "About us", link: APP_ROUTES.ABOUT },
-    { name: "Our Programs", link: APP_ROUTES.PROGRAMS.HOME },
-    { name: "Past Events", link: APP_ROUTES.EVENTS },
-    { name: "Blog", link: APP_ROUTES.BLOG },
-    { name: "Contact", link: APP_ROUTES.CONTACT },
-    // { name: "Donate", link: APP_ROUTES.DONATE },
-  ];
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!navActive) setOpenGroups({});
+  }, [navActive]);
+
+  const toggleGroup = (label: string) => {
+    setOpenGroups((current) => ({
+      ...current,
+      [label]: !current[label],
+    }));
+  };
 
   return (
     <>
-      <div
-        className={`sticky top-small left-small hamcontainer z-50 bg-white/80 backdrop-blur-[20px] rounded-full md:hidden cursor-pointer hover:bg-gray-bg h-10 w-10 flex items-center justify-center `}
-        onClick={() => {
-          setNavActive(!navActive);
-        }}
+      <button
+        type="button"
+        className="fixed top-3 left-3 z-[60] bg-surface rounded-full md:hidden h-10 w-10 flex items-center justify-center border border-rule shadow-sm"
+        onClick={() => setNavActive(!navActive)}
+        aria-label={navActive ? "Close menu" : "Open menu"}
       >
         {!navActive ? (
           <Icon iconName="navopen" className="h-5 w-5" />
         ) : (
           <Icon iconName="close" className="h-5 w-5" />
         )}
-      </div>
+      </button>
 
       <nav
-        className={`md:sticky fixed  left-0 top-0 overflow-hidden  z-40 md:pointer-events-auto w-full max-w-screen ${
-          !navActive ? "pointer-events-none" : "pointer-events-auto"
+        className={`md:sticky fixed left-0 top-0 overflow-hidden md:overflow-visible z-40 w-full ${
+          !navActive ? "pointer-events-none md:pointer-events-auto" : "pointer-events-auto"
         }`}
       >
-        <main
+        <div
           className={`${
-            !navActive ? "-translate-y-full " : "translate-y-0"
-          } relative w-full h-screen  grid place-content-center duration-500 transition md:w-full md:h-[100px] md:translate-y-0 border-bottom-black border-bottom-2 md:min-h-[100px] `}
+            !navActive ? "-translate-y-full" : "translate-y-0"
+          } relative w-full h-screen md:h-auto md:translate-y-0 overflow-y-auto md:overflow-visible bg-paper md:bg-paper/95 md:backdrop-blur-sm border-b ${
+            scrolled
+              ? "border-transparent shadow-sm md:shadow-[0_1px_3px_rgba(46,46,46,0.06),0_8px_24px_-12px_rgba(46,46,46,0.08)]"
+              : "border-rule/80"
+          } transition-[box-shadow,border-color] duration-[var(--dur-base)] ease-[var(--ease)]`}
         >
-          <div
-            className={`backdrop-blur-[20px] absolute inset-0 -z-10 bg-[rgba(255,255,255,0.5)] md:bg-[rgba(255,255,255,0.8)]`}
-          ></div>
-          <Link href="/">
-            <Image
-              src={CosogLogo}
-              height={50}
-              width={50}
-              className="absolute hidden md:block left-block top-[25px]  brk-1400:left-[calc((100%-1400px)/2)]"
-              alt={"nav logo"}
-            />
-          </Link>
-          <ul
-            className={`text-sub-title font-small flex items-center flex-col gap-3 text-faded uppercase md:flex-row md:space-x-small md:items-center md:h-full md:max-w-[600px] md:text-sub-para md:margin-l-auto md:absolute md:right-block brk-1400:right-[calc((100%-1400px)/2)]`}
-          >
-            {NAV_ITEMS.map((item, index) => (
-              <Link href={item.link} key={index}>
-                <li
-                  className="link-underline"
+          <div className="max-w-content mx-auto px-5 md:px-8 flex flex-col md:flex-row md:items-center md:justify-between md:h-[84px] py-5 md:py-0 gap-6">
+            <Link
+              href={APP_ROUTES.HOME}
+              onClick={() => setNavActive(false)}
+              className="flex items-center gap-2 shrink-0"
+            >
+              <Image src={CosogLogo} height={40} width={40} alt="Cosog Nepal" />
+              <span className="font-display font-semibold text-ink hidden sm:inline">
+                Cosog Nepal
+              </span>
+            </Link>
+
+            <ul className="flex flex-col md:flex-row md:items-center gap-5 md:gap-5 lg:gap-10 pb-8 md:pb-0">
+              <li>
+                <Link
+                  href={APP_ROUTES.HOME}
                   onClick={() => setNavActive(false)}
+                  className={`nav-link relative pb-1 text-sm font-semibold uppercase tracking-[0.12em] ${
+                    pathname === "/" ? "text-brand" : "text-ink"
+                  }`}
+                  data-active={pathname === "/"}
                 >
-                  {item.name}
-                </li>
-              </Link>
-            ))}
-          </ul>
-        </main>
+                  Home
+                </Link>
+              </li>
+              {NAV_GROUPS.map((group) =>
+                group.items.length === 1 ? (
+                  <NavLinkItem
+                    key={group.label}
+                    item={group.items[0]}
+                    pathname={pathname}
+                    onNavigate={() => setNavActive(false)}
+                    className={cn(group.label === "Blog" && "md:hidden lg:block")}
+                  />
+                ) : (
+                  <NavDropdown
+                    key={group.label}
+                    group={group}
+                    pathname={pathname}
+                    onNavigate={() => setNavActive(false)}
+                    open={Boolean(openGroups[group.label])}
+                    onToggle={() => toggleGroup(group.label)}
+                  />
+                )
+              )}
+              <NavLinkItem item={NAV_CTA} pathname={pathname} onNavigate={() => setNavActive(false)} />
+            </ul>
+          </div>
+        </div>
       </nav>
     </>
   );
-};
-
-export default Navbar;
+}

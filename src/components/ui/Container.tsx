@@ -16,7 +16,7 @@ export default function Container({
     <div
       className={cn(
         "w-full mx-auto px-standard",
-        size === "default" && "max-w-[1400px] brk-1400:px-0",
+        size === "default" && "max-w-content",
         size === "narrow" && "max-w-[960px]",
         className
       )}

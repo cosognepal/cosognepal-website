@@ -22,27 +22,27 @@ type TFaqParams = {
 
 export default function FAQ(props: TFaqParams) {
     return (
-        <main className="w-full max-w-[1400px] mx-auto md:px-standard brk-1400:px-0">
+        <section className="w-full">
             <SectionTitle title="Frequently Asked Questions (FAQ)" />
             <Accordion
                 type="single"
                 collapsible
-                className="mt-standard text-faded md:px-small"
+                className="mt-6 text-ink-muted"
             >
                 {props.data.map((faq) => (
                     <AccordionItem
                         value={faq.value}
                         key={faq.value}
-                        className={cn("border-b-[#e8e8e8] border-b-2 hover:bg-gray-bg px-small", props.className?.accordionItem)}>
-                        <AccordionTrigger className="no-underline hover:no-underline text-left space-x-2">
+                        className={cn("border-b border-rule hover:bg-paper px-3 rounded", props.className?.accordionItem)}>
+                        <AccordionTrigger className="no-underline hover:no-underline text-left space-x-2 text-ink">
                             <span>
                                 {faq.question}
                             </span>
                         </AccordionTrigger>
-                        <AccordionContent>{faq.answer}</AccordionContent>
+                        <AccordionContent className="text-ink-muted leading-relaxed">{faq.answer}</AccordionContent>
                     </AccordionItem>
                 ))}
             </Accordion>
-        </main>
+        </section>
     );
 }

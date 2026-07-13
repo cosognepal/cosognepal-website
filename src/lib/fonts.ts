@@ -1,33 +1,15 @@
-import {
-    Inter,
-    Margarine,
-    Rubik_Wet_Paint,
-    Lora,
-    Playfair_Display,
-} from "next/font/google"
+import { Open_Sans, Rubik } from "next/font/google";
 
-export const inter = Inter({
-    weight: "variable",
-    subsets: ["latin"]
+export const display = Rubik({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
 });
 
-export const rubik_wet_paint = Rubik_Wet_Paint({
-    weight: "400",
-    subsets: ["latin"]
-})
-
-export const margarine = Margarine({
-    weight: "400",
-    subsets: ["latin"]
-})
-
-export const lora = Lora({
-    weight: "400",
-    subsets: ["latin"]
-})
-
-export const playfair = Playfair_Display({
-    weight: "variable",
-    subsets: ["latin"],
-    style: ["normal", "italic"]
-})
+export const body = Open_Sans({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  variable: "--font-body",
+  display: "swap",
+});

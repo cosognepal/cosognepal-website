@@ -4,6 +4,31 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/programs/code-for-charity",
+        destination: "/focus/charity",
+        permanent: true,
+      },
+      {
+        source: "/programs/cs-awareness",
+        destination: "/focus/schools",
+        permanent: true,
+      },
+      {
+        source: "/programs/skill-development",
+        destination: "/focus/skills",
+        permanent: true,
+      },
+      {
+        source: "/programs/code-for-charity/web-development",
+        destination: "/programs/web-development-wordpress",
+        permanent: true,
+      },
+      {
+        source: "/featured",
+        destination: "/about/press",
+        permanent: true,
+      },
+      {
         source: "/events/summerprogram",
         destination: "https://summercamp.cosognepal.org",
         permanent: true,
@@ -19,13 +44,8 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "fleckor.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "www.cornortech.com",
-        pathname: "/**",
+        hostname: "i.ytimg.com",
+        pathname: "/vi/**",
       },
       {
         protocol: "https",

@@ -1,0 +1,77 @@
+import type { DesignTokens } from "../tokens";
+
+export const editorialTheme: DesignTokens = {
+  colors: {
+    ink: "#2E2E2E",
+    inkMuted: "#5F5F5F",
+    paper: "#F7F5F0",
+    surface: "#FFFFFF",
+    rule: "#E3DFD6",
+    brand: "#16457A",
+    brandHover: "#0F3560",
+    brandWash: "#EAF0F7",
+    accent: "#E8A33D",
+    accentWash: "#FDF4E5",
+    white: "#FFFFFF",
+  },
+  fontFamily: {
+    display: "var(--font-display), sans-serif",
+    body: "var(--font-body), sans-serif",
+  },
+  fontSize: {
+    sm: ["0.875rem", { lineHeight: "1.5" }],
+    base: ["1.125rem", { lineHeight: "1.65" }],
+    lg: ["1.375rem", { lineHeight: "1.5" }],
+    xl: ["1.75rem", { lineHeight: "1.3" }],
+    "2xl": ["2.25rem", { lineHeight: "1.2" }],
+    "3xl": ["2.875rem", { lineHeight: "1.15", letterSpacing: "-0.015em" }],
+    display: [
+      "clamp(2.75rem, 5.5vw, 4.25rem)",
+      { lineHeight: "1.08", letterSpacing: "-0.015em" },
+    ],
+  },
+  spacing: {
+    "0": "0",
+    "1": "0.25rem",
+    "2": "0.5rem",
+    "3": "0.75rem",
+    "4": "1rem",
+    "5": "1.25rem",
+    "6": "1.5rem",
+    "8": "2rem",
+    "10": "2.5rem",
+    "12": "3rem",
+    "16": "4rem",
+    "20": "5rem",
+    "24": "6rem",
+  },
+  borderRadius: {
+    DEFAULT: "6px",
+    lg: "10px",
+    xl: "24px",
+    full: "9999px",
+  },
+  boxShadow: {
+    sm: "0 1px 3px rgba(46,46,46,0.06)",
+    md: "0 12px 28px -12px rgba(46,46,46,0.16)",
+    lg: "0 12px 32px -8px rgba(46,46,46,0.12)",
+  },
+  maxWidth: {
+    content: "1084px",
+    prose: "68ch",
+    lead: "58ch",
+  },
+  screens: {
+    sm: "480px",
+    md: "768px",
+    lg: "1024px",
+    xl: "1200px",
+    "2xl": "1400px",
+  },
+  motion: {
+    ease: "cubic-bezier(0.25, 1, 0.5, 1)",
+    fast: "150ms",
+    base: "200ms",
+    slow: "320ms",
+  },
+};

@@ -1,124 +1,162 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-*,
-*::before,
-*::after {
-  scroll-behavior: smooth;
-  font-family: "Inter", sans-serif;
+:root {
+  --ease: cubic-bezier(0.25, 1, 0.5, 1);
+  --dur-fast: 150ms;
+  --dur-base: 200ms;
+  --dur-slow: 320ms;
 }
 
-@media only screen and (max-width: 768px) {
-  .link-underline {
-    border-bottom-width: 0;
-    background-image: linear-gradient(var(--blue), var(--blue));
-    background-size: 0 3px;
-    background-position: 50% 100%;
-    background-repeat: no-repeat;
-    transition: background-size 0.25s ease-in-out;
-    width: 200px;
-    text-align: center;
+@layer base {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: smooth;
   }
 
-  .link-underline:hover {
-    background-size: 100% 3px;
-    background-position: 50% 100%;
-    color: var(--blue);
+  html {
+    background: theme("colors.paper");
   }
 
   body {
-    --blue: #3771c8;
-    overflow-x: hidden;
+    @apply bg-paper text-ink font-body text-base;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme("colors.brand");
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .prose a {
+    background-image: linear-gradient(theme("colors.accent"), theme("colors.accent"));
+    background-size: 0% 2px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size var(--dur-base) var(--ease);
+  }
+
+  .prose a:hover {
+    background-size: 100% 2px;
   }
 }
 
-.complex-grid-members-section {
-  grid-template-columns: repeat(auto-fit, 320px);
-  justify-content: center;
-  max-width: 1400px;
-  margin: 0 auto;
-  display: grid;
+.nav-link {
+  position: relative;
 }
 
-@media only screen and (min-width: 1200px) {
-  .complex-grid-members-section {
-    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-    grid-template-areas:
-      "tl tl tl tl tc tc tc tc tr tr tr tr "
-      "bl bl bl blc blc blc brc brc brc br br br";
-    grid-template-rows: 400px 350px;
-  }
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: theme("colors.brand");
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-base) var(--ease);
+}
 
-  .complex-grid-members-section
-    .member-container:nth-of-type(1):hover
-    .visible-section-description-members,
-  .complex-grid-members-section
-    .member-container:nth-of-type(2):hover
-    .visible-section-description-members,
-  .complex-grid-members-section
-    .member-container:nth-of-type(3):hover
-    .visible-section-description-members {
-    margin-top: 50px;
-  }
+.nav-link:hover::after,
+.nav-link[data-active="true"]::after {
+  transform: scaleX(1);
+}
 
-  .complex-grid-members-section .member-container {
-    max-width: 100%;
-    min-width: 270px;
-    height: 100%;
-  }
+.card-shell {
+  animation: soft-fade-up var(--dur-slow) var(--ease) both;
+  transition:
+    border-color var(--dur-base) var(--ease),
+    box-shadow var(--dur-base) var(--ease);
+}
 
-  .complex-grid-members-section .member-container:nth-of-type(1) {
-    grid-area: tl;
-  }
+.card-shell img {
+  transition: transform 400ms var(--ease);
+}
 
-  .complex-grid-members-section .member-container:nth-child(2) {
-    grid-area: tc;
-  }
+.card-shell .card-arrow {
+  transition: transform var(--dur-base) var(--ease);
+}
 
-  .complex-grid-members-section .member-container:nth-child(3) {
-    grid-area: tr;
-  }
+.card-shell:hover {
+  border-color: theme("colors.brand");
+  box-shadow: theme("boxShadow.md");
+}
 
-  .complex-grid-members-section .member-container:nth-child(4) {
-    grid-area: bl;
-  }
+.card-shell:hover img {
+  transform: scale(1.04);
+}
 
-  .complex-grid-members-section .member-container:nth-child(5) {
-    grid-area: blc;
-  }
+.card-shell:hover .card-arrow {
+  transform: translateX(4px);
+}
 
-  .complex-grid-members-section .member-container:nth-child(6) {
-    grid-area: brc;
-  }
+.logo-mark {
+  transition:
+    filter var(--dur-base) var(--ease),
+    opacity var(--dur-base) var(--ease),
+    transform var(--dur-base) var(--ease);
+}
 
-  .complex-grid-members-section .member-container:nth-child(7) {
-    grid-area: br;
-  }
+.partner-logo-tile:hover,
+.group:hover .partner-logo-tile {
+  background: theme("colors.surface");
+  border-color: theme("colors.brand");
+  box-shadow: theme("boxShadow.md");
+  transform: translateY(-2px);
+}
+
+.partner-logo-tile:hover .logo-mark,
+.group:hover .partner-logo-tile .logo-mark {
+  transform: scale(1.03);
+}
+
+.press-row {
+  transition:
+    background-color var(--dur-base) var(--ease),
+    border-color var(--dur-base) var(--ease),
+    box-shadow var(--dur-base) var(--ease);
+}
+
+.press-row:hover {
+  background: theme("colors.brand-wash");
+}
+
+.press-row .card-arrow {
+  transition: transform var(--dur-base) var(--ease);
+}
+
+.press-row:hover .card-arrow {
+  transform: translateX(3px);
 }
 
 .imageViewer > .container {
-  /* Since in tailwind container has a defined style. It interfers with the packages style  */
   max-width: none;
 }
 
-/* Custom scrollbar for playlist */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
+.soft-reveal {
+  animation: soft-fade-up var(--dur-slow) var(--ease) both;
 }
 
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: #f2f2f2;
-  border-radius: 3px;
+@keyframes soft-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #a1a1a1;
-  border-radius: 3px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #555555;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

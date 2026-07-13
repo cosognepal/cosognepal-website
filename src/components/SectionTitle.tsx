@@ -1,30 +1,34 @@
-import Link from "next/link"
+import Link from "next/link";
+import type { ReactNode } from "react";
 
-type TSectionTitleProps = {
-    title: string,
-    viewall?: string,
-}
+type SectionTitleProps = {
+  title: string;
+  viewall?: string;
+  as?: "h1" | "h2" | "h3";
+  children?: ReactNode;
+};
 
-export default function SectionTitle({ title, viewall }: TSectionTitleProps) {
-    const isExternal = !!viewall && /^https?:\/\//i.test(viewall);
+export default function SectionTitle({
+  title,
+  viewall,
+  as: Tag = "h2",
+}: SectionTitleProps) {
+  const isExternal = !!viewall && /^https?:\/\//i.test(viewall);
 
-    return (
-        <div className="title_container max-w-[1400px] brk-1400:mx-auto flex justify-between items-center">
-            <h1 className="font-bold sm:text-sub-title text-para text-black-mid uppercase">
-                {title}
-            </h1>
-            {viewall && (
-                <Link
-                    href={viewall}
-                    {...(isExternal
-                        ? { target: "_blank", rel: "noreferrer" }
-                        : {})}
-                    className="text-blue-blue text-sub-para font-medium sm:text-para uppercase hover:underline underline-offset-4"
-                >
-                    {" "}
-                    View all
-                </Link>
-            )}
-        </div>
-    )
+  return (
+    <div className="title_container max-w-content mx-auto flex justify-between items-center">
+      <Tag className="font-bold text-xl md:text-2xl text-near-black font-display">
+        {title}
+      </Tag>
+      {viewall && (
+        <Link
+          href={viewall}
+          {...(isExternal ? { target: "_blank", rel: "noreferrer" } : {})}
+          className="text-accent text-sm md:text-base font-medium hover:underline underline-offset-4"
+        >
+          View all
+        </Link>
+      )}
+    </div>
+  );
 }

@@ -161,9 +161,9 @@ function FeaturedCard({ card }: { card: FeaturedCard }) {
 
 export default function FeaturedPage() {
   return (
-    <main className="px-standard sm:px-block py-section w-full max-w-[1400px] mx-auto">
+    <main className="px-standard sm:px-block py-section w-full max-w-content mx-auto">
       <div className="space-y-block">
-        <SectionTitle title="Featured In" />
+        <SectionTitle title="Featured In" as="h1" />
 
         {/* Cards Grid - Responsive: 1 column mobile, 2 columns tablet, 3 columns desktop */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

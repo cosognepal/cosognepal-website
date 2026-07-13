@@ -5,7 +5,6 @@ import Image from "next/image";
 
 import placeholderImage from "@/assets/images/hero_video_placeholder.png";
 import Container from "@/components/ui/Container";
-import { playfair } from "@/lib/fonts";
 
 const Herosection: React.FC = () => {
   const [videoLoaded, setVideoLoaded] = React.useState(false);
@@ -38,7 +37,7 @@ const Herosection: React.FC = () => {
       <Container className="relative z-10 min-h-[88svh] md:min-h-[92svh] flex flex-col items-center justify-center text-center">
         <div className="max-w-[920px] space-y-6 md:space-y-7">
           <h1
-            className={`${playfair.className} font-bold tracking-tight leading-[1.08] text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl`}
+            className="font-display font-bold tracking-tight leading-[1.08] text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Bringing Computer Science Education to every classroom
           </h1>

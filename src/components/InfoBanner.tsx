@@ -12,8 +12,8 @@ const InfoBanner = ({
     }
 }) => {
     return (
-        <main className="h-fit text-white bg-primary bg-[url('/assets/bgPattern.svg')] bg-cover bg-fixed bg-blend-multiply mt-section -mb-sectionw-full py-block brk-1400:px-[calc(((100%-1400px)/2)+50px)] px-standard">
-            <div className="max-w-[1400px] flex  flex-wrap items-center justify-between">
+        <main className="h-fit text-white bg-primary bg-[url('/assets/bgPattern.svg')] bg-cover bg-fixed bg-blend-multiply mt-section -mb-sectionw-full py-block px-standard">
+            <div className="max-w-content mx-auto flex flex-wrap items-center justify-between">
                 {leftContent}
                 {
                     cta &&

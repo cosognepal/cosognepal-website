@@ -1,7 +1,6 @@
 "use client";
 
 import { Icon } from "@/components/Icon";
-import { margarine, rubik_wet_paint } from "@/lib/fonts";
 import { useEffect, useState } from "react";
 
 function Landing() {
@@ -76,11 +75,11 @@ function Landing() {
 
 
             <div className="z-30 px-4">
-                <h1 className="md:text-title text-sub-title text-empactathon-dark font-bold leading-tight">
+                <p className="md:text-title text-sub-title text-empactathon-dark font-bold leading-tight">
                     Coding for Social Good Nepal presents
-                </h1>
+                </p>
 
-                <h1 className={`heading ${rubik_wet_paint.className} text-empactathon-primary md:text-[80px] text-[44px] text-center stroke-white leading-none my-4`}
+                <h1 className="heading font-display text-empactathon-primary md:text-[80px] text-[44px] text-center stroke-white leading-none my-4"
                     style={{
                         textShadow: "0px -6px white, 0px 10px white"
                     }}>
@@ -88,13 +87,13 @@ function Landing() {
                 </h1>
 
                 <p className={`space-x-2 text-empactathon-dark md:text-sub-title text-para font-medium`}>
-                    <span className={`${margarine.className}`}>
+                    <span className="font-display italic">
                         Environment
                     </span>
-                    <span className={`${margarine.className}`}>
+                    <span className="font-display italic">
                         and
                     </span>
-                    <span className={`${margarine.className}`}>
+                    <span className="font-display italic">
                         Computer Science
                     </span>
                 </p>

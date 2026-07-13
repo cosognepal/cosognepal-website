@@ -1,5 +1,3 @@
-import { z } from "zod";
-
 const isObject = <T>(value: T): boolean => {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 };
@@ -35,24 +33,23 @@ const quickSort = <T>(a: T[], sortKey?: string): T[] => {
   ];
 };
 
-const dataSchema = z.array(z.record(z.any())) || z.array(z.date());
-
-const quickSortByDateParamsSchema = z.object({
-  data: dataSchema,
-  direction: z.enum(["Asc", "Des"]).default("Des"),
-  sortKey: z.string().optional(),
-});
-
-console.log(quickSortByDateParamsSchema);
+type QuickSortByDateParams = {
+  data: Array<Record<string, unknown>> | Date[];
+  direction: "Asc" | "Des";
+  sortKey?: string;
+};
 
 type quickSortByDataReturnType<T> = T extends undefined ? Date[] : T[];
 
 // accepts both array of date and a record containing a feild as date and returns a sorted one.
 export const quickSortByDate = <T>(
-  params: z.infer<typeof quickSortByDateParamsSchema>
+  params: QuickSortByDateParams
 ): quickSortByDataReturnType<T> => {
   const sortedData = isObject(params.data[0])
-    ? quickSort<Record<string, unknown>>(params.data, params.sortKey)
+    ? quickSort<Record<string, unknown>>(
+        params.data as Record<string, unknown>[],
+        params.sortKey
+      )
     : quickSort<Date>(params.data as Date[]);
 
   return params.direction === "Asc"

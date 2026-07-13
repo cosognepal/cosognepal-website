@@ -8,10 +8,10 @@ const Events = async () => {
   });
 
   return (
-    <main className="px-standard brk-1400:px-0 w-screen mx-auto space-y-block">
+    <main className="px-standard w-full max-w-content mx-auto space-y-block">
       <SectionTitle title="Events" viewall="/events" />
       {/* events listing */}
-      <section className="w-full max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-2 grid-rows-2-400 gap-small justify-center">
+      <section className="w-full max-w-content mx-auto grid grid-cols-1 sm:grid-cols-2 grid-rows-2-400 gap-small justify-center">
         {EventsData.map((event, index) => (
           <div
             key={index}
@@ -20,9 +20,9 @@ const Events = async () => {
           >
             <div className="absolute text-white px-8 pb-2 md:pb-6 bottom-0 h-1/2 w-full bg-gradient-to-t from-[rgba(0,0,0,0.8)] group-hover:from-30% flex justify-end flex-col ">
               <div className="group-hover:-translate-y-[max(60px,100%)] transition-all space-y-v-small">
-                <h1 className="font-bold text-sub-title md:text-xl line-clamp-2 leading-tight">
+                <h2 className="font-bold text-sub-title md:text-xl line-clamp-2 leading-tight">
                   {event.title}
-                </h1>
+                </h2>
                 <div className="descriptions space-y-v-small absolute opacity-0 translate-y-full group-hover:translate-y-0 group-hover:opacity-100">
                   <p
                     className="text-sub-para font-medium line-clamp-2"
