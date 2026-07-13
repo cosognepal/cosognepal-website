@@ -41,12 +41,16 @@ export const sessionSeries: SessionSeries[] = [
     playlistId: "PLEvHOLj1yBkw",
     videos: [
       {
-        title: "Day 1: How to use NotebookLM as a research assistant",
+        title: "How AI Works and Prompt Engineering",
+        videoId: "Yk9DHUNAbww",
+      },
+      {
+        title: "How to use NotebookLM as a research assistant",
         videoId: "9kFIlaK2syk",
       },
       {
-        title: "Day 1: How AI Works and Prompt Engineering",
-        videoId: "Yk9DHUNAbww",
+        title: "AI Assisted Coding",
+        videoId: "6n6hz8yHaYY",
       },
     ],
   },
