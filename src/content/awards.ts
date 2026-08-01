@@ -1,7 +1,7 @@
 import type { Award } from "./types";
 
 import ICTAward from "@/assets/images/Awards/ict_award.jpg";
-import ESTEMGrant from "@/assets/images/Awards/estem.jpeg";
+import ESTEMGrant from "@/assets/images/Awards/E-STEM-Awards-Web.png";
 import CitizenEntrepreneurship from "@/assets/images/Awards/citizen_entrepreneurship_award.jpeg";
 import GlocalTeenHero from "@/assets/images/Awards/glocal_teen_hero.jpg";
 import DianaAward from "@/assets/images/Awards/diana_award.webp";
