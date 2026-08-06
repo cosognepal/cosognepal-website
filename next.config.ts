@@ -33,6 +33,16 @@ const nextConfig: NextConfig = {
         destination: "https://summercamp.cosognepal.org",
         permanent: true,
       },
+      {
+        source: "/programs/tech-paila",
+        destination: "https://techpaila.cosognepal.org",
+        permanent: false,
+      },
+      {
+        source: "/techpaila",
+        destination: "https://techpaila.cosognepal.org",
+        permanent: false,
+      },
     ];
   },
   images: {

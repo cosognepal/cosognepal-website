@@ -59,6 +59,8 @@ export type Program = {
   external?: string;
   noindex?: boolean;
   hero?: StaticImageData;
+  /** How the hero image fills its frame. Use "contain" for logos. Defaults to "cover". */
+  heroFit?: "cover" | "contain";
   summary: string;
   origin?: string[];
   approach?: string[];

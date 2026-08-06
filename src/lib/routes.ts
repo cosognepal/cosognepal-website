@@ -1,4 +1,5 @@
 export const BLOG_URL = "https://blog.cosognepal.org";
+export const TECH_PAILA_URL = "https://techpaila.cosognepal.org";
 
 export type NavLink = {
   label: string;

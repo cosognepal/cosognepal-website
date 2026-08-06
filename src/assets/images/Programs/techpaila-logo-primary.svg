@@ -1,0 +1,28 @@
+<svg width="560" height="180" viewBox="0 0 560 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="TechPaila logo">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;700&amp;display=swap');
+      .wordmark { font-family: 'Rubik', 'Trebuchet MS', sans-serif; font-weight: 700; font-size: 74px; letter-spacing: -1.5px; }
+    </style>
+    <g id="foot" fill="#FFFFFF">
+      <ellipse cx="12" cy="20" rx="8.5" ry="11"/>
+      <ellipse cx="12" cy="38" rx="6" ry="8"/>
+      <circle cx="5.5" cy="8" r="2"/>
+      <circle cx="9.5" cy="5" r="2.3"/>
+      <circle cx="14" cy="5" r="2.3"/>
+      <circle cx="18" cy="8.5" r="2"/>
+    </g>
+  </defs>
+
+  <!-- Icon: ascending steps -->
+  <rect x="22"  y="98"  width="34" height="46"  rx="7" fill="#16457A"/>
+  <rect x="66"  y="68"  width="34" height="76"  rx="7" fill="#16457A"/>
+  <rect x="110" y="38"  width="34" height="106" rx="7" fill="#E8A33D"/>
+  <!-- Footstep on the top (paila) step -->
+  <use href="#foot" transform="translate(116,48) scale(0.92)"/>
+
+  <!-- Wordmark -->
+  <text x="176" y="118" class="wordmark">
+    <tspan fill="#16457A">Tech</tspan><tspan fill="#E8A33D">Paila</tspan>
+  </text>
+</svg>

@@ -1,6 +1,8 @@
 import type { Program } from "./types";
+import { TECH_PAILA_URL } from "@/lib/routes";
 
 import CSAwarenessBanner from "@/assets/images/Programs/cs_awareness_banner.png";
+import TechPailaLogo from "@/assets/images/Programs/techpaila-logo-primary.svg";
 import TechAfterTen from "@/assets/techafter10.png";
 import WebDevImage from "@/assets/images/Programs/web-dev-with-wordpress.png";
 import CodeForCharityBanner from "@/assets/images/Programs/Code_for_charity_banner.png";
@@ -26,7 +28,7 @@ export const PROGRAMS: Program[] = [
     status: "running",
     hero: CSAwarenessBanner,
     summary:
-      "Outreach sessions in secondary and high schools to promote CS education, career paths, and student-led CS clubs.",
+      "Outreach sessions in secondary and high schools to promote Computer Science education, career paths, and student-led CS clubs.",
     origin: [
       "Cosog Nepal was founded after observing that most Nepali high schools lacked a Computer Science club culture from grade 9 onwards. CS Awareness Sessions are our primary vehicle for changing that — one school visit at a time.",
       "Since 2022, our volunteers have conducted presentations in schools across multiple districts, reaching thousands of students with information about CS streams, careers, and how to start a club.",
@@ -49,18 +51,23 @@ export const PROGRAMS: Program[] = [
   },
   {
     slug: "tech-paila",
-    title: "Tech Paila",
+    title: "TechPaila",
     focusArea: "schools",
-    status: "coming-soon",
-    noindex: true,
+    status: "running",
+    hero: TechPailaLogo,
+    heroFit: "contain",
+    external: TECH_PAILA_URL,
     summary:
-      "An upcoming initiative to deepen CS club support with structured resources and mentorship for student leaders.",
+      "An initiative to map the schools that provide technical and vocational education in high school, across Nepal. It has interactive map and related information.",
     origin: [
-      "Tech Paila is Cosog Nepal's next step in scaling school-based CS education. We are building a program to give club leaders the tools, curricula, and peer network they need to run sustainable CS clubs year-round.",
+      "Students finishing SEE often have no clear picture of where they can study technical and vocational subjects — the information is scattered across districts and rarely reaches the students who need it. TechPaila collects it in one place.",
     ],
     approach: [
-      "Details will be announced when the program launches. If you are interested in piloting Tech Paila at your school, contact us at contact@cosognepal.org.",
+      "TechPaila maps schools across Nepal that offer technical and vocational education at the high school level, with an interactive map and details about each school.",
+      "It lives at techpaila.cosognepal.org. If a school is missing or listed incorrectly, write to us at contact@cosognepal.org.",
     ],
+    ctaLabel: "Visit techpaila.cosognepal.org",
+    ctaHref: TECH_PAILA_URL,
   },
   {
     slug: "computer-science-in-plus-two",

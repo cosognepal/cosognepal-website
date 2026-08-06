@@ -11,6 +11,7 @@ type ProgramCardProps = {
     | "status"
     | "endDate"
     | "hero"
+    | "heroFit"
     | "summary"
     | "focusArea"
     | "external"
@@ -46,7 +47,11 @@ export default function ProgramCard({ program }: ProgramCardProps) {
             src={program.hero}
             alt={`${program.title} — program cover image`}
             fill
-            className="object-cover"
+            className={cn(
+              program.heroFit === "contain"
+                ? "object-contain p-6"
+                : "object-cover"
+            )}
             sizes="(max-width: 768px) 100vw, 33vw"
           />
         </div>

@@ -245,12 +245,16 @@ export default function ProgramPageTemplate({
         </Link>
 
         {program.hero && (
-          <div className="relative w-full aspect-[21/9] max-h-96 overflow-hidden rounded-lg">
+          <div className="relative w-full aspect-[21/9] max-h-96 overflow-hidden rounded-lg bg-paper">
             <Image
               src={program.hero}
               alt=""
               fill
-              className="object-cover"
+              className={
+                program.heroFit === "contain"
+                  ? "object-contain p-8"
+                  : "object-cover"
+              }
               priority
             />
           </div>
