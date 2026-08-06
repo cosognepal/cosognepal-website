@@ -10,13 +10,10 @@
 }
 
 @layer base {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: smooth;
-  }
-
   html {
+    /* Only the scrolling element gets smooth behavior — a blanket `*` rule
+       makes Next's scroll-to-top on navigation animate (or not fire at all). */
+    scroll-behavior: smooth;
     background: theme("colors.paper");
   }
 

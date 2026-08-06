@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import NavigationProgress from "@/components/NavigationProgress";
+import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "./_components/Footer";
 import AnnouncementBanner from "@/components/AnnouncementBanner";
 import SkipLink from "@/components/SkipLink";
@@ -55,6 +56,7 @@ export default function RootLayout({
         <SkipLink />
         <Suspense fallback={null}>
           <NavigationProgress />
+          <ScrollToTop />
         </Suspense>
         <AnnouncementBanner
           message="Applications for Summer Camp are now closed."

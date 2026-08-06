@@ -56,7 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .map((focusArea) => sitemapEntry(`/focus/${focusArea.slug}`));
 
   const programPages: MetadataRoute.Sitemap = getPrograms()
-    .filter((program) => !program.noindex)
+    .filter((program) => !program.noindex && !program.external)
     .map((program) => sitemapEntry(`/programs/${program.slug}`));
 
   return [...pages, ...focusPages, ...programPages];

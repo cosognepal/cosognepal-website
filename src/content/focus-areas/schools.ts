@@ -8,6 +8,6 @@ export const schoolsFocusArea: FocusArea = {
   body: [
     "Schools are where Nepal's next generation of technologists discover what is possible. Through CS Awareness Sessions, we visit schools nationwide to introduce students to computer science careers, club culture, and the skills that open doors in Nepal and abroad.",
     "Our team works with students, teachers, and administrators to launch and sustain Computer Science clubs — student-led spaces for workshops, peer learning, and community projects. Whether you are in Kathmandu or a district school, we provide resources, mentorship, and follow-up support.",
-    "Programs in this focus area include ongoing awareness outreach, the upcoming Tech Paila initiative, and archived work like our Computer Science in +2 guidance session for SEE graduates.",
+    "Programs in this focus area include ongoing awareness outreach, TechPaila — our map of schools offering technical and vocational education across Nepal — and archived work like our Computer Science in +2 guidance session for SEE graduates.",
   ],
 };
