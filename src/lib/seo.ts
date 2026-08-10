@@ -12,6 +12,7 @@ export const DEFAULT_OG_IMAGE = "/assets/about_banner.png";
 export const PRIORITY_SEO_PATHS = {
   home: "/",
   summerCamp: "/programs/summer-camp",
+  techPaila: "/programs/techpaila",
   charity: "/focus/charity",
   skills: "/focus/skills",
 } as const;
@@ -19,6 +20,7 @@ export const PRIORITY_SEO_PATHS = {
 const SITEMAP_PRIORITY: Record<string, number> = {
   [PRIORITY_SEO_PATHS.home]: 1,
   [PRIORITY_SEO_PATHS.summerCamp]: 0.95,
+  [PRIORITY_SEO_PATHS.techPaila]: 0.9,
   [PRIORITY_SEO_PATHS.charity]: 0.95,
   [PRIORITY_SEO_PATHS.skills]: 0.95,
 };

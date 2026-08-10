@@ -327,7 +327,7 @@ export default function ProgramPageTemplate({
                 target="_blank"
                 rel="noreferrer"
               >
-                Visit the website
+                {program.slug === "techpaila" ? "Open TechPaila" : "Visit the website"}
               </Button>
             )}
             {program.ctaLabel && program.ctaHref && (

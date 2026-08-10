@@ -50,23 +50,23 @@ export const PROGRAMS: Program[] = [
     ],
   },
   {
-    slug: "tech-paila",
+    slug: "techpaila",
     title: "TechPaila",
     focusArea: "schools",
     status: "running",
     hero: TechPailaLogo,
     heroFit: "contain",
-    external: TECH_PAILA_URL,
+    liveUrl: TECH_PAILA_URL,
     summary:
-      "An initiative to map the schools that provide technical and vocational education in high school, across Nepal. It has interactive map and related information.",
+      "537 government technical and vocational schools across Nepal, on one map — free, bilingual, built for the students who need it most.",
     origin: [
-      "Students finishing SEE often have no clear picture of where they can study technical and vocational subjects — the information is scattered across districts and rarely reaches the students who need it. TechPaila collects it in one place.",
+      "Nepal's government funds technical streams in hundreds of secondary schools — computer engineering, civil, electrical, plant science, animal science, agriculture — starting from Grade 9 at no cost. But the information sits in a government booklet as a table in an annex. TechPaila puts all 537 schools on an interactive, bilingual map so finding the right school stops depending on who you happen to know.",
     ],
     approach: [
-      "TechPaila maps schools across Nepal that offer technical and vocational education at the high school level, with an interactive map and details about each school.",
+      "TechPaila is an interactive map with a recommendation flow: pick a program, share your location or choose a district, and it ranks the nearest schools with a clear reason for each result. The interface works in English and Nepali.",
       "It lives at techpaila.cosognepal.org. If a school is missing or listed incorrectly, write to us at contact@cosognepal.org.",
     ],
-    ctaLabel: "Visit techpaila.cosognepal.org",
+    ctaLabel: "Open TechPaila",
     ctaHref: TECH_PAILA_URL,
   },
   {
@@ -96,14 +96,13 @@ export const PROGRAMS: Program[] = [
     status: "running",
     hero: SummerCampImage,
     summary:
-      "A 16-week fellowship where students learn environmental science and computer science, then build real tech projects with experienced mentors. Six teams present their work at a physical showcase.",
+      "A 16-week fellowship for high school students aged 15 to 20 who want to solve real environmental problems using technology. Six mentored teams, one public showcase.",
     origin: [
-      "The E-STEM Summer Camp is Cosog Nepal's flagship skills fellowship. Students aged 11–22 work in mentored teams to design technology prototypes that address environmental challenges in their communities.",
-      "The program is supported by the Global E-STEM Innovation Grant from Pratt & Whitney and NAAEE, and runs on our dedicated camp site at summercamp.cosognepal.org.",
+      "The E-STEM Summer Camp is Cosog Nepal's flagship program. Students learn environmental science and practical computer science, then work in teams to build technology prototypes that address challenges in their communities.",
+      "Supported by the Global E-STEM Innovation Grant from Pratt & Whitney and NAAEE.",
     ],
     approach: [
-      "Participants learn environmental literacy alongside practical coding and prototyping skills over 16 weeks.",
-      "Teams ship a real project and present at an in-person showcase at the end of the fellowship.",
+      "Students go through workshops, form teams with mentors, and ship a real project over 16 weeks. The fellowship ends with an in-person showcase where all six teams present their work.",
     ],
     ctaLabel: "Visit the Summer Camp site",
     ctaHref: "https://summercamp.cosognepal.org",

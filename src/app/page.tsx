@@ -44,7 +44,7 @@ export default function Home() {
       !p.noindex &&
       (
         p.slug === "summer-camp" ||
-        p.slug === "open-source-101" ||
+        p.slug === "techpaila" ||
         p.slug === "web-development-wordpress"
       )
   );

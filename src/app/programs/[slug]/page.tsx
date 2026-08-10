@@ -6,6 +6,7 @@ import {
   getPrograms,
 } from "@/content";
 import ProgramPageTemplate from "@/components/ProgramPageTemplate";
+import TechPailaPage from "@/app/programs/_components/TechPailaPage";
 import { createPageMetadata } from "@/lib/seo";
 
 type PageProps = {
@@ -32,7 +33,19 @@ export async function generateMetadata({
           "environmental STEM fellowship",
           "student tech projects Nepal",
         ]
-      : undefined;
+      : slug === "techpaila"
+        ? [
+            "TechPaila",
+            "TechPaila Nepal",
+            "technical vocational schools Nepal",
+            "technical vocational education map Nepal",
+            "SEE technical education",
+            "Cosog Nepal TechPaila",
+            "vocational high schools Nepal",
+            "CTEVT schools list",
+            "techpaila.cosognepal.org",
+          ]
+        : undefined;
 
   return createPageMetadata({
     title: program.title,
@@ -48,6 +61,10 @@ export default async function ProgramPage({ params }: PageProps) {
   const program = getProgramBySlug(slug);
 
   if (!program) notFound();
+
+  if (slug === "techpaila") {
+    return <TechPailaPage />;
+  }
 
   return <ProgramPageTemplate program={program} />;
 }

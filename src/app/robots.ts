@@ -6,7 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/programs/tech-paila"],
       },
     ],
     sitemap: "https://cosognepal.org/sitemap.xml",

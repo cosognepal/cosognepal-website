@@ -24,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     APP_ROUTES.HOME,
     PRIORITY_SEO_PATHS.summerCamp,
+    PRIORITY_SEO_PATHS.techPaila,
     PRIORITY_SEO_PATHS.charity,
     APP_ROUTES.ABOUT,
     APP_ROUTES.ABOUT_AWARDS,
@@ -45,7 +46,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     sitemapEntry(route, {
       changeFrequency:
         route === PRIORITY_SEO_PATHS.home ||
-        route === PRIORITY_SEO_PATHS.summerCamp
+        route === PRIORITY_SEO_PATHS.summerCamp ||
+        route === PRIORITY_SEO_PATHS.techPaila
           ? "weekly"
           : "monthly",
     })
