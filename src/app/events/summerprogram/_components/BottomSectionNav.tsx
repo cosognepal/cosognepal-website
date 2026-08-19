@@ -1,7 +1,7 @@
 const SECTION_LINKS = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#the-six-projects" },
-  { label: "Mentors", href: "#mentors" },
+  { label: "Team", href: "#program-managers" },
   { label: "Timeline", href: "#general-timeline" },
   { label: "Sessions", href: "/sessions" },
   { label: "FAQs", href: "#faqs" },

@@ -1,4 +1,6 @@
 import EventDescripter from "@/components/ui/EventAbout";
+import aashishPanthiPhoto from "@/assets/images/Portraits/aashish_panthi.jpg";
+import bibekBhandariPhoto from "@/assets/images/Portraits/bibek_bhandari.png";
 import prashantBhattaPhoto from "@/assets/images/SummerCamp/PrashantBhatta.jpeg";
 import samikshaKhadkaPhoto from "@/assets/images/SummerCamp/SamikshaKhadka.jpeg";
 import sarojRegmiPhoto from "@/assets/images/SummerCamp/SarojRegmi.jpeg";
@@ -154,6 +156,42 @@ export default function SummerProgramContent() {
         <SessionsTeaser />
       </div>
 
+
+      <section id="program-managers" className="scroll-mt-20">
+        <GuestsSection
+          sectionTitle="Program Managers"
+          className={{
+            sectionContainer: {
+              container:
+                "w-full max-w-[1400px] mx-auto px-standard brk-1400:px-0",
+              guestsContainer:
+                "!grid-cols-1 sm:!grid-cols-2 max-w-[800px] mx-auto",
+            },
+          }}
+          guestData={[
+            {
+              id: "pm-1",
+              name: "Aashish Panthi",
+              image: aashishPanthiPhoto,
+              designation: "Program Manager, Summer Camp",
+              short_intro: [
+                "Aashish Panthi is a developer, activist, and computer science student passionate about using technology for social good. He is the Founder and President of Coding for Social Good Nepal and leads the Code for Charity program that mentors students to build free software for nonprofits in Nepal and abroad. He is also the program manager of Summer Camp.",
+                "Aashish is a Glocal Teen Hero Nepal finalist and a Google Summer of Code contributor. His interest lies in tech policymaking and AI governance.",
+              ],
+            },
+            {
+              id: "pm-2",
+              name: "Bibek Bhandari",
+              image: bibekBhandariPhoto,
+              designation: "Program Manager, Summer Camp",
+              short_intro: [
+                "Bibek Bhandari is the Founder and Executive Chairman of Coding for Social Good Nepal. He founded the organization after returning to his old high school and finding there was no computer science club culture from Grade 9 onward.",
+                "Bibek received The Diana Award 2024 for expanding access to computer science education through CS clubs, coding competitions, career counselling workshops, and programs like Python Primer and Code for Charity.",
+              ],
+            },
+          ]}
+        />
+      </section>
 
       <section id="mentors" className="scroll-mt-20">
         <GuestsSection
